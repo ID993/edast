@@ -1,0 +1,5314 @@
+[
+ {
+   "Signatura": "HR - DAST - 1",
+   "Naziv": "Splitska općina",
+   "Od": "1494",
+   "Do": "1802",
+   "Klasa": "A.1.2.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 2",
+   "Naziv": "Providur Klisa",
+   "Od": "1662",
+   "Do": "1797",
+   "Klasa": "A.1.2.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 3",
+   "Naziv": "Mjesno starješinstvo Klis",
+   "Od": "1662",
+   "Do": "1797",
+   "Klasa": "A.1.2.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 4",
+   "Naziv": "Uprava dalmatinskih rudnika u Zadru",
+   "Od": "1837",
+   "Do": "1920",
+   "Klasa": "A.1.7.2",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 5",
+   "Naziv": "Kotarsko poglavarstvo Split",
+   "Od": "1872",
+   "Do": "1891",
+   "Klasa": "A.1.7.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 6",
+   "Naziv": "Općina Bol",
+   "Od": "1820",
+   "Do": "1918",
+   "Klasa": "A.1.7.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 7",
+   "Naziv": "Općina Komiža",
+   "Od": "1816",
+   "Do": "1918",
+   "Klasa": "A.1.7.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 8",
+   "Naziv": "Općina Vis",
+   "Od": "1918",
+   "Do": "1943",
+   "Klasa": "A.3.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 9",
+   "Naziv": "Kotarski narodni odbor Split",
+   "Od": "1945",
+   "Do": "1952",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 10",
+   "Naziv": "Lučka kapetanija II. reda Omiš",
+   "Od": "1918",
+   "Do": "1943",
+   "Klasa": "A.3.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 11",
+   "Naziv": "Lučka kapetanija I. reda Split",
+   "Od": "1857",
+   "Do": "1944",
+   "Klasa": "A.1.7.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 12",
+   "Naziv": "C.K. lučko-zdravstveno izloženstvo Komiža",
+   "Od": "1883",
+   "Do": "1918",
+   "Klasa": "A.1.7.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 13",
+   "Naziv": "Lučki ured Krilo",
+   "Od": "1907",
+   "Do": "1945",
+   "Klasa": "A.3.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 14",
+   "Naziv": "Ispostava banske vlasti Banovine Hrvatske",
+   "Od": "1919",
+   "Do": "1941",
+   "Klasa": "A.3.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 15",
+   "Naziv": "Financijska kontrola Split",
+   "Od": "1918",
+   "Do": "1945",
+   "Klasa": "A.3.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 16",
+   "Naziv": "Direkcija pomorskog saobraćaja u Splitu",
+   "Od": "1919",
+   "Do": "1941",
+   "Klasa": "A.3.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 17",
+   "Naziv": "Kotarska oblast Split (Sresko načelstvo)",
+   "Od": "1925",
+   "Do": "1947",
+   "Klasa": "A.3.1.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 18",
+   "Naziv": "Tržno povjereništvo općine Split",
+   "Od": "1931",
+   "Do": "1932",
+   "Klasa": "A.3.1.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 19",
+   "Naziv": "Javni bilježnici srednje Dalmacije",
+   "Od": "1612",
+   "Do": "1944",
+   "Klasa": "B.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 20",
+   "Naziv": "Francuski konzulat",
+   "Od": "1922",
+   "Do": "1941",
+   "Klasa": "A.3.1.1",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 21",
+   "Naziv": "Oblasni narodni odbor Dalmacije",
+   "Od": "1943",
+   "Do": "1952",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 22",
+   "Naziv": "Jugoslavenski zbjeg u Italiji",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 23",
+   "Naziv": "Jugoslavenski zbjeg u Egiptu",
+   "Od": "1944",
+   "Do": "1946",
+   "Klasa": "A.4.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 24",
+   "Naziv": "Kotarski narodnooslobodilački odbor Brač - Šolta",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 25",
+   "Naziv": "Kotarski narodnooslobodilački odbor Makarska",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 26",
+   "Naziv": "Kotarski narodnooslobodilački odbor Vis",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 27",
+   "Naziv": "Gradski narodnooslobodilački odbor Split",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 28",
+   "Naziv": "Općinski narodnooslobodilački odbor Komiža",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 29",
+   "Naziv": "Velika župa Cetina",
+   "Od": "1941",
+   "Do": "1944",
+   "Klasa": "A.4.2.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 30",
+   "Naziv": "Namjesništvo za Dalmaciju",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 31",
+   "Naziv": "Narodni odbor kotara Brač",
+   "Od": "1945",
+   "Do": "1955",
+   "Klasa": "A.5.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 32",
+   "Naziv": "Narodni odbor kotara Makarska",
+   "Od": "1945",
+   "Do": "1962",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 33",
+   "Naziv": "Narodni odbor kotara Sinj",
+   "Od": "1945",
+   "Do": "1955",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 34",
+   "Naziv": "Narodni odbor kotara Split",
+   "Od": "1952",
+   "Do": "1967",
+   "Klasa": "A.5.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 35",
+   "Naziv": "Narodni odbor grada Splita",
+   "Od": "1944",
+   "Do": "1955",
+   "Klasa": "A.5.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 36",
+   "Naziv": "Okružna komisija za ispitivanje zločina okupatora i njihovih pomagača srednje Dalmacije Split",
+   "Od": "1942",
+   "Do": "1946",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 37",
+   "Naziv": "Narodni odbor općine Brač",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 38",
+   "Naziv": "\"Čuvar\" d. d. u stečaju Split",
+   "Od": "1968",
+   "Do": "2000",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 39",
+   "Naziv": "Narodni odbor općine Sinj",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 40",
+   "Naziv": "Direkcija pomorske plovidbe",
+   "Od": "1945",
+   "Do": "1952",
+   "Klasa": "A.5.2",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 41",
+   "Naziv": "Lučka kapetanija Split",
+   "Od": "1945",
+   "Do": "1965",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 42",
+   "Naziv": "Uprava državnih zgrada Split",
+   "Od": "1947",
+   "Do": "1954",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 43",
+   "Naziv": "Prvostupanjski sud u Splitu",
+   "Od": "1798",
+   "Do": "1806",
+   "Klasa": "B.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 44",
+   "Naziv": "Okružni privredni sud u Splitu (kao trgovački)",
+   "Od": "1863",
+   "Do": "1945",
+   "Klasa": "B.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 45",
+   "Naziv": "Kotarski sud Imotski",
+   "Od": "1797",
+   "Do": "1940",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 46",
+   "Naziv": "Kotarski sud Omiš",
+   "Od": "1825",
+   "Do": "1918",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 47",
+   "Naziv": "Kotarski sud Sinj",
+   "Od": "1820",
+   "Do": "1945",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 48",
+   "Naziv": "Kotarski sud Supetar",
+   "Od": "1820",
+   "Do": "1945",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 49",
+   "Naziv": "Kotarski sud Trogir",
+   "Od": "1799",
+   "Do": "1938",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 50",
+   "Naziv": "Kotarski sud Vis",
+   "Od": "1829",
+   "Do": "1942",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 51",
+   "Naziv": "Kotarski sud Vrgorac",
+   "Od": "1874",
+   "Do": "1945",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 52",
+   "Naziv": "Odvjetnička pisarnica Tartalja dr. Ivo",
+   "Od": "1919",
+   "Do": "1942",
+   "Klasa": "B.3.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 53",
+   "Naziv": "Okružno javno tužilaštvo Split",
+   "Od": "1947",
+   "Do": "1965",
+   "Klasa": "B.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 54",
+   "Naziv": "Arbitražni sud Split",
+   "Od": "1946",
+   "Do": "1954",
+   "Klasa": "B.5.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 55",
+   "Naziv": "Vojni sud 8. korpusa Narodnooslobodilačke vojske Jugoslavije",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "C.4.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 56",
+   "Naziv": "Partizanska gimnazija \"Vladimir Nazor\"",
+   "Od": "1939",
+   "Do": "1948",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 57",
+   "Naziv": "Klasična gimnazija Split",
+   "Od": "1817",
+   "Do": "1951",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 58",
+   "Naziv": "I gimnazija Split",
+   "Od": "1852",
+   "Do": "1950",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 59",
+   "Naziv": "Ženska realna gimnazija  Split",
+   "Od": "1918",
+   "Do": "1944",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 60",
+   "Naziv": "Učiteljska škola Split",
+   "Od": "1944",
+   "Do": "1964",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 61",
+   "Naziv": "Muška građanska škola Split",
+   "Od": "1940",
+   "Do": "1944",
+   "Klasa": "D.2.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 62",
+   "Naziv": "Ženska građanska škola Split",
+   "Od": "1896",
+   "Do": "1944",
+   "Klasa": "D.2.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 63",
+   "Naziv": "Gradska glazbena škola Split",
+   "Od": "1928",
+   "Do": "1953",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 64",
+   "Naziv": "Obrtna škola",
+   "Od": "1890",
+   "Do": "1948",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 65",
+   "Naziv": "Stručna produžna škola",
+   "Od": "1937",
+   "Do": "1947",
+   "Klasa": "D.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 66",
+   "Naziv": "Obitelj Babić",
+   "Od": "1685",
+   "Do": "1800",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 67",
+   "Naziv": "Ženska obrtno - domaćinska škola Split",
+   "Od": "1951",
+   "Do": "1960",
+   "Klasa": "D.2.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 68",
+   "Naziv": "Centar za stručno obrazovanje zadružnih kadrova glavnog saveza poljoprivrednih zadruga Narodne Republike Hrvatske",
+   "Od": "1947",
+   "Do": "1966",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 69",
+   "Naziv": "Škola za bolničarke Split",
+   "Od": "1957",
+   "Do": "1965",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 70",
+   "Naziv": "Tehnički školski centar Split",
+   "Od": "1909",
+   "Do": "1974",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 71",
+   "Naziv": "Trgovinski školski centar Split",
+   "Od": "1957",
+   "Do": "1974",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 72",
+   "Naziv": "Školski centar \"Mate Golem\"",
+   "Od": "1947",
+   "Do": "1978",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 73",
+   "Naziv": "Pučka škola Donje Selo",
+   "Od": "1886",
+   "Do": "1910",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 74",
+   "Naziv": "Osnovna / pučka škola Kaštel Novi",
+   "Od": "1870",
+   "Do": "1949",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 75",
+   "Naziv": "Građanska škola Makarska",
+   "Od": "1877",
+   "Do": "1922",
+   "Klasa": "D.2.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 76",
+   "Naziv": "Univerzal - organizacija za građevinsko zanatstvo i opremu objekata Split",
+   "Od": "1959",
+   "Do": "2001",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 77",
+   "Naziv": "Pučka škola Milna",
+   "Od": "1872",
+   "Do": "1920",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 78",
+   "Naziv": "Pučka škola Omiš",
+   "Od": "1872",
+   "Do": "1943",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 79",
+   "Naziv": "Pučka škola Postira",
+   "Od": "1872",
+   "Do": "1912",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 80",
+   "Naziv": "Pučka škola Pučišća",
+   "Od": "1883",
+   "Do": "1911",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 81",
+   "Naziv": "Pučka ženska škola u Sinju",
+   "Od": "1906",
+   "Do": "1928",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 82",
+   "Naziv": "Osnovna / pučka škola \"Veli Varoš\"",
+   "Od": "1878",
+   "Do": "1946",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 83",
+   "Naziv": "Pučka škola Vrgorac",
+   "Od": "1876",
+   "Do": "1900",
+   "Klasa": "D.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 84",
+   "Naziv": "Osnovna / pučka škola Zadvarje",
+   "Od": "1906",
+   "Do": "1946",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 85",
+   "Naziv": "Marjan film",
+   "Od": "1968",
+   "Do": "1991",
+   "Klasa": "E.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 86",
+   "Naziv": "Dom kulture Split",
+   "Od": "1946",
+   "Do": "1962",
+   "Klasa": "E.1.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 87",
+   "Naziv": "Javna dobrotvornost",
+   "Od": "1818",
+   "Do": "1946",
+   "Klasa": "F.4.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 88",
+   "Naziv": "Okružni ured zdravstvenog osiguranja radnika Split",
+   "Od": "1922",
+   "Do": "1945",
+   "Klasa": "A.3.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 89",
+   "Naziv": "Zavod za javno zdravstvo županije Splitsko - dalmatinske",
+   "Od": "1923",
+   "Do": "1994",
+   "Klasa": "F.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 90",
+   "Naziv": "\"Otpad\" d. d. Split",
+   "Od": "1958",
+   "Do": "1998",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 91",
+   "Naziv": "Trgovačko - obrtnička komora Split",
+   "Od": "1816",
+   "Do": "1944",
+   "Klasa": "G.1.1.2",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 92",
+   "Naziv": "Tvornica cementa \"Dalmatia\"",
+   "Od": "1920",
+   "Do": "1943",
+   "Klasa": "G.1.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 93",
+   "Naziv": "\"Elektrodalmacija\" poduzeće za distribuciju električne energije",
+   "Od": "1923",
+   "Do": "1961",
+   "Klasa": "G.1.4.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 94",
+   "Naziv": "Obitelj Morpurgo",
+   "Od": "1680",
+   "Do": "1948",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 95",
+   "Naziv": "Poduzeće poštanskog, telegrafskog i telefonskog saobraćaja Split",
+   "Od": "1890",
+   "Do": "1963",
+   "Klasa": "G.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 96",
+   "Naziv": "Poljoprivredna zadruga \"Nerežišće\"",
+   "Od": "1874",
+   "Do": "1956",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 97",
+   "Naziv": "Jugoslavenska banka za vanjsku trgovinu",
+   "Od": "1942",
+   "Do": "1964",
+   "Klasa": "G.2.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 98",
+   "Naziv": "Turistički savez srednje Dalmacije",
+   "Od": "1953",
+   "Do": "1955",
+   "Klasa": "G.2.1.2",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 99",
+   "Naziv": "Jadranski sajam Split",
+   "Od": "1954",
+   "Do": "1958",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 100",
+   "Naziv": "Poslovno udruženje \"Stočar\"",
+   "Od": "1964",
+   "Do": "1970",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 101",
+   "Naziv": "\"Gradnja\" opće građevno poduzeće",
+   "Od": "1947",
+   "Do": "1950",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 102",
+   "Naziv": "Građevno poduzeće \"Konstruktor",
+   "Od": "1954",
+   "Do": "1964",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 103",
+   "Naziv": "Pomorsko građevno poduzeće \"Pomgrad\"",
+   "Od": "1947",
+   "Do": "1958",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 104",
+   "Naziv": "Montažno proizvodno poduzeće \"Metal\"",
+   "Od": "1957",
+   "Do": "1977",
+   "Klasa": "G.2.7",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 105",
+   "Naziv": "Oblasno poljoprivredno mašinsko poduzeće \"Traktor\"",
+   "Od": "1948",
+   "Do": "1950",
+   "Klasa": "G.2.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 106",
+   "Naziv": "Oblasno poljoprivredno poduzeće za otkup i nabavu stočne hrane \"Dubrava\"",
+   "Od": "1949",
+   "Do": "1950",
+   "Klasa": "G.2.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 107",
+   "Naziv": "Poljoprivredna stanica Kaštel Lukšić",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "G.2.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 108",
+   "Naziv": "Trgovačko poduzeće \"Hermes\"",
+   "Od": "1972",
+   "Do": "1974",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 109",
+   "Naziv": "Trgovačko poduzeće \"Polet\"",
+   "Od": "1947",
+   "Do": "1954",
+   "Klasa": "G.2.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 110",
+   "Naziv": "Narodni magazin Split",
+   "Od": "1947",
+   "Do": "1951",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 111",
+   "Naziv": "Gradsko privredno poduzeće \"Komisionar\"",
+   "Od": "1949",
+   "Do": "1958",
+   "Klasa": "G.2.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 112",
+   "Naziv": "Privredno poduzeće \"Ugostitelj\"",
+   "Od": "1948",
+   "Do": "1955",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 113",
+   "Naziv": "Lučki pretovar i skladište",
+   "Od": "1947",
+   "Do": "1969",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 114",
+   "Naziv": "Poduzeće za promet robom \"Jadranprom\" Split",
+   "Od": "1953",
+   "Do": "1974",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 115",
+   "Naziv": "Trgovinsko transportni biro Split",
+   "Od": "1971",
+   "Do": "1979",
+   "Klasa": "G.2.8",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 116",
+   "Naziv": "Zajednica osiguranja Croatia, filijala Split",
+   "Od": "1950",
+   "Do": "1975",
+   "Klasa": "G.2.2.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 117",
+   "Naziv": "Sveučilišna tiskara d. d. Split",
+   "Od": "1963",
+   "Do": "1996",
+   "Klasa": "G.2.12.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 118",
+   "Naziv": "Oblasni odbor narodne fronte Dalmacije",
+   "Od": "1945",
+   "Do": "1953",
+   "Klasa": "H.2.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 119",
+   "Naziv": "Urbanistički zavod Dalmacije Split d. d. u stečaju",
+   "Od": "1947",
+   "Do": "2002",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 120",
+   "Naziv": "Gradski odbor Narodne fronte Hrvatske Split",
+   "Od": "1947",
+   "Do": "1954",
+   "Klasa": "H.2.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 121",
+   "Naziv": "Općinski odbor NF / SSRN Hrvatske Omiš",
+   "Od": "1953",
+   "Do": "1960",
+   "Klasa": "H.2.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 122",
+   "Naziv": "Obitelj Dominis",
+   "Od": "1857",
+   "Do": "1961",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 123",
+   "Naziv": "Uprava pomorstva",
+   "Od": "1945",
+   "Do": "1950",
+   "Klasa": "A.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 124",
+   "Naziv": "Ugostiteljska komora kotara Zadar",
+   "Od": "1952",
+   "Do": "1962",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 125",
+   "Naziv": "Kotarski odbor sindikata Split",
+   "Od": "1950",
+   "Do": "1964",
+   "Klasa": "H.3.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 126",
+   "Naziv": "Općinsko sindikalno vijeće Split",
+   "Od": "1945",
+   "Do": "1966",
+   "Klasa": "H.3.2.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 127",
+   "Naziv": "Općinsko sindikalno vijeće Kaštela",
+   "Od": "1956",
+   "Do": "1963",
+   "Klasa": "H.3.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 128",
+   "Naziv": "Općinsko sindikalno vijeće Omiš",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "H.3.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 129",
+   "Naziv": "Općinsko sindikalno vijeće Solin",
+   "Od": "1947",
+   "Do": "1962",
+   "Klasa": "H.3.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 130",
+   "Naziv": "Skupština općine Solin",
+   "Od": "1986",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 131",
+   "Naziv": "Sindikalna podružnica kulturnih i prosvjetnih radnika oblasnog narodnog odbora Dalmacije",
+   "Od": "1945",
+   "Do": "1957",
+   "Klasa": "H.3.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 132",
+   "Naziv": "Sindikalna podružnica tvornice \"Partizan\"",
+   "Od": "1951",
+   "Do": "1953",
+   "Klasa": "H.3.2.7",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 133",
+   "Naziv": "Zanatska komora kotara Šibenik",
+   "Od": "1960",
+   "Do": "1962",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 134",
+   "Naziv": "Kotarski odbor Saveza ratnih vojnih invalida Split",
+   "Od": "1946",
+   "Do": "1962",
+   "Klasa": "H.2.6.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 135",
+   "Naziv": "Gradski odbor Saveza ratnih vojnih invalida Split",
+   "Od": "1949",
+   "Do": "1951",
+   "Klasa": "H.2.6.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 136",
+   "Naziv": "Poljoprivredno - šumarska komora kotara Makarska",
+   "Od": "1960",
+   "Do": "1962",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 137",
+   "Naziv": "Odvjetnička komora Split",
+   "Od": "1865",
+   "Do": "1946",
+   "Klasa": "I.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 138",
+   "Naziv": "Javnobilježnička komora",
+   "Od": "1895",
+   "Do": "1942",
+   "Klasa": "I.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 139",
+   "Naziv": "Jugoslavensko učiteljsko udruženje Split",
+   "Od": "1912",
+   "Do": "1941",
+   "Klasa": "I.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 140",
+   "Naziv": "Zadruga akademičara iz Dalmacije u Pragu \"Praha\"",
+   "Od": "1932",
+   "Do": "1938",
+   "Klasa": "I.7.1",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 141",
+   "Naziv": "Savez kulturno - prosvjetnih društava Dalmacije",
+   "Od": "1948",
+   "Do": "1951",
+   "Klasa": "I.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 143",
+   "Naziv": "Hrvatsko pjevačko društvo \"Zvonimir\"",
+   "Od": "1885",
+   "Do": "1941",
+   "Klasa": "I.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 145",
+   "Naziv": "Nogometni podsavez Split",
+   "Od": "1945",
+   "Do": "1957",
+   "Klasa": "I.5.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 146",
+   "Naziv": "Savez organizacija za fizičku kulturu kotara Split",
+   "Od": "1956",
+   "Do": "1967",
+   "Klasa": "I.5.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 147",
+   "Naziv": "Župni ured Bosiljina",
+   "Od": "1705",
+   "Do": "1936",
+   "Klasa": "J.1.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 148",
+   "Naziv": "Župni ured Katedrala Split",
+   "Od": "1862",
+   "Do": "1862",
+   "Klasa": "J.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 149",
+   "Naziv": "Bratovštine u Splitu",
+   "Od": "1614",
+   "Do": "1943",
+   "Klasa": "I.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 151",
+   "Naziv": "Židovska općina Split",
+   "Od": "1553",
+   "Do": "1943",
+   "Klasa": "J.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 152",
+   "Naziv": "Arhiv mapa za Istru i Dalmaciju",
+   "Od": "1819",
+   "Do": "1981",
+   "Klasa": "A.1.7.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 153",
+   "Naziv": "Kotarsko poglavarstvo Makarska",
+   "Od": "1889",
+   "Do": "1918",
+   "Klasa": "A.1.7.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 154",
+   "Naziv": "Kotarski komitet KPH Vrgorac",
+   "Od": "1945",
+   "Do": "1945",
+   "Klasa": "A.1.7.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 156",
+   "Naziv": "Obitelj Fanfogna - Garagnin",
+   "Od": "1301",
+   "Do": "1901",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 157",
+   "Naziv": "Obitelj Gojsalić",
+   "Od": "1781",
+   "Do": "1891",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 158",
+   "Naziv": "Obitelj Grimani",
+   "Od": "1972",
+   "Do": "1972",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 159",
+   "Naziv": "Obitelj Kačić - Miošić i Diana",
+   "Od": "1781",
+   "Do": "1864",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 160",
+   "Naziv": "Obitelj Ljubić",
+   "Od": "1914",
+   "Do": "1942",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 161",
+   "Naziv": "Obitelj Marchi i Martinis",
+   "Od": "1501",
+   "Do": "1801",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 162",
+   "Naziv": "Obitelj Scarneo",
+   "Od": "1843",
+   "Do": "1885",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 163",
+   "Naziv": "Obitelj Tomaseo",
+   "Od": "1442",
+   "Do": "1912",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 164",
+   "Naziv": "Obitelj Turketo",
+   "Od": "1911",
+   "Do": "1928",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 165",
+   "Naziv": "Obitelj Vladimirović",
+   "Od": "1757",
+   "Do": "1838",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 166",
+   "Naziv": "Obitelj Vučemilović",
+   "Od": "1725",
+   "Do": "1881",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 167",
+   "Naziv": "Osobni fond Bilan Jugoslav",
+   "Od": "1940",
+   "Do": "1941",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 168",
+   "Naziv": "Osobni fond Buzolić Josip",
+   "Od": "1889",
+   "Do": "1929",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 169",
+   "Naziv": "Osobni fond Dadić Andrija",
+   "Od": "1874",
+   "Do": "1882",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 170",
+   "Naziv": "Osobni fond  Hirc  Dragutin Adolf",
+   "Od": "1881",
+   "Do": "1911",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 171",
+   "Naziv": "Osobni fond Kisić  Antun",
+   "Od": "1893",
+   "Do": "1947",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 172",
+   "Naziv": "Osobni fond  Kovačić Ivan",
+   "Od": "1957",
+   "Do": "1961",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 173",
+   "Naziv": "Osobni fond Kuničić Petar",
+   "Od": "1940",
+   "Do": "1940",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 174",
+   "Naziv": "Obitelj Mardešić",
+   "Od": "1891",
+   "Do": "1915",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 175",
+   "Naziv": "Osobni fond Pavlinović Mihovil",
+   "Od": "1853",
+   "Do": "1887",
+   "Klasa": "K.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 176",
+   "Naziv": "Osobni fond Siriščević Slavko",
+   "Od": "1926",
+   "Do": "1963",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 177",
+   "Naziv": "Osobni fond Šoulavy Jindrich Henrik",
+   "Od": "1908",
+   "Do": "1936",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 178",
+   "Naziv": "Osobni fond Tresić - Pavičić Ante",
+   "Od": "1889",
+   "Do": "1949",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 179",
+   "Naziv": "Zbirka matičnih knjiga",
+   "Od": "1570",
+   "Do": "1948",
+   "Klasa": "L.1.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 180",
+   "Naziv": "Zbirka oporuka",
+   "Od": "1434",
+   "Do": "1905",
+   "Klasa": "L.1.10.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 181",
+   "Naziv": "Jugoslavenska ujedinjena omladina i Jugoslavenska narodna obrana u Južnoj Americi - Jugoslavenska nacionalna i ujedinjena omladina",
+   "Od": "1908",
+   "Do": "1965",
+   "Klasa": "I.7.1.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 182",
+   "Naziv": "Poljički spomenici",
+   "Od": "1651",
+   "Do": "1835",
+   "Klasa": "L.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 183",
+   "Naziv": "Osobna zbirka Alfirević Stjepan",
+   "Od": "1929",
+   "Do": "1944",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 184",
+   "Naziv": "Osobna zbirka  Franić Ante",
+   "Od": "1849",
+   "Do": "1926",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 185",
+   "Naziv": "Osobna zbirka  Jakaša Milan",
+   "Od": "1623",
+   "Do": "1882",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 186",
+   "Naziv": "Osobna zbirka  Jutronić Andro",
+   "Od": "1709",
+   "Do": "1967",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 187",
+   "Naziv": "Osobna zbirka  Kaer Petar",
+   "Od": "1500",
+   "Do": "2000",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 188",
+   "Naziv": "Osobna zbirka  Petrić  Šime",
+   "Od": "1744",
+   "Do": "1844",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 189",
+   "Naziv": "Osobna zbirka  Svarčić Andrija",
+   "Od": "1907",
+   "Do": "1940",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 190",
+   "Naziv": "Kartografska zbirka",
+   "Od": "1867",
+   "Do": "1947",
+   "Klasa": "L.1.4.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 191",
+   "Naziv": "Zbirka planova i nacrta",
+   "Od": "1801",
+   "Do": "1901",
+   "Klasa": "L.1.5.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 192",
+   "Naziv": "Zbirka pečatnjaka",
+   "Od": "1801",
+   "Do": "1990",
+   "Klasa": "L.1.10.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 193",
+   "Naziv": "Zbirka fotografija",
+   "Od": "1908",
+   "Do": "1965",
+   "Klasa": "L.1.7.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 194",
+   "Naziv": "Zbirka memoarskoga gradiva",
+   "Od": "1900",
+   "Do": "1982",
+   "Klasa": "L.2.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 195",
+   "Naziv": "Zbirka dopunskih preslika arhivskog gradiva iz inozemnih arhiva",
+   "Od": "1907",
+   "Do": "1945",
+   "Klasa": "M.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 196",
+   "Naziv": "Zbirka plakata",
+   "Od": "1878",
+   "Do": "1975",
+   "Klasa": "L.1.9.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 197",
+   "Naziv": "Zbirka dopunskih preslika arhivskog gradiva iz arhiva i ustanova Republike Hrvatske",
+   "Od": "1585",
+   "Do": "1957",
+   "Klasa": "M.4.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 198",
+   "Naziv": "Pokrajinsko školsko vijeće u Zadru",
+   "Od": "1875",
+   "Do": "1923",
+   "Klasa": "A.1.7.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 199",
+   "Naziv": "Kotarska oblast Hvar (Sresko načelništvo)",
+   "Od": "1923",
+   "Do": "1941",
+   "Klasa": "A.3.1.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 200",
+   "Naziv": "Nadzorništvo škola u Splitu",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 201",
+   "Naziv": "Uprava osnovnih škola u Splitu",
+   "Od": "1823",
+   "Do": "1870",
+   "Klasa": "A.1.7.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 202",
+   "Naziv": "Okružni narodnooslobodilački odbor biokovsko - neretvanski",
+   "Od": "1943",
+   "Do": "1946",
+   "Klasa": "A.4.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 203",
+   "Naziv": "Okružni narodnooslobodilački odbor srednje Dalmacije",
+   "Od": "1943",
+   "Do": "1946",
+   "Klasa": "A.4.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 204",
+   "Naziv": "Trgovinska komora kotara Makarska",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 205",
+   "Naziv": "Zadružni savez kotara Makarska",
+   "Od": "1953",
+   "Do": "1962",
+   "Klasa": "G.2.1.2",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 206",
+   "Naziv": "Kotarski narodni odbor Trogir",
+   "Od": "1947",
+   "Do": "1947",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 207",
+   "Naziv": "Kotarska komisija za ratnu štetu Sinj",
+   "Od": "1945",
+   "Do": "1947",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 208",
+   "Naziv": "Gradska komisija za ratnu štetu Split",
+   "Od": "1945",
+   "Do": "1945",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 209",
+   "Naziv": "Državno tužilaštvo u Splitu",
+   "Od": "1919",
+   "Do": "1944",
+   "Klasa": "B.3.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 210",
+   "Naziv": "Kotarski sud Stari Grad",
+   "Od": "1820",
+   "Do": "1945",
+   "Klasa": "B.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 211",
+   "Naziv": "Invalidski sud Split",
+   "Od": "1919",
+   "Do": "1943",
+   "Klasa": "B.3.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 212",
+   "Naziv": "Nautička škola",
+   "Od": "1850",
+   "Do": "1879",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 213",
+   "Naziv": "Okružni privredni sud Split",
+   "Od": "1954",
+   "Do": "1975",
+   "Klasa": "B.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 214",
+   "Naziv": "Okružni sud Split",
+   "Od": "1946",
+   "Do": "1956",
+   "Klasa": "B.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 215",
+   "Naziv": "Odvjetnička pisarnica Mužić Ivan",
+   "Od": "1965",
+   "Do": "1972",
+   "Klasa": "B.5.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 216",
+   "Naziv": "Odvjetnička pisarnica Stipčević Mirko",
+   "Od": "1950",
+   "Do": "1960",
+   "Klasa": "B.5.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 217",
+   "Naziv": "Odvjetnička pisarnica Vukušić dr. Stjepan",
+   "Od": "1923",
+   "Do": "1941",
+   "Klasa": "B.3.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 218",
+   "Naziv": "Lučki ured Kaštela",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "A.4.3.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 219",
+   "Naziv": "Vojna pošta 4416",
+   "Od": "1954",
+   "Do": "1991",
+   "Klasa": "C.7.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 220",
+   "Naziv": "Zajednica za financiranje osnovnog obrazovanja općine Split",
+   "Od": "1967",
+   "Do": "1974",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 221",
+   "Naziv": "Samoupravna interesna zajednica odgoja i osnovnog obrazovanja općine Split",
+   "Od": "1974",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 222",
+   "Naziv": "Samoupravna interesna zajednica u oblasti kulture općine Split",
+   "Od": "1974",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 223",
+   "Naziv": "Samoupravna interesna zajednica društvene brige o djeci predškolskog uzrasta općine Split",
+   "Od": "1974",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 224",
+   "Naziv": "Radna zajednica - Zajedničke stručne službe samoupravnih interesnih zajednica odgoja i osnovnog obrazovanja, samoupravnih interesnih zajednica u oblasti kulture i samoupravnih interesnih zajednica društvene brige o djeci predškolskog uzrasta općine Split",
+   "Od": "1974",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 225",
+   "Naziv": "Samoupravna interesna zajednica usmjerenog obrazovanja",
+   "Od": "1974",
+   "Do": "1990",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 226",
+   "Naziv": "Samoupravna interesna zajednica odgoja i usmjerenog obrazovanja u gimnazijama",
+   "Od": "1975",
+   "Do": "1977",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 227",
+   "Naziv": "Mjesno školsko vijeće Bol",
+   "Od": "1844",
+   "Do": "1918",
+   "Klasa": "A.1.7.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 228",
+   "Naziv": "Gimnazija \"Marko Marulić\"",
+   "Od": "1961",
+   "Do": "1979",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 229",
+   "Naziv": "Gimnazija \"Vladimir Nazor\"",
+   "Od": "1944",
+   "Do": "1979",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 230",
+   "Naziv": "Okružna komisija za utvrđivanje zločina okupatora i njihovih pomagača srednjedalmatinskog otočja",
+   "Od": "1944",
+   "Do": "1946",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 231",
+   "Naziv": "Srednja tehnička škola \"Nikola Tesla\"",
+   "Od": "1926",
+   "Do": "1965",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 232",
+   "Naziv": "Industrijska škola Split",
+   "Od": "1945",
+   "Do": "1961",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 233",
+   "Naziv": "Centar za odgoj i obrazovanje u kemijsko - prehrambenoj, poljoprivredno - šumarskoj i zanatskoj djelatnosti",
+   "Od": "1978",
+   "Do": "1981",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 234",
+   "Naziv": "Škola učenika u privredi Kaštel Novi",
+   "Od": "1950",
+   "Do": "1953",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 235",
+   "Naziv": "Škola učenika u privredi \"Mirko Drašković - Mrki\"",
+   "Od": "1956",
+   "Do": "1974",
+   "Klasa": "D.2.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 236",
+   "Naziv": "Škola učenika u privredi \"Prvoborac\"",
+   "Od": "1947",
+   "Do": "1952",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 237",
+   "Naziv": "Škola učenika u privredi \"Vojno građevinsko poduzeće - Ivan Lučić Lavčević\"",
+   "Od": "1949",
+   "Do": "1952",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 238",
+   "Naziv": "Škola učenika u privredi \"Elektrodalmacija\"",
+   "Od": "1948",
+   "Do": "1951",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 239",
+   "Naziv": "Škola učenika u privredi \"Ložionica Jugoslavenske državne željeznice\"",
+   "Od": "1948",
+   "Do": "1951",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 241",
+   "Naziv": "Kemijska škola za praktičnu obuku \"Anton Bonacin\"",
+   "Od": "1964",
+   "Do": "1978",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 242",
+   "Naziv": "Radnički tehnikum \"Vicko Krstulović\"",
+   "Od": "1948",
+   "Do": "1950",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 243",
+   "Naziv": "Pomoćna narodna škola",
+   "Od": "1952",
+   "Do": "1958",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 244",
+   "Naziv": "Pučka škola Bobovišće",
+   "Od": "1872",
+   "Do": "1918",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 245",
+   "Naziv": "Osnovna / Pučka škola Bol",
+   "Od": "1846",
+   "Do": "1952",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 246",
+   "Naziv": "Osnovna škola Podstrana",
+   "Od": "1961",
+   "Do": "1962",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 247",
+   "Naziv": "Pučka škola Rupotine",
+   "Od": "1910",
+   "Do": "1940",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 248",
+   "Naziv": "Državna djevojačka pučka škola",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 249",
+   "Naziv": "Osnovna / Pučka škola \"Grad\"",
+   "Od": "1883",
+   "Do": "1950",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 250",
+   "Naziv": "Osnovna / pučka škola \"Lučac\"",
+   "Od": "1890",
+   "Do": "1962",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 251",
+   "Naziv": "Osnovna / pučka škola \"Manuš\"",
+   "Od": "1930",
+   "Do": "1949",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 252",
+   "Naziv": "Specijalna osnovna škola \"Eduard Segen\"",
+   "Od": "1965",
+   "Do": "1966",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 253",
+   "Naziv": "Pučka škola Sutivan",
+   "Od": "1907",
+   "Do": "1935",
+   "Klasa": "D.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 254",
+   "Naziv": "Pučka škola Škabrnja",
+   "Od": "1914",
+   "Do": "1916",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 255",
+   "Naziv": "Osnovna / pučka škola\" Vranjic\"",
+   "Od": "1874",
+   "Do": "1950",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 256",
+   "Naziv": "Pučka škola Žežavica Donja",
+   "Od": "1901",
+   "Do": "1928",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 257",
+   "Naziv": "Talijanska osnovna škola u Splitu",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 258",
+   "Naziv": "Muzej narodne revolucije Split",
+   "Od": "1955",
+   "Do": "1996",
+   "Klasa": "E.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 259",
+   "Naziv": "Radničko sveučilište \"Đuro Salaj\"",
+   "Od": "1957",
+   "Do": "1980",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 260",
+   "Naziv": "Državni arhiv u Splitu",
+   "Od": "1952",
+   "Do": "1999",
+   "Klasa": "E.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 261",
+   "Naziv": "Centar za socioreligijska istraživanja",
+   "Od": "1987",
+   "Do": "1992",
+   "Klasa": "E.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 262",
+   "Naziv": "Institut za historiju radničkog pokreta Dalmacije",
+   "Od": "1957",
+   "Do": "1989",
+   "Klasa": "E.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 263",
+   "Naziv": "Zavod za organizaciju i unapređivanje poslovanja Split",
+   "Od": "1955",
+   "Do": "1984",
+   "Klasa": "G.2.13.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 264",
+   "Naziv": "Civilna bolnica Split",
+   "Od": "1890",
+   "Do": "1945",
+   "Klasa": "F.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 265",
+   "Naziv": "Oblasni odbor Crvenog križa za Dalmaciju",
+   "Od": "1950",
+   "Do": "1952",
+   "Klasa": "I.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 266",
+   "Naziv": "Trgovinska komora kotara Zadar",
+   "Od": "1956",
+   "Do": "1962",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 267",
+   "Naziv": "C. K. ravnateljstvo državnih željeznica u Trstu",
+   "Od": "1913",
+   "Do": "1917",
+   "Klasa": "G.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 268",
+   "Naziv": "Javno komunalno poduzeće \"Posrednice\" s. p. o. u stečaju",
+   "Od": "1984",
+   "Do": "1999",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 269",
+   "Naziv": "Zadružna matica",
+   "Od": "1934",
+   "Do": "1934",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 270",
+   "Naziv": "Skupština općine Split",
+   "Od": "1963",
+   "Do": "1990",
+   "Klasa": "A.5.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 271",
+   "Naziv": "Ribarska zadruga Bol",
+   "Od": "1910",
+   "Do": "1929",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 272",
+   "Naziv": "Ribarska zadruga Igrane",
+   "Od": "1909",
+   "Do": "1953",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 273",
+   "Naziv": "Centralna zadruga \"Pharos\"",
+   "Od": "1941",
+   "Do": "1941",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 274",
+   "Naziv": "Hipotekarni ured Split",
+   "Od": "1895",
+   "Do": "1936",
+   "Klasa": "G.1.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 275",
+   "Naziv": "Tvornica cementa \"10. kolovoz\"",
+   "Od": "1952",
+   "Do": "1954",
+   "Klasa": "G.1.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 276",
+   "Naziv": "Dionička pivovara Sarajevo, skladište Split",
+   "Od": "1922",
+   "Do": "1926",
+   "Klasa": "G.1.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 277",
+   "Naziv": "Direkcija oblasnih poljoprivrednih poduzeća \"Poljoproizvod\"",
+   "Od": "1948",
+   "Do": "1952",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 278",
+   "Naziv": "Uprava za gradnju zadružnih domova za Dalmaciju",
+   "Od": "1949",
+   "Do": "1949",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 279",
+   "Naziv": "Trgovinska komora kotara Spli",
+   "Od": "1952",
+   "Do": "1963",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 280",
+   "Naziv": "Zanatska komora kotara Split",
+   "Od": "1945",
+   "Do": "1963",
+   "Klasa": "G.2.1.1",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 281",
+   "Naziv": "Poljoprivredno - šumarska komora kotara Split",
+   "Od": "1960",
+   "Do": "1962",
+   "Klasa": "G.2.1.1",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 282",
+   "Naziv": "Kotarski savez poljoprivrednih zadruga Split",
+   "Od": "1946",
+   "Do": "1954",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 283",
+   "Naziv": "Zadružni savez Dalmacije",
+   "Od": "1948",
+   "Do": "1963",
+   "Klasa": "G.1.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 284",
+   "Naziv": "Poslovno udruženje \"Komex\"",
+   "Od": "1969",
+   "Do": "1979",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 285",
+   "Naziv": "Poslovna zajednica u građevinarstvu \"Uzos\"",
+   "Od": "1974",
+   "Do": "1991",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 286",
+   "Naziv": "Poslovno udruženje \"Keminis\"",
+   "Od": "1960",
+   "Do": "1963",
+   "Klasa": "G.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 287",
+   "Naziv": "Seljačka radna zadruga \"Josip Marinković\"",
+   "Od": "1951",
+   "Do": "1951",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 288",
+   "Naziv": "Seljačka radna zadruga \"Mosorski odred\"",
+   "Od": "1949",
+   "Do": "1954",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 289",
+   "Naziv": "Seljačka radna zadruga \"Partizanka\"",
+   "Od": "1950",
+   "Do": "1950",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 290",
+   "Naziv": "Seljačka radna zadruga \"Novi život\"",
+   "Od": "1952",
+   "Do": "1952",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 291",
+   "Naziv": "Seljačka radna zadruga \"Maršal Tito\"",
+   "Od": "1948",
+   "Do": "1952",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 292",
+   "Naziv": "Seljačka radna zadruga \"Vid Mihaljević\"",
+   "Od": "1946",
+   "Do": "1953",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 293",
+   "Naziv": "Seljačka radna zadruga \"Kaštel Kambelovac\"",
+   "Od": "1953",
+   "Do": "1955",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 294",
+   "Naziv": "Seljačka radna zadruga \"Borac\"",
+   "Od": "1949",
+   "Do": "1953",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 295",
+   "Naziv": "Seljačka radna zadruga \"Naprijed\"",
+   "Od": "1947",
+   "Do": "1952",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 296",
+   "Naziv": "Seljačka radna zadruga \"Primjer\"",
+   "Od": "1953",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 297",
+   "Naziv": "Seljačka radna zadruga \"Broćanac\"",
+   "Od": "1953",
+   "Do": "1956",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 298",
+   "Naziv": "Seljačka radna zadruga \"Pećine\"",
+   "Od": "1952",
+   "Do": "1952",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 299",
+   "Naziv": "Seljačka radna zadruga \"Moseć\"",
+   "Od": "1954",
+   "Do": "1954",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 300",
+   "Naziv": "Seljačka radna zadruga \"Prvi partizani\"",
+   "Od": "1950",
+   "Do": "1956",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 301",
+   "Naziv": "Seljačka radna zadruga \"Gradina\"",
+   "Od": "1949",
+   "Do": "1959",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 302",
+   "Naziv": "Seljačka radna zadruga \"Obnova\"",
+   "Od": "1953",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 303",
+   "Naziv": "Seljačka radna zadruga \"Napredak\"",
+   "Od": "1953",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 304",
+   "Naziv": "Seljačka radna zadruga \"Jadran\"",
+   "Od": "1951",
+   "Do": "1951",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 305",
+   "Naziv": "Seljačka radna zadruga \"Mosećki odred\"",
+   "Od": "1954",
+   "Do": "1954",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 306",
+   "Naziv": "Seljačka radna zadruga \"Crvena zvijezda\"",
+   "Od": "1953",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 307",
+   "Naziv": "Seljačka radna zadruga \"Prvoborci\"",
+   "Od": "1952",
+   "Do": "1952",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 308",
+   "Naziv": "Seljačka radna zadruga \"Pobjeda\"",
+   "Od": "1948",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 309",
+   "Naziv": "Poljoprivredna zadruga Bristivica",
+   "Od": "1946",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 310",
+   "Naziv": "Ugostiteljska komora kotara Šibenik",
+   "Od": "1955",
+   "Do": "1962",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 311",
+   "Naziv": "Poljoprivredna zadruga Kaštel Gomilica",
+   "Od": "1954",
+   "Do": "1954",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 312",
+   "Naziv": "Poljoprivredna zadruga Labin",
+   "Od": "1953",
+   "Do": "1953",
+   "Klasa": "G.2.1.3",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 313",
+   "Naziv": "Poljoprivredna zadruga \"Motika\" Labin u stečaju",
+   "Od": "1972",
+   "Do": "1980",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 314",
+   "Naziv": "Poljoprivredna zadruga Ložišća",
+   "Od": "1954",
+   "Do": "1957",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 315",
+   "Naziv": "Poljoprivredna zadruga Prgomet",
+   "Od": "1945",
+   "Do": "1953",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 316",
+   "Naziv": "Poljoprivredna zadruga Primorski Dolac",
+   "Od": "1946",
+   "Do": "1952",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 317",
+   "Naziv": "Opća poljoprivredna zadruga \"Split\"",
+   "Od": "1974",
+   "Do": "1978",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 318",
+   "Naziv": "Poljoprivredna zadruga Vinišće",
+   "Od": "1946",
+   "Do": "1976",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 319",
+   "Naziv": "Poljoprivredna zadruga Zadvarje",
+   "Od": "1950",
+   "Do": "1952",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 320",
+   "Naziv": "Lučka kapetanija II. reda Trogir",
+   "Od": "1922",
+   "Do": "1945",
+   "Klasa": "A.3.1.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 321",
+   "Naziv": "Stambena zadruga \"Dom\"",
+   "Od": "1990",
+   "Do": "1991",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 322",
+   "Naziv": "Zanatska zadruga \"Udarnik\"",
+   "Od": "1950",
+   "Do": "1968",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 323",
+   "Naziv": "Gospodarska zadruga Ljubitovica",
+   "Od": "1947",
+   "Do": "1947",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 324",
+   "Naziv": "Ribarska zadruga Mala Duba",
+   "Od": "1953",
+   "Do": "1958",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 325",
+   "Naziv": "Uslužno - proizvodna zanatska zadruga \"Novogradnja\"",
+   "Od": "1989",
+   "Do": "1991",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 326",
+   "Naziv": "Radničko - namještenička potrošačka zadruga",
+   "Od": "1945",
+   "Do": "1950",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 327",
+   "Naziv": "Zanatska zadruga \"Primas\"",
+   "Od": "1987",
+   "Do": "1990",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 328",
+   "Naziv": "Gospodarska zadruga Sratok",
+   "Od": "1947",
+   "Do": "1947",
+   "Klasa": "G.2.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 329",
+   "Naziv": "Gospodarska štedionica",
+   "Od": "1924",
+   "Do": "1941",
+   "Klasa": "G.1.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 330",
+   "Naziv": "Pučka štedionica Split",
+   "Od": "1907",
+   "Do": "1944",
+   "Klasa": "G.1.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 333",
+   "Naziv": "Tvornica plastičnih masa \"Jugovinil\"",
+   "Od": "1958",
+   "Do": "1958",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 334",
+   "Naziv": "Društveno poduzeće \"Tehnokolor\"",
+   "Od": "1989",
+   "Do": "1991",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 335",
+   "Naziv": "Predionica i tvornica konca \"Dalmatinka\"",
+   "Od": "1951",
+   "Do": "1964",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 336",
+   "Naziv": "Brodogradilište \"Greben\"",
+   "Od": "1947",
+   "Do": "1972",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 337",
+   "Naziv": "Općinska električna centrala Hvar",
+   "Od": "1913",
+   "Do": "1947",
+   "Klasa": "G.2.4.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 338",
+   "Naziv": "Trgovačko poduzeće \"Galeb\"",
+   "Od": "1952",
+   "Do": "1957",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 339",
+   "Naziv": "Trgovačko poduzeće \"Plod\"",
+   "Od": "1946",
+   "Do": "1951",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 340",
+   "Naziv": "Trgovačko - turističko poduzeće \"Tureks\"",
+   "Od": "1973",
+   "Do": "1983",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 341",
+   "Naziv": "Ugostiteljsko poduzeće \"Ugoturist\"",
+   "Od": "1969",
+   "Do": "1978",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 342",
+   "Naziv": "Hotelska - ugostiteljska - turistička radna organizacija \"Uniondalmacija\"",
+   "Od": "1976",
+   "Do": "1990",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 343",
+   "Naziv": "Poduzeće za ugostiteljstvo \"Partizan\"",
+   "Od": "1952",
+   "Do": "1958",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 344",
+   "Naziv": "Kotarsko građevinsko poduzeće \"Galešnik\"",
+   "Od": "1947",
+   "Do": "1961",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 345",
+   "Naziv": "Industrija kamena „Granit“ – Hvar",
+   "Od": "1954",
+   "Do": "1957",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 346",
+   "Naziv": "Radna organizacija u građevinarstvu \"Tehnoplast\"",
+   "Od": "1965",
+   "Do": "1991",
+   "Klasa": "G.2.7",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 348",
+   "Naziv": "Poduzeće \"Luka\" Split",
+   "Od": "1962",
+   "Do": "1974",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 349",
+   "Naziv": "Poduzeće za saobraćaj putnika i turista \"Putnik\" Split",
+   "Od": "1958",
+   "Do": "1960",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 350",
+   "Naziv": "Kotarsko autopoduzeće Stari Grad",
+   "Od": "1942",
+   "Do": "1947",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 351",
+   "Naziv": "Zanatsko poduzeće Hvar",
+   "Od": "1952",
+   "Do": "1972",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 352",
+   "Naziv": "Zanatsko poduzeće \"Kamen\"",
+   "Od": "1956",
+   "Do": "1961",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 353",
+   "Naziv": "Bravarsko, limarsko i instalatersko poduzeće \"Instalater\"",
+   "Od": "1949",
+   "Do": "1952",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 354",
+   "Naziv": "Radna organizacija \"Kovinar\"",
+   "Od": "1981",
+   "Do": "1991",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 355",
+   "Naziv": "Zanatsko - bojadisarska radnja \"Bojadisar\"",
+   "Od": "1965",
+   "Do": "1989",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 356",
+   "Naziv": "Zanatsko građevinsko poduzeće \"Dobri\"",
+   "Od": "1960",
+   "Do": "1989",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 357",
+   "Naziv": "Zanatsko građevinsko poduzeće \"Peristil\"",
+   "Od": "1959",
+   "Do": "1990",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 358",
+   "Naziv": "RO građevinskog zanatstva \"Spinut\" u stečaju",
+   "Od": "1959",
+   "Do": "1990",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 359",
+   "Naziv": "Zanatsko poduzeće \"Ures\"",
+   "Od": "1951",
+   "Do": "1971",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 360",
+   "Naziv": "Komunalna ustanova \"Bol\"",
+   "Od": "1967",
+   "Do": "1979",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 361",
+   "Naziv": "Ugostiteljska komora kotara Split",
+   "Od": "1952",
+   "Do": "1963",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 362",
+   "Naziv": "Jugoslavenski registar brodova",
+   "Od": "1951",
+   "Do": "1962",
+   "Klasa": "A.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 363",
+   "Naziv": "Udruženje trgovaca Split",
+   "Od": "1931",
+   "Do": "1948",
+   "Klasa": "I.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 364",
+   "Naziv": "Udruženje ugostitelja Split",
+   "Od": "1936",
+   "Do": "1948",
+   "Klasa": "I.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 365",
+   "Naziv": "Društvo \"Hrvatski Napredak\"",
+   "Od": "1889",
+   "Do": "1918",
+   "Klasa": "I.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 366",
+   "Naziv": "Gradski odbor radničko-kulturno - prosvjetne zajednice",
+   "Od": "1955",
+   "Do": "1956",
+   "Klasa": "I.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 367",
+   "Naziv": "Profesorsko društvo Split",
+   "Od": "1912",
+   "Do": "1939",
+   "Klasa": "I.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 368",
+   "Naziv": "Institut za oceanografiju i ribarstvo Split",
+   "Od": "1930",
+   "Do": "1995",
+   "Klasa": "E.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 369",
+   "Naziv": "Plivački klub \"Hvar\"",
+   "Od": "1948",
+   "Do": "1962",
+   "Klasa": "I.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 370",
+   "Naziv": "Fond za njegovanje i razvijanje tekovina revolucije i narodnooslobodilačkog rata općine Split",
+   "Od": "1973",
+   "Do": "1991",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 371",
+   "Naziv": "Obiteljski fond Balović",
+   "Od": "1601",
+   "Do": "1901",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 372",
+   "Naziv": "Obiteljski fond Ilić",
+   "Od": "1801",
+   "Do": "1901",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 373",
+   "Naziv": "Osobni fond Ivčević Mate",
+   "Od": "1818",
+   "Do": "1881",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 374",
+   "Naziv": "Obiteljski fond Ivić",
+   "Od": "1926",
+   "Do": "1938",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 375",
+   "Naziv": "Obiteljski fond Jurić",
+   "Od": "1907",
+   "Do": "1937",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 376",
+   "Naziv": "Obiteljski fond Micheli - Vitturi",
+   "Od": "1407",
+   "Do": "1900",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 377",
+   "Naziv": "Obiteljski fond Cvitanić - Polotović",
+   "Od": "1733",
+   "Do": "1888",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 378",
+   "Naziv": "Obiteljski fond Rottondo",
+   "Od": "1501",
+   "Do": "1801",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 379",
+   "Naziv": "Obiteljski fond Slade - Šilović",
+   "Od": "1212",
+   "Do": "1942",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 380",
+   "Naziv": "Osobna zbirka Novak  Grgo",
+   "Od": "1921",
+   "Do": "1947",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 381",
+   "Naziv": "Osobni fond Perić Josip Vergilije",
+   "Od": "1801",
+   "Do": "1901",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 382",
+   "Naziv": "Osobni fond Stanić Josip Griša",
+   "Od": "1912",
+   "Do": "1985",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 383",
+   "Naziv": "Osobna zbirka Čićin - Šain Ćiro",
+   "Od": "1943",
+   "Do": "1952",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 384",
+   "Naziv": "Grad Split - Zavod za gospodarenje gradom Splitom",
+   "Od": "1966",
+   "Do": "1990",
+   "Klasa": "G.2.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 385",
+   "Naziv": "Kotarska oblast Knin (sresko načelstvo)",
+   "Od": "1934",
+   "Do": "1940",
+   "Klasa": "A.3.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 386",
+   "Naziv": "Kotarska oblast Makarska (sresko načelstvo)",
+   "Od": "1920",
+   "Do": "1941",
+   "Klasa": "A.3.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 387",
+   "Naziv": "Okružni narodnooslobodilački odbor Knin",
+   "Od": "1945",
+   "Do": "1945",
+   "Klasa": "A.4.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 388",
+   "Naziv": "Okružni narodnooslobodilački odbor srednjedalmatinskog otočja",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "A.4.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 389",
+   "Naziv": "Okružni narodnooslobodilački odbor Zadar",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 390",
+   "Naziv": "Kotarski narodnooslobodilački odbor Benkovac",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 391",
+   "Naziv": "Kotarski narodnooslobodilački odbor Biograd",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 392",
+   "Naziv": "Kotarski narodnooslobodilački odbor Hvar",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 393",
+   "Naziv": "Kotarski narodnooslobodilački odbor Imotski",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 394",
+   "Naziv": "Kotarski narodnooslobodilački odbor Muć",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 395",
+   "Naziv": "Kotarski narodnooslobodilački odbor Omiš",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 396",
+   "Naziv": "Kotarski narodnooslobodilački odbor Pelješac",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 397",
+   "Naziv": "Kotarski narodnooslobodilački odbor Preko",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 398",
+   "Naziv": "Kotarski narodnooslobodilački odbor Sinj",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 399",
+   "Naziv": "Kotarski narodnooslobodilački odbor Solin",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 400",
+   "Naziv": "Kotarski narodnooslobodilački odbor Šibenik",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "A.4.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 401",
+   "Naziv": "Kotarski narodnooslobodilački odbor Trogir",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 402",
+   "Naziv": "Gradski narodnooslobodilački odbor Dubrovnik",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "A.4.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 403",
+   "Naziv": "Gradski narodnooslobodilački odbor Šibenik",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "A.4.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 404",
+   "Naziv": "Općinski narodnooslobodilački odbor Babino Polje",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 405",
+   "Naziv": "Općinski narodnooslobodilački odbor Kuna",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "A.4.1.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 406",
+   "Naziv": "Općinski narodnooslobodilački odbor Vrgorac",
+   "Od": "1940",
+   "Do": "1944",
+   "Klasa": "A.4.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 407",
+   "Naziv": "Velika župa Bribir - Sidraga",
+   "Od": "1941",
+   "Do": "1944",
+   "Klasa": "A.4.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 408",
+   "Naziv": "Velika župa Dubrava",
+   "Od": "1941",
+   "Do": "1944",
+   "Klasa": "A.4.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 409",
+   "Naziv": "Sekretarijat unutrašnjih poslova za Dalmaciju",
+   "Od": "1945",
+   "Do": "1966",
+   "Klasa": "A.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 410",
+   "Naziv": "Okružna komisija za utvrđivanje zločina okupatora i njihovih pomagača Biokovo - Neretva",
+   "Od": "1944",
+   "Do": "1946",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 411",
+   "Naziv": "Okružna komisija za ispitivanje zločina okupatora i njihovih pomagača Šibenik",
+   "Od": "1944",
+   "Do": "1946",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 412",
+   "Naziv": "Gradska komisija za ispitivanje zločina okupatora i njihovih pomagača Split",
+   "Od": "1944",
+   "Do": "1946",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 413",
+   "Naziv": "Osmi korpus narodnooslobodilačke vojske Jugoslavije",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "C.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 414",
+   "Naziv": "Štab 4. operativne zone narodnooslobodilačke vojske Hrvatske",
+   "Od": "1942",
+   "Do": "1943",
+   "Klasa": "C.4.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 415",
+   "Naziv": "Komanda biokovskog područja",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 416",
+   "Naziv": "Komanda splitskog područja",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 417",
+   "Naziv": "Komanda srednjedalmatinskog otočkog područja",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 418",
+   "Naziv": "Komanda šibenskog područja",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 419",
+   "Naziv": "Komanda zadarskog područja",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 420",
+   "Naziv": "Komanda mjesta Gradac",
+   "Od": "1943",
+   "Do": "1943",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 421",
+   "Naziv": "Komanda mjesta Trogir",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 422",
+   "Naziv": "Komanda mjesta Veliko Brdo",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 423",
+   "Naziv": "Komanda mjesta Vrgorac",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 424",
+   "Naziv": "Komanda mjesta Zagvozd",
+   "Od": "1943",
+   "Do": "1943",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 425",
+   "Naziv": "Komanda mjesta Živogošće",
+   "Od": "1943",
+   "Do": "1943",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 426",
+   "Naziv": "Relejne stanice Biokovo, Kozica, Rudelj, Šošići",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 427",
+   "Naziv": "Mehanička radionica Biokovskog područja",
+   "Od": "1942",
+   "Do": "1943",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 428",
+   "Naziv": "Glavni obavještajni centar 2. odsjeka za Dalmaciju",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "C.4.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 429",
+   "Naziv": "Pomoćni obavještajni centar za srednju Dalmaciju",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 430",
+   "Naziv": "Pomoćni obavještajni centar za okrug Šibenik",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 431",
+   "Naziv": "Opunomoćstvo odjeljenja za zaštitu naroda pri Komandi splitskog područja",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 432",
+   "Naziv": "Opunomoćstvo odjeljenja za zaštitu naroda pri Komandi cetinskog područja",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 433",
+   "Naziv": "Opunomoćstvo odjeljenja za zaštitu naroda Biokovsko - neretvanskog okruga",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 434",
+   "Naziv": "Rejonski obavještajni centri za Srednje - dalmatinsko otočko područje, za okruge Knin i Zadar i Kotarsko povjereništvo odjeljenja za zaštitu naroda Vrgorac",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 435",
+   "Naziv": "Dinarska četnička divizija",
+   "Od": "1941",
+   "Do": "1944",
+   "Klasa": "C.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 436",
+   "Naziv": "Marksistički centar",
+   "Od": "1972",
+   "Do": "1977",
+   "Klasa": "H.2.1.11.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 437",
+   "Naziv": "Produktivna radnička postolarska zadruga",
+   "Od": "1932",
+   "Do": "1943",
+   "Klasa": "G.1.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 438",
+   "Naziv": "Pokrajinski / Oblasni komitet KP Jugoslavije / Hrvatske za Dalmaciju",
+   "Od": "1934",
+   "Do": "1948",
+   "Klasa": "H.2.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 439",
+   "Naziv": "Međuopćinska konferencija SKH za Dalmaciju",
+   "Od": "1963",
+   "Do": "1975",
+   "Klasa": "H.2.1.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 440",
+   "Naziv": "Konferencija SKH zajednice općina Split",
+   "Od": "1975",
+   "Do": "1978",
+   "Klasa": "H.2.1.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 441",
+   "Naziv": "Okružni komitet KPH Dubrovnik",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "H.2.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 442",
+   "Naziv": "Okružni komitet KPH Makarska",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 443",
+   "Naziv": "Okružni komitet KPH Split",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "H.2.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 444",
+   "Naziv": "Okružni komitet KPH srednjedalmatinskog otočja",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "H.2.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 445",
+   "Naziv": "Okružni komitet KPH za sjevernu Dalmaciju",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST – 446",
+   "Naziv": "Kotarski komitet KPH / SKH Dubrovnik",
+   "Od": "1943",
+   "Do": "1962",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 447",
+   "Naziv": "Kotarski komitet KPH Hvar",
+   "Od": "1943",
+   "Do": "1954",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 448",
+   "Naziv": "Kotarski komitet KPH Imotski",
+   "Od": "1943",
+   "Do": "1954",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 449",
+   "Naziv": "Kotarski komitet KPH / SKH Makarska",
+   "Od": "1942",
+   "Do": "1962",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 450",
+   "Naziv": "Kotarski komitet KPH Omiš",
+   "Od": "1942",
+   "Do": "1948",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 451",
+   "Naziv": "Kotarski komitet KPH Solin",
+   "Od": "1943",
+   "Do": "1948",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 452",
+   "Naziv": "Kotarski komitet KPH / SKH Split",
+   "Od": "1946",
+   "Do": "1968",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 453",
+   "Naziv": "Kotarski komitet KPH Šestanovac",
+   "Od": "1945",
+   "Do": "1948",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 454",
+   "Naziv": "Kotarski komitet KPH / SKH Šibenik",
+   "Od": "1950",
+   "Do": "1962",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 455",
+   "Naziv": "Kotarski komitet KPH Trogir",
+   "Od": "1943",
+   "Do": "1948",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 456",
+   "Naziv": "Kotarski komitet KPH Vis",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 457",
+   "Naziv": "Kotarski komitet KPH/SKH Zadar",
+   "Od": "1943",
+   "Do": "1962",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 458",
+   "Naziv": "Mjesni / gradski komitet KPH / SKH Split",
+   "Od": "1940",
+   "Do": "1955",
+   "Klasa": "H.2.1.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 459",
+   "Naziv": "Kotarski komitet KPH Muć",
+   "Od": "1945",
+   "Do": "1946",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 460",
+   "Naziv": "Općinski komitet SKH Brač",
+   "Od": "1952",
+   "Do": "1985",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 461",
+   "Naziv": "Općinski komitet KPH Gradac",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 462",
+   "Naziv": "Općinski komitet SKH Hvar",
+   "Od": "1982",
+   "Do": "1990",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 463",
+   "Naziv": "Općinski komitet SKH Kaštel Sućurac",
+   "Od": "1952",
+   "Do": "1989",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 464",
+   "Naziv": "Općinski komitet KPH Makarska",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 465",
+   "Naziv": "Općinski komitet SKH Muć",
+   "Od": "1954",
+   "Do": "1962",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 466",
+   "Naziv": "Kotarski komitet KPH Preko",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 467",
+   "Naziv": "Općinski komitet SKH Solin",
+   "Od": "1955",
+   "Do": "1990",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 468",
+   "Naziv": "Općinski komitet SKH Split",
+   "Od": "1955",
+   "Do": "1990",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 469",
+   "Naziv": "Kotarski komitet KPH / SKH Supetar - Brač - Šolta",
+   "Od": "1946",
+   "Do": "1954",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 470",
+   "Naziv": "Općinski komitet KPH / SKH Šolta",
+   "Od": "1942",
+   "Do": "1962",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 471",
+   "Naziv": "Općinski komitet KPH  Vis",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 472",
+   "Naziv": "Općinski komitet KPH / SKH Vrgorac",
+   "Od": "1943",
+   "Do": "1946",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 473",
+   "Naziv": "Mjesni komitet KPH Vrgorac",
+   "Od": "1945",
+   "Do": "1946",
+   "Klasa": "H.2.1.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 474",
+   "Naziv": "Partijski biro KPH Makarska",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.1.11.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 475",
+   "Naziv": "Jedinstvena narodnooslobodilačka fronta Dalmacije",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "H.2.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 476",
+   "Naziv": "Kotarski odbor NF / SSRN Hrvatske Split",
+   "Od": "1948",
+   "Do": "1966",
+   "Klasa": "H.2.2.5",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 477",
+   "Naziv": "Kotarski koordinacioni odbor SSRN Hrvatske Split",
+   "Od": "1967",
+   "Do": "1970",
+   "Klasa": "H.2.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 478",
+   "Naziv": "Međuopćinska konferencija SSRN Hrvatske Split",
+   "Od": "1969",
+   "Do": "1973",
+   "Klasa": "H.2.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 479",
+   "Naziv": "Pokrajinski / oblasni komitet Saveza komunističke omladine Jugoslavije / Ujedinjenog saveza antifašističke omladine Hrvatske za Dalmaciju",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "H.2.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 480",
+   "Naziv": "Kotarski komitet NO / SSO Hrvatske Split",
+   "Od": "1954",
+   "Do": "1967",
+   "Klasa": "H.2.3.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 481",
+   "Naziv": "Oblasni odbor AFŽ / Saveza ženskih društava Dalmacije",
+   "Od": "1942",
+   "Do": "1963",
+   "Klasa": "H.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 482",
+   "Naziv": "Okružni odbor AFŽ Biokovo - Neretva",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "H.2.4.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 483",
+   "Naziv": "Okružni odbor AFŽ za srednju Dalmaciju",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.4.4",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 484",
+   "Naziv": "Kotarski odbori AFŽ Hvar, Vis",
+   "Od": "1944",
+   "Do": "1944",
+   "Klasa": "H.2.4.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 485",
+   "Naziv": "Mjesni / gradski odbor AFŽ Split",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.4.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 486",
+   "Naziv": "Mjesni / gradski odbor AFŽ Šibenik",
+   "Od": "1942",
+   "Do": "1945",
+   "Klasa": "H.2.4.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 487",
+   "Naziv": "Savez industrijsko - zanatskih radnika Omiš",
+   "Od": "1939",
+   "Do": "1940",
+   "Klasa": "H.3.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 488",
+   "Naziv": "Međuopćinsko vijeće Saveza sindikata Hrvatske za Dalmaciju",
+   "Od": "1967",
+   "Do": "1975",
+   "Klasa": "H.3.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 489",
+   "Naziv": "Oblasni / kotarski odbor SUBNOR - a Hrvatske Split",
+   "Od": "1948",
+   "Do": "1967",
+   "Klasa": "H.2.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 490",
+   "Naziv": "Odbor SUBNOR - a Hrvatske zajednice općina Split",
+   "Od": "1968",
+   "Do": "1976",
+   "Klasa": "H.2.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 491",
+   "Naziv": "Gradski odbor SUBNOR - a Hrvatske Split",
+   "Od": "1952",
+   "Do": "1952",
+   "Klasa": "H.2.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 492",
+   "Naziv": "Koordinacioni odbor Saveza rezervnih vojnih starješina Dalmacije",
+   "Od": "1952",
+   "Do": "1973",
+   "Klasa": "H.2.7.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 493",
+   "Naziv": "Općinski odbor Saveza rezervnih vojnih starješina Supetar",
+   "Od": "1952",
+   "Do": "1972",
+   "Klasa": "H.2.7.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 494",
+   "Naziv": "Koordinacioni odbor društveno - političkih organizacija Dalmacije za njegovanje revolucionarnih tradicija",
+   "Od": "1969",
+   "Do": "1975",
+   "Klasa": "H.2.1.11.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 495",
+   "Naziv": "Nogometni klub \"Hajduk\"",
+   "Od": "1944",
+   "Do": "1947",
+   "Klasa": "I.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 496",
+   "Naziv": "Osobni fond Antunović Ivo",
+   "Od": "1921",
+   "Do": "1936",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 497",
+   "Naziv": "Osobni fond Gazin Hugo",
+   "Od": "1942",
+   "Do": "1947",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 498",
+   "Naziv": "Osobni fond Gizdić Drago",
+   "Od": "1910",
+   "Do": "1983",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 499",
+   "Naziv": "Osobni fond  Franasović Miljenko",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 500",
+   "Naziv": "Osobni fond Randić Ivan",
+   "Od": "1910",
+   "Do": "1965",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 501",
+   "Naziv": "Osobni fond Rožić Ivan",
+   "Od": "1922",
+   "Do": "1940",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 502",
+   "Naziv": "Osobni fond Vidović Stjepan",
+   "Od": "1918",
+   "Do": "1936",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 503",
+   "Naziv": "Gradivo za povijest radničkog pokreta",
+   "Od": "1908",
+   "Do": "1941",
+   "Klasa": "L.2.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 504",
+   "Naziv": "Gradivo o djelovanju pomoraca izvan Hrvatske",
+   "Od": "1943",
+   "Do": "1945",
+   "Klasa": "L.2.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 505",
+   "Naziv": "Hrvatska seljačka stranka",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "H.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 506",
+   "Naziv": "Zbirka tiskovina",
+   "Od": "1900",
+   "Do": "1945",
+   "Klasa": "L.1.9.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 507",
+   "Naziv": "Zbirka zvučnih zapisa",
+   "Od": "1919",
+   "Do": "2005",
+   "Klasa": "O.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 508",
+   "Naziv": "Zbirka Miscellanea",
+   "Od": "1927",
+   "Do": "1945",
+   "Klasa": "L.1.10.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 509",
+   "Naziv": "Kotarski komitet KPH Sinj",
+   "Od": "1945",
+   "Do": "1956",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 510",
+   "Naziv": "Kotarski komitet KPH Vrlika",
+   "Od": "1945",
+   "Do": "1945",
+   "Klasa": "H.2.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 511",
+   "Naziv": "Kotarski odbor AFŽ Omiš",
+   "Od": "1943",
+   "Do": "1943",
+   "Klasa": "H.2.4.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 512",
+   "Naziv": "Kotarski odbor AFŽ Solin",
+   "Od": "1942",
+   "Do": "1944",
+   "Klasa": "H.2.4.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 513",
+   "Naziv": "Kotarski odbor AFŽ Trogir",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "H.2.4.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 514",
+   "Naziv": "Kotarska komisija za ratnu štetu Brač",
+   "Od": "1945",
+   "Do": "1947",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 515",
+   "Naziv": "Radna organizacija \"Termofriz”",
+   "Od": "1965",
+   "Do": "1997",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 516",
+   "Naziv": "Osobni fond Vesanović Dinko",
+   "Od": "1937",
+   "Do": "1995",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 517",
+   "Naziv": "Privredna komora za Dalmaciju Split",
+   "Od": "1956",
+   "Do": "1992",
+   "Klasa": "G.2.1.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 518",
+   "Naziv": "Pomorska direkcija za Dalmaciju",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 519",
+   "Naziv": "Brodoremont Split d. d.",
+   "Od": "1945",
+   "Do": "1999",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 520",
+   "Naziv": "Skupština općine Hvar",
+   "Od": "1963",
+   "Do": "1993",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 521",
+   "Naziv": "Osobni fond Družeić Milorad",
+   "Od": "1935",
+   "Do": "1979",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 522",
+   "Naziv": "Jadrantrans d. d. Split",
+   "Od": "1947",
+   "Do": "2003",
+   "Klasa": "G.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 523",
+   "Naziv": "Jadrantekstil d. d. u stečaju",
+   "Od": "1950",
+   "Do": "1999",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 524",
+   "Naziv": "Dalma - Saldun d. d.",
+   "Od": "1957",
+   "Do": "1999",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 525",
+   "Naziv": "Kamen i keramika d. d. za građevinarstvo Split",
+   "Od": "1987",
+   "Do": "2003",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 526",
+   "Naziv": "Osobni fond Krstulović Vicko",
+   "Od": "1901",
+   "Do": "2000",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 527",
+   "Naziv": "Poduzeće za proizvodnu plastičnih masa \"Adriavinil\" d. d.",
+   "Od": "1992",
+   "Do": "2001",
+   "Klasa": "G.3.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 528",
+   "Naziv": "Skupština općine Sinj",
+   "Od": "1963",
+   "Do": "1995",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 529",
+   "Naziv": "Ured državne uprave Splitsko - dalmatinske županije, ispostava Sinj",
+   "Od": "1992",
+   "Do": "1995",
+   "Klasa": "A.6.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 530",
+   "Naziv": "Zbirka filmskih zapisa - Nacionalni filmski fond",
+   "Od": "1910",
+   "Do": "2001",
+   "Klasa": "N.1.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 532",
+   "Naziv": "Prvostupanjski sud u Splitu",
+   "Od": "1745",
+   "Do": "1813",
+   "Klasa": "B.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 533",
+   "Naziv": "Prvostupanjski sud, okružni sud Split",
+   "Od": "1814",
+   "Do": "1918",
+   "Klasa": "B.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 534",
+   "Naziv": "Narodni odbor gradske općine Trogir",
+   "Od": "1952",
+   "Do": "1959",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 535",
+   "Naziv": "Narodni odbor općine Bistrivca",
+   "Od": "1945",
+   "Do": "1955",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 536",
+   "Naziv": "Narodni odbor općine Drvenik veliki i Drvenik mali",
+   "Od": "1945",
+   "Do": "1959",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 537",
+   "Naziv": "Narodni odbor općine Marina",
+   "Od": "1945",
+   "Do": "1955",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 538",
+   "Naziv": "Narodni odbor općine Okrug Gornji",
+   "Od": "1947",
+   "Do": "1959",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 539",
+   "Naziv": "Narodni odbor općine Seget",
+   "Od": "1946",
+   "Do": "1959",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 540",
+   "Naziv": "Narodni odbor općine Vinišće",
+   "Od": "1946",
+   "Do": "1958",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 541",
+   "Naziv": "Narodni odbor općine Vrsine",
+   "Od": "1943",
+   "Do": "1959",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 542",
+   "Naziv": "Mjesni narodni odbor Blizna",
+   "Od": "1945",
+   "Do": "1952",
+   "Klasa": "A.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 543",
+   "Naziv": "Mjesni narodni odbor Sevid",
+   "Od": "1950",
+   "Do": "1951",
+   "Klasa": "A.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 544",
+   "Naziv": "Mjesni narodni odbor Trogir",
+   "Od": "1945",
+   "Do": "1959",
+   "Klasa": "A.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 545",
+   "Naziv": "Mjesni narodni odbor Žedno",
+   "Od": "1946",
+   "Do": "1951",
+   "Klasa": "A.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 546",
+   "Naziv": "Rudarski ured Split",
+   "Od": "1921",
+   "Do": "1948",
+   "Klasa": "A.3.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 548",
+   "Naziv": "Općina Bol",
+   "Od": "1918",
+   "Do": "1954",
+   "Klasa": "A.3.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 549",
+   "Naziv": "Općina Komiža",
+   "Od": "1919",
+   "Do": "1945",
+   "Klasa": "A.3.1.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 550",
+   "Naziv": "Lučko zastupništvo Komiža",
+   "Od": "1918",
+   "Do": "1946",
+   "Klasa": "A.3.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 551",
+   "Naziv": "Mjesni školski odbor Bol",
+   "Od": "1918",
+   "Do": "1936",
+   "Klasa": "A.3.1.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 552",
+   "Naziv": "Narodni odbor općine Split",
+   "Od": "1955",
+   "Do": "1963",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 553",
+   "Naziv": "Narodni odbor općine Solin",
+   "Od": "1948",
+   "Do": "1982",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 554",
+   "Naziv": "\"Biodal\" d. d. u stečaju",
+   "Od": "1970",
+   "Do": "2003",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 555",
+   "Naziv": "Hotelski centar \"Lav\" d. d. u stečaju",
+   "Od": "1971",
+   "Do": "2002",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 556",
+   "Naziv": "Poduzeće Dinara d. o. o. Split u stečaju",
+   "Od": "1962",
+   "Do": "2002",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 557",
+   "Naziv": "Kotarski sud Omiš",
+   "Od": "1918",
+   "Do": "1941",
+   "Klasa": "B.3.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 558",
+   "Naziv": "Općinska konferencija SSRN RH Makarska",
+   "Od": "1946",
+   "Do": "1993",
+   "Klasa": "H.2.2.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 559",
+   "Naziv": "Mjesno školsko vijeće Vranjic",
+   "Od": "1906",
+   "Do": "1918",
+   "Klasa": "A.1.7.6",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 560",
+   "Naziv": "Mjesni školski odbor Vranjic",
+   "Od": "1920",
+   "Do": "1941",
+   "Klasa": "A.3.1.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 561",
+   "Naziv": "Osobni fond Tudor Ranko",
+   "Od": "1950",
+   "Do": "1991",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 562",
+   "Naziv": "Pomirbeni sud u Splitu",
+   "Od": "1806",
+   "Do": "1813",
+   "Klasa": "B.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 563",
+   "Naziv": "\"Obnova\" d. d. za završne radove u građevinarstvu, zanatske radove i radove na antikoroziji Split",
+   "Od": "1951",
+   "Do": "1999",
+   "Klasa": "G.2.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 581",
+   "Naziv": "Zbirka stranih filmova",
+   "Od": "1948",
+   "Do": "1984",
+   "Klasa": "N.2.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 582",
+   "Naziv": "Okružni sud u Splitu",
+   "Od": "1918",
+   "Do": "1946",
+   "Klasa": "B.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 583",
+   "Naziv": "Gradski narodni odbor Split",
+   "Od": "1951",
+   "Do": "1958",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 584",
+   "Naziv": "Kvestura Zadar",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 588",
+   "Naziv": "Mjesni narodni odbor Vranjic",
+   "Od": "1949",
+   "Do": "1949",
+   "Klasa": "A.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 589",
+   "Naziv": "\"Dalmacija\" tvornica karbida, ferokroma i ferolegura",
+   "Od": "1908",
+   "Do": "2004",
+   "Klasa": "G.1.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 590",
+   "Naziv": "Ured državne uprave u Splitsko - dalmatinskoj županiji, ispostava Omiš",
+   "Od": "1953",
+   "Do": "1995",
+   "Klasa": "A.6.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 591",
+   "Naziv": "\"Melioracija\" d. d. Split",
+   "Od": "1948",
+   "Do": "2001",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 592",
+   "Naziv": "Ured Državne uprave u Splitsko - dalmatinskoj županiji",
+   "Od": "1975",
+   "Do": "1992",
+   "Klasa": "A.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 593",
+   "Naziv": "Kotarski sud Hvar",
+   "Od": "1930",
+   "Do": "1930",
+   "Klasa": "B.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 594",
+   "Naziv": "\"Laurus\" d. d.",
+   "Od": "1947",
+   "Do": "2003",
+   "Klasa": "G.2.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 596",
+   "Naziv": "\"Diokom\" Split",
+   "Od": "1952",
+   "Do": "2005",
+   "Klasa": "G.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 597",
+   "Naziv": "Samoupravna interesna zajednica za kulturu općine Makarska",
+   "Od": "1983",
+   "Do": "1988",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 598",
+   "Naziv": "Društvo inženjera Splita",
+   "Od": "1936",
+   "Do": "1940",
+   "Klasa": "I.1.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 599",
+   "Naziv": "Prefektura Split",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 600",
+   "Naziv": "Prefektura Zadar",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 601",
+   "Naziv": "Ratni vojni sud u Šibeniku",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "B.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 602",
+   "Naziv": "Specijalni sud za Dalmaciju",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "B.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 603",
+   "Naziv": "Sudski zatvori u Šibeniku",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "B.4.10.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 604",
+   "Naziv": "Općinski komitet Komunističke partije Omiš",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "H.2.1.8.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 605",
+   "Naziv": "Kotarski narodnooslobodilački odbor Metković",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 606",
+   "Naziv": "R.O. \"Brusnik\", OOUR \"Kamik\"",
+   "Od": "1968",
+   "Do": "1991",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 607",
+   "Naziv": "Zbirka fragmenata arhivskog gradiva",
+   "Od": "1912",
+   "Do": "1966",
+   "Klasa": "L.1.10.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 608",
+   "Naziv": "Pučka škola Makarska",
+   "Od": "1845",
+   "Do": "1923",
+   "Klasa": "D.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 609",
+   "Naziv": "Obiteljski fond Soppe - Papali",
+   "Od": "18. stoljeće",
+   "Do": "18. stoljeće",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 610",
+   "Naziv": "Odvjetnička pisarnica Savo Josip ( Giuseppe)",
+   "Od": "1896",
+   "Do": "1945",
+   "Klasa": "B.3.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 611",
+   "Naziv": "Obiteljski fond Grisogono",
+   "Od": "20. stoljeće",
+   "Do": "20. stoljeće",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 612",
+   "Naziv": "Obiteljski fond Krstulović",
+   "Od": "1628",
+   "Do": "1966",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 613",
+   "Naziv": "\"Dalmacijacement\" - poduzeće dalmatinskih tvornica  cementa, cementnih i azbestno-cementnih proizvoda, Split, Solin",
+   "Od": "1946",
+   "Do": "1994",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 614",
+   "Naziv": "\"Rezalište\" - Solin",
+   "Od": "1955",
+   "Do": "1991",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 615",
+   "Naziv": "Skupština općine Makarska",
+   "Od": "1953",
+   "Do": "1977",
+   "Klasa": "A.5.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 616",
+   "Naziv": "Narodni odbor općine Makarska",
+   "Od": "1960",
+   "Do": "1989",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 617",
+   "Naziv": "Obiteljski fond Duboković Nadalini",
+   "Od": "1596",
+   "Do": "1929",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 618",
+   "Naziv": "Brodosplit brodogradilište d.o.o.",
+   "Od": "1974",
+   "Do": "1989",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 619",
+   "Naziv": "Gradsko kazalište lutaka",
+   "Od": "1964",
+   "Do": "2006",
+   "Klasa": "E.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 620",
+   "Naziv": "Željezara Split u stečaju",
+   "Od": "1968",
+   "Do": "2011",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 621",
+   "Naziv": "Drvni kombinat \"Stolarija\"",
+   "Od": "1966",
+   "Do": "1993",
+   "Klasa": "G.2.4.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 622",
+   "Naziv": "C.K. lučko-zdravstveno odaslanstvo Makarska",
+   "Od": "1915",
+   "Do": "1915",
+   "Klasa": "A.1.7.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 623",
+   "Naziv": "Osobni fond Kovačić Anka",
+   "Od": "1896",
+   "Do": "1961",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 624",
+   "Naziv": "Obiteljski fond Oman",
+   "Od": "1827",
+   "Do": "1931",
+   "Klasa": "K.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 625",
+   "Naziv": "Zbirka filmske tehnike (Mladen Katunarić)",
+   "Od": "1950",
+   "Do": "1965",
+   "Klasa": "N.4.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 626",
+   "Naziv": "Poduzeće za ceste d.d. Split",
+   "Od": "1962",
+   "Do": "1996",
+   "Klasa": "G.2.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 627",
+   "Naziv": "Zbirka fono gradiva (Ljubica Tončić)",
+   "Od": "1896",
+   "Do": "1980",
+   "Klasa": "O",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 628",
+   "Naziv": "Zbirka Ganza",
+   "Od": "1969",
+   "Do": "1981",
+   "Klasa": "N.1.1.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR - DAST - 629",
+   "Naziv": "Okružni pomorski ured Trogir Kraljevine Italije",
+   "Od": "1941",
+   "Do": "1943",
+   "Klasa": "A.4.3.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 630",
+   "Naziv": "Osobni fond Duplančić Josip",
+   "Od": "1878",
+   "Do": "1922",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 631",
+   "Naziv": "Lučko poglavarstvo Trogir NDH",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.2.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 632",
+   "Naziv": "Pomorsko zapovjedništvo Split",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "A.4.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 633",
+   "Naziv": "Obalno zapovjedništvo Split",
+   "Od": "1943",
+   "Do": "1944",
+   "Klasa": "C.5.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 634",
+   "Naziv": "\"Hrvatski Sokol\" Split",
+   "Od": "1927",
+   "Do": "1928",
+   "Klasa": "I.5.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 635",
+   "Naziv": "Lučka kapetanija Trogir",
+   "Od": "1944",
+   "Do": "1945",
+   "Klasa": "A.5.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 636",
+   "Naziv": "Gradska štedionica u Splitu",
+   "Od": "1919",
+   "Do": "1948",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 637",
+   "Naziv": "Prva hrvatska štedionica – Ispostava Split",
+   "Od": "1940",
+   "Do": "1940",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 638",
+   "Naziv": "Bračko-amerikanska banka d. d. – Supetar",
+   "Od": "1923",
+   "Do": "1947",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 639",
+   "Naziv": "Prva pučka dalmatinska banka",
+   "Od": "1920",
+   "Do": "1947",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 640",
+   "Naziv": "Splitska trgovačka banka",
+   "Od": "1921",
+   "Do": "1945",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 641",
+   "Naziv": "Srpska banka d. d. – Ispostava Split",
+   "Od": "1921",
+   "Do": "1945",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 642",
+   "Naziv": "Jadranska banka d. d. – Ispostava Split",
+   "Od": "1922",
+   "Do": "1927",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 643",
+   "Naziv": "Dalmatinska eskomptna banka – Ispostava Split",
+   "Od": "1941",
+   "Do": "1948",
+   "Klasa": "G.1.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 644",
+   "Naziv": "Narodna banka F. N. R. J. – Ispostava Split",
+   "Od": "1945",
+   "Do": "1960",
+   "Klasa": "G.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 645",
+   "Naziv": "Gimnazija „Ćiro Gamulin“",
+   "Od": "1952",
+   "Do": "1978",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 646",
+   "Naziv": "Centar za odgoj i usmjereno obrazovanje u građevinarstvu i industriji građevinskog materijala „Ćiro Gamulin“ – Split",
+   "Od": "1983",
+   "Do": "1986",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 647",
+   "Naziv": "Centar za odgoj i usmjereno obrazovanje u matematičko-informatičkoj djelatnosti (MIOC) – Split",
+   "Od": "1985",
+   "Do": "1992",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 648",
+   "Naziv": "Općina Sinj",
+   "Od": "1977",
+   "Do": "1989",
+   "Klasa": "A.5.6.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 649",
+   "Naziv": "Javno pravobranilaštvo Općine Sinj",
+   "Od": "1977",
+   "Do": "1988",
+   "Klasa": "B.5.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 650",
+   "Naziv": "Salona Inex d.o.o. Solin",
+   "Od": "1990",
+   "Do": "2002",
+   "Klasa": "D.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 651",
+   "Naziv": "Pučko otvoreno učilište Salona – Solin",
+   "Od": "2002",
+   "Do": "2009",
+   "Klasa": "D.1.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 652",
+   "Naziv": "Umjetnička gimnazija Ars Animae",
+   "Od": "2007",
+   "Do": "2015",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 653",
+   "Naziv": "Gimnazija Futura Aetas Nostra Est",
+   "Od": "2015",
+   "Do": "2016",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 654",
+   "Naziv": "Centar za odgoj i usmjereno obrazovanje u brodograđevnoj industriji – Split",
+   "Od": "1975",
+   "Do": "1986",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 655",
+   "Naziv": "Centar za obrazovanje u djelatnosti kulture i obrazovanja „Natko Nodilo“ u Splitu",
+   "Od": "1986",
+   "Do": "1992",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 656",
+   "Naziv": "Tehnička srednja građevinska škola Split",
+   "Od": "1922",
+   "Do": "1986",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 657",
+   "Naziv": "Opća srednja škola u Splitu",
+   "Od": "1966",
+   "Do": "1978",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 658",
+   "Naziv": "Centar za odgoj i obrazovanje u građevinarstvu i industriji građevinskog materijala „Ćiro Gamulin“, OOUR „Srednje obrazovanje“",
+   "Od": "1978",
+   "Do": "1993",
+   "Klasa": "D.2.2.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 659",
+   "Naziv": "Tehnički školski centar „Mirko Dumanić“ Split",
+   "Od": "1986",
+   "Do": "1996",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 660",
+   "Naziv": "Tehnička škola „Nikola Tesla“ Split",
+   "Od": "1962",
+   "Do": "1975",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 661",
+   "Naziv": "Škola za VKV radnike",
+   "Od": "1960",
+   "Do": "1971",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 662",
+   "Naziv": "Škola učenika u privredi „Branko Duplančić“ Split",
+   "Od": "1963",
+   "Do": "1973",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 663",
+   "Naziv": "Tehnički školski centar Split",
+   "Od": "1968",
+   "Do": "1992",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 664",
+   "Naziv": "Centar za odgoj i usmjereno obrazovanje u metalskoj, elektro, drvo-prerađivačkoj i prometnoj djelatnosti Split",
+   "Od": "1977",
+   "Do": "1992",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 665",
+   "Naziv": "Dvorazredna trgovačka škola u Splitu, Trgovačka akademija",
+   "Od": "1905",
+   "Do": "1955",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 666",
+   "Naziv": "Ekonomska škola",
+   "Od": "1948",
+   "Do": "1978",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 667",
+   "Naziv": "Upravna škola u Splitu",
+   "Od": "1960",
+   "Do": "1979",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 668",
+   "Naziv": "Centar za odgoj i obrazovanje „Ante Jonić“",
+   "Od": "1978",
+   "Do": "1992",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR - DAST - 669",
+   "Naziv": "Srednja radnička škola „Đuro Salaj“",
+   "Od": "1971",
+   "Do": "1979",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-670",
+   "Naziv": "Škola za građevinske radnike",
+   "Od": "1965",
+   "Do": "1977",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-671",
+   "Naziv": "Osnovna škola u Mravincima",
+   "Od": "1883",
+   "Do": "1960",
+   "Klasa": "D.4.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-672",
+   "Naziv": "Osobni fond Ladislav Schimak",
+   "Od": "1874",
+   "Do": "1959",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-673",
+   "Naziv": "Pomorska škola Split",
+   "Od": "1927",
+   "Do": "1992",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-674",
+   "Naziv": "Industrijska škola Split",
+   "Od": "1947",
+   "Do": "1992",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-675",
+   "Naziv": "Prometna škola Split",
+   "Od": "1972",
+   "Do": "1992",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-676",
+   "Naziv": "Župni ured Škrip",
+   "Od": "",
+   "Do": "",
+   "Klasa": "J.1.5.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-677",
+   "Naziv": "Andreis Mladen",
+   "Od": "",
+   "Do": "",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-678",
+   "Naziv": "Kovačić Joško",
+   "Od": "",
+   "Do": "",
+   "Klasa": "K.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-679",
+   "Naziv": "Narodni odbor Općine Vrgorac",
+   "Od": "1955",
+   "Do": "1997",
+   "Klasa": "",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-680",
+   "Naziv": "Skupština općine Vrgorac",
+   "Od": "1955",
+   "Do": "1997",
+   "Klasa": "",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-681",
+   "Naziv": "Općina Vrgorac",
+   "Od": "1955",
+   "Do": "1997",
+   "Klasa": "",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-682",
+   "Naziv": "Europski pokret Split",
+   "Od": "1990",
+   "Do": "2012",
+   "Klasa": "I.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-683",
+   "Naziv": "Odvjetnička pisarnica Slavko Radica – Sinj",
+   "Od": "1957.",
+   "Do": "1960.",
+   "Klasa": "B.5.9.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-684",
+   "Naziv": "Zbirka Dinko Kovačić",
+   "Od": "",
+   "Do": "",
+   "Klasa": "L.2",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR-DAST-685",
+   "Naziv": "Zbirka Anatolij Kudrjavcev",
+   "Od": "1926",
+   "Do": "2005",
+   "Klasa": "L.3.",
+   "Tip": "zbirka"
+ },
+ {
+   "Signatura": "HR-DAST-686",
+   "Naziv": "Škola za osnovno opće obrazovanje",
+   "Od": "1947.",
+   "Do": "1991.",
+   "Klasa": "D.3.",
+   "Tip": "zbirni fond"
+ },
+ {
+   "Signatura": "HR-DAST-687",
+   "Naziv": "Jezično-informatička gimnazija „Leonardo da Vinci“",
+   "Od": "2006",
+   "Do": "2020",
+   "Klasa": "D.2.1.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-688",
+   "Naziv": "Zdravstvena škola Split",
+   "Od": "1968.",
+   "Do": "1992.",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-689",
+   "Naziv": "Četvrti pomorski obalni sektor Mornarice NOVJ. Sekcija pomorskog saobraćaja",
+   "Od": "1943.",
+   "Do": "1944.",
+   "Klasa": "C.4.7.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-690",
+   "Naziv": "Škola likovnih umjetnosti, Split",
+   "Od": "1947.",
+   "Do": "1992.",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-691",
+   "Naziv": "Glazbena škola Josipa Hatzea, Split",
+   "Od": "1944.",
+   "Do": "2000.",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-692",
+   "Naziv": "Srednja škola „Braća Radić“, Kaštel Štafilić",
+   "Od": "1946.",
+   "Do": "1993.",
+   "Klasa": "D.2.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-693",
+   "Naziv": "Općinski sud (Kotarski sud) u Splitu",
+   "Od": "1945.",
+   "Do": "1975.",
+   "Klasa": "B.5.3.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-695",
+   "Naziv": "Ugostiteljski školski centar Split",
+   "Od": "1960.",
+   "Do": "1978.",
+   "Klasa": "D.23.",
+   "Tip": "fond"
+ },
+ {
+   "Signatura": "HR-DAST-706",
+   "Naziv": "Zbirka geodetskih instrumenata",
+   "Od": "19. st",
+   "Do": "20 st.",
+   "Klasa": "L.2.",
+   "Tip": "zbirka"
+ }
+]

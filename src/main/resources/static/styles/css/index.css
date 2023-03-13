@@ -1,0 +1,23 @@
+body  {
+    background-image: url("https://www.das.hr/wp-content/uploads/2020/12/Image11.jpg");
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1 {
+    text-align: center;
+    color: Black;
+    font-size: 50px;
+    font-family: "Arial", Times, serif;
+    font-weight: bold;
+    margin: 50px;
+
+}
+.logo-img {
+    margin-left: 300px;
+    margin-bottom: 250px;
+    position: fixed;
+
+}
