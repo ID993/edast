@@ -7,8 +7,11 @@ import com.ivodam.finalpaper.edast.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -29,6 +32,12 @@ public class UserController {
         return userService.create(user);
     }
 
+    @PostMapping("/users/add-role")
+    public User update(@RequestBody UserDto userDto) {
+        var user = userMapper.userDtoToUser(userDto);
+        return userService.update(user);
+    }
+
 
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -41,8 +50,9 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public Optional<User> findById(@PathVariable long id) {
-        return userService.findById(id);
+    public UserDto findById(@PathVariable long id) {
+        var user = userService.findById(id);
+        return userMapper.userToUserDto(user.get());
     }
 
     @GetMapping("/users/email/{email}")
@@ -50,41 +60,18 @@ public class UserController {
         return userService.findByEmail(email);
     }
 
-    @PostMapping("/users/{userId}/roles")
-    public String updateRole(@PathVariable long userId, @RequestParam String role) {
-
-        var user = userService.findById(userId);
-        Set<GrantedAuthority> authorities = new HashSet<>();
-        if (role.equals("admin")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        } else if (role.equals("employee")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYEE"));
-        } else {
-            // handle invalid role
-            // return error page or redirect to user management page
-            return "redirect:/users";
-        }
-        user.get().setAuthorities(authorities);
-
-        userService.update(user.get());
-        return "redirect:/users";
-    }
 
     @DeleteMapping("/users/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteById(@PathVariable long id) {
         userService.deleteById(id);
     }
 
-    @PutMapping("/users/update/{id}")
-    public User update(@PathVariable long id) {
-        var user = userService.findById(id);
-        return userService.update(user.get());
-    }
 
-//    @PatchMapping("/users/update/{id}")
-//    public User patch(@RequestBody User user) {
-//        return userService.update(user);
-//    }
+
+
+
+
 
 
 }
