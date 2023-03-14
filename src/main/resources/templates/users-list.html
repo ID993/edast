@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
@@ -19,7 +20,7 @@
         <th>Name</th>
         <th>email</th>
         <th>Date joined</th>
-        <th></th>
+        <th>Role</th>
         <th></th>
       </tr>
     </thead>
@@ -29,26 +30,23 @@
         <td th:text="${user.name}"></td>
         <td th:text="${user.email}"></td>
         <td th:text="${user.joinDate}"></td>
-        <td> <a th:href="@{/users/delete/${user.id}}" class="btn btn-warning">DELETE</a> </td>
-        <td> <a th:href="@{/users/update/${user.id}}" class="btn btn-success">UPDATE</a> </td>
+        <td>
+          <ul>
+            <li th:each="role : ${#strings.arraySplit(user.role, ',')}">
+              <span th:text="${#strings.replace(role, 'ROLE_', '')}"></span>
+            </li>
+          </ul>
+        </td>
+        <div sec:authorize="hasRole('ADMIN')">
+          <td> <a th:href="@{/users/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
+          <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-success">Change role</a> </td>
+        </div>
       </tr>
     </th:block>
     </tbody>
   </table>
-  <a th:href="@{users/add}" class="btn btn-success">Add User</a>
+  <a th:href="@{/users/add}" class="btn btn-success">Add User</a>
 
-  <div>
-
-
-    <th:block th:each="user: ${users}">
-      <div >
-
-            <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getName()}"></a>
-
-      </div>
-    </th:block>
-
-  </div>
 </div>
 </body>
 </html>

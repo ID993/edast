@@ -1,6 +1,7 @@
 package com.ivodam.finalpaper.edast.views;
 
 import com.ivodam.finalpaper.edast.entity.User;
+import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
@@ -48,7 +49,7 @@ public class Register {
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         user.setRole("ROLE_USER");
         userService.create(user);
-        return registerUrl;
+        return "/login";
     }
 }
 

@@ -49,7 +49,7 @@ public class SecurityConfiguration{
                 .requestMatchers("/styles/css/**")
                 .permitAll()
                 .requestMatchers("/users/**")
-                .hasAnyRole("USER", "ADMIN")
+                .hasAnyRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
