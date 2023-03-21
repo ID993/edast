@@ -10,43 +10,39 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
 </head>
 <body>
+<div th:replace="~{fragments/header :: header}"></div>
+  <div class="container">
 
-<div class="container">
+    <h1>Users</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>email</th>
+          <th>Date joined</th>
+          <th>Role</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="user: ${users}">
+        <tr>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.email}"></td>
+          <td th:text="${user.joinDate}"></td>
+          <td th:text="${user.role.getDisplayName()}"></td>
 
-  <h1>Users</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>email</th>
-        <th>Date joined</th>
-        <th>Role</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    <th:block th:each="user: ${users}">
-      <tr>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.joinDate}"></td>
-        <td>
-          <ul>
-            <li th:each="role : ${#strings.arraySplit(user.role, ',')}">
-              <span th:text="${#strings.replace(role, 'ROLE_', '')}"></span>
-            </li>
-          </ul>
-        </td>
-        <div sec:authorize="hasRole('ADMIN')">
-          <td> <a th:href="@{/users/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
-          <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-success">Change role</a> </td>
-        </div>
-      </tr>
-    </th:block>
-    </tbody>
-  </table>
-  <a th:href="@{/users/add}" class="btn btn-success">Add User</a>
+          <div sec:authorize="hasRole('ADMIN')">
+            <td> <a th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
+            <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-success">Change role</a> </td>
+          </div>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+    <a th:href="@{/admin/register}" class="btn btn-success">Add</a>
 
-</div>
+  </div>
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.ivodam.finalpaper.edast.exceptions;
 
 import java.util.Date;
 
+import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -37,6 +38,7 @@ public class ControllerExceptionHandler {
                             .message(ex.getMessage())
                             .description(request.getDescription(false)).build());
         }
+
 
         @ExceptionHandler(MethodArgumentNotValidException.class)
         public ResponseEntity<ErrorMessages> badRequestExceptionHandler(Exception ex, WebRequest request) {

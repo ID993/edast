@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<div th:replace="~{fragments/header :: header}"></div>
+
 <div class="container">
 
     <h1>Users</h1>
@@ -31,13 +33,7 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.joinDate}"></td>
-                <td>
-                    <ul>
-                        <li th:each="role : ${#strings.arraySplit(user.role, ',')}">
-                            <span th:text="${#strings.replace(role, 'ROLE_', '')}"></span>
-                        </li>
-                    </ul>
-                </td>
+                <td th:text="${user.role.getDisplayName()}"></td>
 
                 <td> <a th:href="@{/users/add-admin/{id}(id=${user.getId()})}" class="btn btn-warning">Make an admin</a> </td>
                 <td> <a th:href="@{/users/add-employee/{id}(id=${user.getId()})}" class="btn btn-success">Make an employee</a> </td>
@@ -47,6 +43,6 @@
 
 </div>
 
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
