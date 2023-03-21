@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -19,7 +17,7 @@ import java.util.Set;
 public class UserDto {
 
     @JsonProperty("id")
-    private Long id;
+    private UUID id;
 
     @JsonProperty("name")
     private String name;

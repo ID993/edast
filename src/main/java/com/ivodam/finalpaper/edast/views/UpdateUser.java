@@ -4,7 +4,6 @@ import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
-import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.service.MailService;
 import com.ivodam.finalpaper.edast.service.UserService;
 import jakarta.mail.MessagingException;
@@ -18,6 +17,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 @AllArgsConstructor
@@ -35,7 +35,7 @@ public class UpdateUser {
     }
 
     @GetMapping("/users/list/{id}")
-    public String getUserById(Model model, @PathVariable long id) throws AppException {
+    public String getUserById(Model model, @PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
         model.addAttribute("user", user);
         return "users-update-roles";
@@ -43,7 +43,7 @@ public class UpdateUser {
 
 
     @GetMapping("/users/add-admin/{id}")
-    public String addAdmin(@PathVariable long id) throws AppException {
+    public String addAdmin(@PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
         user.setRole(Enums.Roles.ROLE_ADMIN);
         userService.update(user);
@@ -51,7 +51,7 @@ public class UpdateUser {
     }
 
     @GetMapping("/users/add-employee/{id}")
-    public String addEmployee(@PathVariable long id) throws AppException {
+    public String addEmployee(@PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
         user.setRole(Enums.Roles.ROLE_EMPLOYEE);
         userService.update(user);
@@ -67,7 +67,7 @@ public class UpdateUser {
     }
 
     @GetMapping("account/{id}/edit")
-    public String editUser(@PathVariable long id, Model model) throws AppException {
+    public String editUser(@PathVariable UUID id, Model model) throws AppException {
         model.addAttribute("user", userService.findById(id));
         model.addAttribute("roles", Enums.Roles.values());
         return "edit-user";
@@ -86,7 +86,7 @@ public class UpdateUser {
 
 
     @GetMapping("/account/delete/{id}")
-    public String deleteUserById(@PathVariable long id) {
+    public String deleteUserById(@PathVariable UUID id) {
         userService.deleteById(id);
         return "redirect:/users/list";
     }
@@ -128,12 +128,12 @@ public class UpdateUser {
     }
 
     @GetMapping("/forgot-password/reset/{id}")
-    public String changeForgottenPasswordGet(@PathVariable long id) {
+    public String changeForgottenPasswordGet(@PathVariable UUID id) {
         return "forgot-password-reset";
     }
 
     @PostMapping("/forgot-password/reset/{id}")
-    public String changeForgottenPasswordPost(@PathVariable long id, @RequestParam String password) throws AppException {
+    public String changeForgottenPasswordPost(@PathVariable UUID id, @RequestParam String password) throws AppException {
         var user = userService.findById(id);
         userService.updatePassword(user, password);
         return "redirect:/login";

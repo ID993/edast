@@ -6,9 +6,7 @@ import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.repository.UserRepository;
 import com.ivodam.finalpaper.edast.security.SecurityConfiguration;
-import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
-import java.util.random.RandomGenerator;
-import java.util.random.RandomGeneratorFactory;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,7 +77,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(long id) throws AppException {
+    public User findById(UUID id) throws AppException {
             return userRepository.findById(id)
                     .orElseThrow(() -> new AppException("User with id: " + id + " not found", HttpStatus.NOT_FOUND));
         }
@@ -94,7 +91,7 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    public void deleteById(long id) {
+    public void deleteById(UUID id) {
         userRepository.deleteById(id);
     }
 
