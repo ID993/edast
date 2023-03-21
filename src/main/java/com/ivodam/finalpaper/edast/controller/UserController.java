@@ -5,15 +5,13 @@ import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.service.UserService;
-import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
@@ -45,7 +43,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public UserDto findById(@PathVariable long id) throws AppException {
+    public UserDto findById(@PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
         return userMapper.userToUserDto(user);
     }
@@ -58,7 +56,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public void deleteById(@PathVariable long id) {
+    public void deleteById(@PathVariable UUID id) {
         userService.deleteById(id);
     }
 
