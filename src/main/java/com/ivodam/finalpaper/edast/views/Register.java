@@ -1,11 +1,13 @@
 package com.ivodam.finalpaper.edast.views;
 
+import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,33 +25,63 @@ public class Register {
 
     private UserService userService;
 
-    private static final String registerUrl = "register";
 
     @GetMapping("/register")
     public String getRegister(WebRequest request, Model model) {
         var user = new User();
         model.addAttribute("user", user);
-        return registerUrl;
+        return "register";
     }
 
 
     @PostMapping("/register")
-    public String postRegister(@ModelAttribute("user") User user,
+    public String postRegister(@Valid @ModelAttribute("user") User user,
                                    BindingResult result,
                                    RedirectAttributes redirectAttributes,
                                    HttpServletRequest request,
-                                   Errors errors) {
+                                   Errors errors) throws AppException {
 
         redirectAttributes.addFlashAttribute("message", "Failed username");
         redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
-        if (result.hasErrors() || userService.findByEmail(user.getEmail()).isPresent()) {
-            return registerUrl;
+        if (result.hasErrors() || userService.existsByEmail(user.getEmail())) {
+            return "register";
         }
         redirectAttributes.addFlashAttribute("message", "Success");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-        user.setRole("ROLE_USER");
-        userService.create(user);
-        return "/login";
+        user.setRole(Enums.Roles.ROLE_USER);
+        var createdUser = userService.create(user);
+        System.out.println("User created: " + createdUser);
+        return "redirect:/login";
     }
+
+    @GetMapping("/admin/register")
+    public String adminGetRegister(WebRequest request, Model model) {
+        var user = new User();
+        user.setPassword("Password-#1");
+        model.addAttribute("user", user);
+        return "admin-register";
+    }
+
+    @PostMapping("/admin/register")
+    public String adminPostRegister(@Valid @ModelAttribute("user") User user,
+                               BindingResult result,
+                               RedirectAttributes redirectAttributes,
+                               HttpServletRequest request,
+                               Errors errors) throws AppException {
+
+        redirectAttributes.addFlashAttribute("message", "Failed username");
+        redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+        if (result.hasErrors() || userService.existsByEmail(user.getEmail())) {
+            System.out.println(result.getAllErrors() + "\n" + userService.existsByEmail(user.getEmail()));
+            return "admin-register";
+        }
+        redirectAttributes.addFlashAttribute("message", "Success");
+        redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+        user.setAddress("Enter address");
+        user.setMobile("Enter mobile number");
+        var createdUser = userService.create(user);
+        return "redirect:/users/list";
+    }
+
 }
 

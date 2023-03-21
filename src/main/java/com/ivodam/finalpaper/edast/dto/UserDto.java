@@ -2,9 +2,12 @@ package com.ivodam.finalpaper.edast.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ivodam.finalpaper.edast.enums.Enums;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
-import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,24 +30,27 @@ public class UserDto {
     @JsonProperty("password")
     private String password;
 
-    @JsonProperty("profession")
-    private String profession;
+    @JsonProperty("confirmPassword")
+    private String confirmPassword;
+
 
     @JsonProperty("address")
     private String address;
 
-    @JsonProperty("telephone")
-    private String telephone;
-
-    @JsonProperty("numberOfIdCard")
-    private String numberOfIdCard;
-
-    @JsonProperty("purposeOfResearch")
-    private String purposeOfResearch;
-
     @JsonProperty("joinDate")
-    private LocalDate joinDate;
+    private String joinDate;
 
     @JsonProperty("role")
-    private String role;
+    private Enums.Roles role;
+
+    @JsonProperty("pin")
+    private String personalIdentificationNumber;
+    @JsonProperty("mobile")
+    private String mobile;
+
+//    @JsonProperty("authorities")
+//    private Set<GrantedAuthority> authorities;
+
+
+
 }

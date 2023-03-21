@@ -11,6 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 @Configuration
 @EnableMethodSecurity
@@ -18,7 +21,6 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration{
 
     private UserDetailsServiceImpl userDetailsService;
-
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -29,6 +31,8 @@ public class SecurityConfiguration{
         return authProvider;
     }
 
+
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -37,7 +41,7 @@ public class SecurityConfiguration{
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
         http
-                .anonymous().disable()
+                //.anonymous().disable()
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/")
@@ -46,8 +50,10 @@ public class SecurityConfiguration{
                 .permitAll()
                 .requestMatchers("/login")
                 .permitAll()
-                .requestMatchers("/styles/css/**")
+                .requestMatchers("/styles/**")
                 .permitAll()
+                .requestMatchers("/forgot-password/**")
+                .hasRole("ANONYMOUS")
                 .requestMatchers("/users/**")
                 .hasAnyRole("ADMIN")
                 .anyRequest()

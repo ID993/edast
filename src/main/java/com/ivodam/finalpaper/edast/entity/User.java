@@ -1,20 +1,24 @@
 package com.ivodam.finalpaper.edast.entity;
 
+import com.ivodam.finalpaper.edast.enums.Enums;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "users")
@@ -28,23 +32,25 @@ public class User implements UserDetails{
 
     private String name;
 
+    @Email(message = "Enter a valid email address")
     private String email;
 
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+    @NotNull(message = "Password is required")
     private String password;
-
-    private String profession;
 
     private String address;
 
-    private String telephone;
+    private String joinDate;
 
-    private String numberOfIdCard;
+    private Enums.Roles role;
 
-    private String purposeOfResearch;
+    @Column(name = "pin")
+    @Size(min = 11, max = 11, message = "Personal Identification Number must be 11 digits long")
+    @NotNull(message = "Personal Identification Number is required")
+    private String personalIdentificationNumber;
 
-    private LocalDate joinDate;
-
-    private String role;
+    private String mobile;
 
     @Transient
     private Set<GrantedAuthority> authorities;
@@ -53,26 +59,22 @@ public class User implements UserDetails{
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = new HashSet<>(authorities);
-        this.role = StringUtils.collectionToCommaDelimitedString(
+        this.role = Enums.Roles.valueOf(StringUtils.collectionToCommaDelimitedString(
                 authorities.stream()
                         .map(GrantedAuthority::getAuthority)
-                        .toList());
+                        .toList()));
+
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (authorities == null) {
+        if (authorities == null && role != null) {
             authorities = new HashSet<>();
-            if (role != null) {
-                var authorityStrings = role.split(",");
-                for (String authorityString : authorityStrings) {
-                    authorities.add(new SimpleGrantedAuthority(authorityString));
-                }
-            }
+            var authorityString = role.toString();
+            authorities.add(new SimpleGrantedAuthority(authorityString));
         }
         return authorities;
     }
-
 
     @Override
     public String getUsername() {

@@ -2,22 +2,18 @@ package com.ivodam.finalpaper.edast.controller;
 
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.service.UserService;
+import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -28,7 +24,7 @@ public class UserController {
     private UserMapper userMapper;
 
     @PostMapping("/users")
-    public User create(@RequestBody User user) {
+    public User create(@RequestBody User user) throws AppException {
         return userService.create(user);
     }
 
@@ -39,8 +35,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @GetMapping("/users")
     public ResponseEntity<List<UserDto>> findAllRest() {
         var users = userService.findAll();
         var userDto = users.stream()
@@ -50,13 +45,13 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public UserDto findById(@PathVariable long id) {
+    public UserDto findById(@PathVariable long id) throws AppException {
         var user = userService.findById(id);
-        return userMapper.userToUserDto(user.get());
+        return userMapper.userToUserDto(user);
     }
 
     @GetMapping("/users/email/{email}")
-    public Optional<User> findByEmail(@PathVariable String email) {
+    public User findByEmail(@PathVariable String email) throws AppException {
         return userService.findByEmail(email);
     }
 
@@ -66,6 +61,9 @@ public class UserController {
     public void deleteById(@PathVariable long id) {
         userService.deleteById(id);
     }
+
+
+
 
 
 
