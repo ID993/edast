@@ -33,7 +33,7 @@
           <td th:text="${user.role.getDisplayName()}"></td>
 
           <div sec:authorize="hasRole('ADMIN')">
-            <td> <a th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
+            <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
             <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-success">Change role</a> </td>
           </div>
         </tr>

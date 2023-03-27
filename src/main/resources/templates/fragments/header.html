@@ -27,7 +27,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/account">Account</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
               <a class="nav-link active" aria-current="page" href="/users/list">All users</a>
             </li>
             <li class="nav-item">
@@ -43,10 +43,15 @@
             </li>
           </th:block>
         </ul>
-
       </div>
     </div>
+    <form action="/search" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
   </nav>
+
 </header>
 </body>
 </html>

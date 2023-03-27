@@ -3,6 +3,7 @@ package com.ivodam.finalpaper.edast.views;
 import com.ivodam.finalpaper.edast.service.MailService;
 import com.ivodam.finalpaper.edast.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,7 +19,7 @@ public class Index {
 
     @GetMapping("/")
     public String index(Principal principal) {
-
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
         return principal != null ? "index-signed-in" : "index";
     }
 

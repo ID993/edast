@@ -37,6 +37,15 @@ public class UserService {
         return matcher.matches();
     }
 
+    public boolean checkIfValidOldPassword(User user, String oldPassword){
+        return configuration.passwordEncoder().matches(oldPassword, user.getPassword());
+    }
+
+    public void updatePassword(User user, String password) {
+        user.setPassword(configuration.passwordEncoder().encode(password));
+        userRepository.save(user);
+    }
+
     public User create(User user) throws AppException {
         if(!isValid(user.getPassword()))
             throw new AppException("Password is not valid", HttpStatus.BAD_REQUEST);
@@ -45,32 +54,6 @@ public class UserService {
         user.setJoinDate(LocalDate.now().format(dateFormat));
         return userRepository.save(user);
 
-    }
-
-    public User update(User user) {
-        return userRepository.save(user);
-    }
-
-    public void updateUserAccount(UserDto userDto) throws AppException {
-        var user = findById(userDto.getId());
-        if(!Objects.equals(userDto.getPassword(), ""))
-            user.setPassword(configuration.passwordEncoder().encode(userDto.getPassword()));
-        userDto.setPassword(user.getPassword());
-        userDto.setJoinDate(user.getJoinDate());
-        userDto.setRole(user.getRole());
-        userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
-        user = userMapper.userDtoToUser(userDto);
-        userRepository.save(user);
-    }
-
-
-    public boolean checkIfValidOldPassword(User user, String oldPassword){
-        return configuration.passwordEncoder().matches(oldPassword, user.getPassword());
-    }
-
-    public void updatePassword(User user, String password) {
-        user.setPassword(configuration.passwordEncoder().encode(password));
-        userRepository.save(user);
     }
 
     public List<User> findAll() {
@@ -96,7 +79,23 @@ public class UserService {
     }
 
 
+    public User update(User user) {
+        return userRepository.save(user);
+    }
 
+    public void updateUserAccount(UserDto userDto) throws AppException {
+        var user = findById(userDto.getId());
+        userDto.setPassword(user.getPassword());
+        userDto.setJoinDate(user.getJoinDate());
+        userDto.setRole(user.getRole());
+        userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
+        var updatedUser = userMapper.userDtoToUser(userDto);
+        userRepository.save(updatedUser);
+    }
+
+    public List<User> findAllByNameContainingIgnoreCase(String name) {
+        return userRepository.findAllByNameContainingIgnoreCase(name);
+    }
 
 
 

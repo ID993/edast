@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @AllArgsConstructor
 public class Register {
 
+    //implement password confirmation
 
     private UserService userService;
 
