@@ -2,6 +2,7 @@ package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
+import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.repository.UserRepository;
@@ -97,6 +98,8 @@ public class UserService {
         return userRepository.findAllByNameContainingIgnoreCase(name);
     }
 
-
+    public List<User> findAllByRoleAndJobTitle(String role, String jobTitle) {
+        return userRepository.findAllByRoleAndJobTitle(Enums.Roles.valueOf(role), jobTitle);
+    }
 
 }

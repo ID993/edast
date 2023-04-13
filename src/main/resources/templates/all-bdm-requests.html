@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>BDM requests</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container">
+
+  <h1>BDM Requests</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Date of Birth</th>
+      <th>Place of Birth</th>
+      <th>Fathers Name</th>
+      <th>Mothers Name</th>
+      <th>Mothers maiden Name</th>
+      <th>Date of Marriage</th>
+      <th>Place of Marriage</th>
+      <th>Date of Death</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="request: ${bdmRequests}">
+      <tr>
+        <td th:text="${request.fullName}"></td>
+        <td th:text="${request.dateOfBirth}"></td>
+        <td th:text="${request.placeOfBirth}"></td>
+        <td th:text="${request.fathersName}"></td>
+        <td th:text="${request.mothersName}"></td>
+        <td th:text="${request.mothersMaidenName}"></td>
+        <td th:text="${request.dateOfMarriage}"></td>
+        <td th:text="${request.placeOfMarriage}"></td>
+        <td th:text="${request.dateOfDeath}"></td>
+        <td> <a th:href="@{/requests/{id}/response(id=${request.getId()})}">See Response</a> </td>
+
+        <td> <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary">Respond</a> </td>
+        <td> <a th:href="@{/requests/delete/{id}(id=${request.getId()})}" class="btn btn-warning">Delete</a> </td>
+
+      </tr>
+    </th:block>
+    </tbody>
+  </table>
+  <a th:href="@{/requests/BDM}" class="btn btn-success">Create new</a>
+
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

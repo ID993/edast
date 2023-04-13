@@ -1,6 +1,5 @@
 package com.ivodam.finalpaper.edast.views;
 
-import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;

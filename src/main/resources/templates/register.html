@@ -63,6 +63,11 @@
                                                 <label class="form-label" for="mobile">Mobile</label>
                                             </div>
 
+                                            <div class="form-outline mb-4">
+                                                <input type="text" id="jobTitle" class="form-control form-control-lg" th:field="*{jobTitle}"/>
+                                                <label class="form-label" for="jobTitle">Job title</label>
+                                            </div>
+
                                             <div class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></div>
 
                                             <div class="form-outline mb-4">

@@ -41,6 +41,7 @@ public class UserAccountView {
                              @ModelAttribute("user") UserDto userDto,
                              HttpServletRequest request,
                              Errors errors) throws AppException {
+        System.out.println(userDto);
         userService.updateUserAccount(userDto);
         return "redirect:/account";
     }

@@ -21,20 +21,17 @@ public class MailService {
 
     public void sendRequest(MailDto mailDto) throws MessagingException {
 
-        var auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            var user = (User)auth.getPrincipal();
+        //var auth = SecurityContextHolder.getContext().getAuthentication();
+        //if (auth != null) {
+            //var user = (User)auth.getPrincipal();
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message);
             helper.setSubject(mailDto.getSubject());
-            helper.setFrom("joe.daminew@gmail.com");
+            helper.setFrom(mailDto.getFrom());
             helper.setTo(mailDto.getTo());
-            helper.setText("<b>e-dast - no reply</b><br><br>" + mailDto.getMessage()
-                    + "<br><br><b>Full name: "
-                    + user.getName() + "</b><br><b>Email: "
-                    + user.getEmail(), true);
+            helper.setText(mailDto.getMessage());
             mailSender.send(message);
-        }
+        //}
     }
 
     @Async

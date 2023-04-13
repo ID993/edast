@@ -46,6 +46,9 @@ public class UserDto {
     @JsonProperty("mobile")
     private String mobile;
 
+    @JsonProperty("jobTitle")
+    private String jobTitle;
+
 //    @JsonProperty("authorities")
 //    private Set<GrantedAuthority> authorities;
 
