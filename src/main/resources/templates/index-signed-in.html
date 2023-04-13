@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org"
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
@@ -20,21 +20,17 @@
         Welcome to e-dast <br>
         <div th:text="${#authentication.principal.name}"></div><br>
     </h1>
-        <div sec:authorize="hasRole('USER')">
-            Text visible to user.<br>
-            <a class="btn btn-secondary mb-3 m-3" th:href="@{/requests/{id}}">My requests</a>
+        <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
+            <a class="btn btn-secondary mb-3 m-3" th:href="@{/my-requests/{id}(id=${user.getId()})}">My requests</a>
         </div>
         <div sec:authorize="hasRole('ADMIN')">
-            Text visible to admin.<br>
-            <a class="btn btn-info mb-3 m-3" th:href="@{/requests}">Requests</a>
+            <a class="btn btn-info mb-3 m-3" th:href="@{/requests/all}">Requests</a>
         </div>
         <div sec:authorize="hasRole('EMPLOYEE')">
-            Text visible to employee. <br>
-            <a class="btn btn-dark mb-3 m-3" th:href="@{/requests}">Requests</a>
-
+            <a class="btn btn-dark mb-3 m-3" th:href="@{/my-requests/{id}(id=${user.getId()})}">My Requests</a>
         </div>
 
-    <a th:href="@{/login}" class="btn btn-success mb-3 m-5">Make a request</a> <br>
+    <a th:href="@{/requests}" class="btn btn-success mb-3 m-5">Make a request</a> <br>
     <a th:href="@{/logout}" class="btn btn-warning mb-3 m-5">Logout</a>
 
 </div>

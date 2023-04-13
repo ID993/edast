@@ -54,6 +54,10 @@ public class User implements UserDetails{
 
     private String mobile;
 
+    private String jobTitle;
+
+
+
     @Transient
     private Set<GrantedAuthority> authorities;
 

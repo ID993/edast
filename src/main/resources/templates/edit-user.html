@@ -61,6 +61,15 @@
                       <label class="form-label" for="mobile">Change mobile</label>
                     </div>
                   </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-rectangle-ad fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="jobTitle" th:placeholder="*{user.jobTitle}" class="form-control" th:field="*{user.jobTitle}"/>
+                      <label class="form-label" for="jobTitle">Change Job title</label>
+                    </div>
+                  </div>
+
                   <div>
                     <a class="btn btn-secondary" th:href="@{/account/change-password}">Change password</a>
                   </div>
