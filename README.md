@@ -1,8 +1,19 @@
 # edast
 
+## Table of Contents
+---
+  - [General info](#general-info)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Authors](#authors)
+
+## General info
+
 Edast is a web application that serves as a platform for users to request historical records from state archives, such as birth certificates or historical cadastral maps. In addition, it allows users to make reservations for studying and researching in archives reading rooms.
 
-# Features
+
+
+## Features
 ---
 
 * User authentication: users can create an account and log in to make requests or reservations.
@@ -12,7 +23,7 @@ Edast is a web application that serves as a platform for users to request histor
 * Request tracking: each request is automatically written in the registry book, and it is assigned to an employee with the least number of requests in process.
 * Reading room reservation: users can fill out a form to order archive material for studying and research in archives reading rooms. The app checks the availability of     space in the reading room and offers the user an available day.
 
-# Tech Stack
+## Tech Stack
 
 ---
 
