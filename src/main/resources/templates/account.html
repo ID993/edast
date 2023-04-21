@@ -42,8 +42,8 @@
     </th:block>
     </tbody>
   </table>
-  <a th:href="@{/account/edit/{id}(id=${user.getId()})}" class="btn btn-success">Edit</a>
-  <a th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a>
+  <a th:href="@{/account/edit/{id}(id=${user.getId()})}" class="btn btn-primary">Edit</a>
+  <a th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a>
 
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>

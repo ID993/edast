@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org"
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
@@ -14,22 +14,17 @@
 </head>
 <body>
 
-<h1>Welcome to e-dast!</h1>
-
-
+<h2 class="text-center m-5">Welcome to e-dast!</h2>
 
 <div class="text-center m-5">
 
-    <a th:href="@{/archive}" class="btn btn-info mb-3 m-5">Archives</a>
+<!--    <a th:href="@{/archive}" class="btn btn-outline-info mb-3 m-5">Archives</a>-->
+    <a href="https://www.das.hr/koristenje-gradiva/digitalizirano-arhivsko-gradivo/" class="btn btn-info mb-3 m-5">Archives</a>
+
     <a th:href="@{/login}" class="btn btn-success mb-3 m-5">Login</a>
     <a th:href="@{/register}" class="btn btn-warning mb-3 m-5">Register</a>
 
 </div>
-
-<div class="logo-img opacity-25">
-    <img src="https://www.das.hr/wp-content/uploads/2015/07/das-logo-side.png" alt="logo">
-</div>
-
 
 </body>
 </html>
