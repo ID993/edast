@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org"
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
@@ -29,14 +29,12 @@
         </thead>
         <tbody>
             <tr>
-
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.joinDate}"></td>
                 <td th:text="${user.role.getDisplayName()}"></td>
-
-                <td> <a th:href="@{/users/add-admin/{id}(id=${user.getId()})}" class="btn btn-warning">Make an admin</a> </td>
-                <td> <a th:href="@{/users/add-employee/{id}(id=${user.getId()})}" class="btn btn-success">Make an employee</a> </td>
+                <td> <a th:href="@{/users/add-admin/{id}(id=${user.getId()})}" class="btn btn-outline-primary">Make an admin</a> </td>
+                <td> <a th:href="@{/users/add-employee/{id}(id=${user.getId()})}" class="btn btn-outline-dark">Make an employee</a> </td>
             </tr>
         </tbody>
     </table>

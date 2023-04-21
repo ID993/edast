@@ -14,6 +14,7 @@
   <div class="container">
 
     <h1>Users</h1>
+    <hr>
     <table class="table">
       <thead>
         <tr>
@@ -21,7 +22,7 @@
           <th>email</th>
           <th>Date joined</th>
           <th>Role</th>
-          <th></th>
+
         </tr>
       </thead>
       <tbody>
@@ -33,14 +34,14 @@
           <td th:text="${user.role.getDisplayName()}"></td>
 
           <div sec:authorize="hasRole('ADMIN')">
-            <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-warning">Delete</a> </td>
-            <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-success">Change role</a> </td>
+            <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a> </td>
+            <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-primary">Change role</a> </td>
           </div>
         </tr>
       </th:block>
       </tbody>
     </table>
-    <a th:href="@{/admin/register}" class="btn btn-success">Add</a>
+    <a th:href="@{/admin/register}" class="btn btn-outline-primary">Add</a>
 
   </div>
 <div th:replace="~{fragments/footer :: footer}"></div>

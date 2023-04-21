@@ -18,7 +18,7 @@
 <div class="container mx-auto mt-5">
     <h1>
         Welcome to e-dast <br>
-        <div th:text="${#authentication.principal.name}"></div><br>
+        <div th:text="${#authentication.principal.name}"></div><br>     <!--OVO TRIBA PROMINIT, ADMIN MOŽE VIDIT SVE, USER NE-->
     </h1>
         <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
             <a class="btn btn-secondary mb-3 m-3" th:href="@{/my-requests/{id}(id=${user.getId()})}">My requests</a>

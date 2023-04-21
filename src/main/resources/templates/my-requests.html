@@ -36,13 +36,13 @@
         <td> <a th:href="@{/requests/{id}/response(id=${request.getId()})}">See Response</a> </td>
         <div sec:authorize="hasAnyRole('EMPLOYEE', 'ADMIN')">
           <td> <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary">Respond</a> </td>
-          <td> <a th:href="@{/requests/delete/{id}(id=${request.getId()})}" class="btn btn-warning">Delete</a> </td>
+          <td> <a th:href="@{/requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger">Delete</a> </td>
         </div>
       </tr>
     </th:block>
     </tbody>
   </table>
-  <a th:href="@{/requests/BDM}" class="btn btn-success">Create new</a>
+  <a th:href="@{/requests/BDM}" class="btn btn-outline-primary">Create new</a>
 
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>
