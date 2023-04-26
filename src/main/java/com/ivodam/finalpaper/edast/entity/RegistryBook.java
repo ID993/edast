@@ -37,7 +37,7 @@ public class RegistryBook {
 
     private UUID requestId;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private User employee;
 

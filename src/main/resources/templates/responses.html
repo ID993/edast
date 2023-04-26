@@ -14,21 +14,21 @@
 <div class="container">
 
     <h1>Responses</h1>
-    <table class="table">
+    <table class="table table-striped ">
         <thead>
         <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Date of Creation</th>
-            <th></th>
+            <th><a class="text-black" href="sortbytitle"/>Title</th>
+            <th><a class="text-black" href="sortbydate"/>Date of Creation</th>
+            <th class="text-black">Content</th>
+
         </tr>
         </thead>
         <tbody>
         <th:block th:each="response: ${responses}">
             <tr>
                 <td th:text="${response.title}"></td>
-                <td th:textarea="${response.content}"></td>
                 <td th:text="${response.dateOfCreation}"></td>
+                <td th:textarea="${response.content}"></td>
             </tr>
         </th:block>
         </tbody>
