@@ -37,7 +37,9 @@ public class ResponseView {
 
     @GetMapping("/responses/{requestId}")
     public String responses(@PathVariable UUID requestId, Model model){
+        var registryBookRecord = registryBookService.findByRequestId(requestId);
         model.addAttribute("response", new Response());
+        model.addAttribute("record", registryBookRecord);
         return "make-response";
     }
 
@@ -60,7 +62,7 @@ public class ResponseView {
         return "redirect:/requests/" + requestId + "/response";
     }
 
-    //RESPONSE OF REQUEST JOŠ
+    //DODATI U REGISTRY BOOK USERID MANY TO ONE
 
 
 }

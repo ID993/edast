@@ -12,23 +12,25 @@
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <div class="container">
-
-  <h1>Response of request</h1>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Date of Creation</th>
-      <th></th>
-    </tr>
-    </thead>
+  <br>
+  <h2>Response of request</h2>
+    <hr class="mb-3">
+  <table class="table table-striped">
     <tbody>
       <tr>
-        <td th:text="${response.title}"></td>
-        <td th:text="${response.content}"></td>
-        <td th:text="${response.dateOfCreation}"></td>
+        <td th:text="'Title: ' + ${response.title}"></td>
       </tr>
+      <tr>
+        <td th:text="'Date: ' + ${response.dateOfCreation}"></td>
+      </tr>
+      <tr>
+        <td>Content:</td>
+      </tr>
+      <tr>
+        <td th:text="${response.content}"></td>
+      </tr>
+
+
     </tbody>
   </table>
   <button class="btn btn-outline-dark mt-auto" style="width: 100px;" onclick="history.back()">Back</button>

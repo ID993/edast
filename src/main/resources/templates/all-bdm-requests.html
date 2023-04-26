@@ -27,6 +27,8 @@
       <th>Place of Marriage</th>
       <th>Date of Death</th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -41,9 +43,10 @@
         <td th:text="${request.dateOfMarriage}"></td>
         <td th:text="${request.placeOfMarriage}"></td>
         <td th:text="${request.dateOfDeath}"></td>
-        <td> <a th:href="@{/requests/{id}/response(id=${request.getId()})}">See Response</a> </td>
-
-        <td> <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary">Respond</a> </td>
+        <td> <a th:href="@{/requests/{id}/response(id=${request.getId()})}" class="btn btn-outline-dark">Response</a> </td>
+        <div sec:authorize="hasRole('ADMIN')">
+          <td> <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary">Respond</a> </td>
+        </div>
         <td> <a th:href="@{/requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger">Delete</a> </td>
 
       </tr>

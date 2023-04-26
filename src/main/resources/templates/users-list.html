@@ -15,14 +15,15 @@
 
     <h1>Users</h1>
     <hr>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Name</th>
           <th>email</th>
           <th>Date joined</th>
           <th>Role</th>
-
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -32,11 +33,8 @@
           <td th:text="${user.email}"></td>
           <td th:text="${user.joinDate}"></td>
           <td th:text="${user.role.getDisplayName()}"></td>
-
-          <div sec:authorize="hasRole('ADMIN')">
-            <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a> </td>
-            <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-primary">Change role</a> </td>
-          </div>
+          <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a> </td>
+          <td> <a th:href="@{/users/list/{id}(id=${user.getId()})}" class="btn btn-primary">Update</a> </td>
         </tr>
       </th:block>
       </tbody>
