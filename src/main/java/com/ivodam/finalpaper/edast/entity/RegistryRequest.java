@@ -13,7 +13,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "registry_request")
-public class RegistryRequest extends RequestForm{
+public class RegistryRequest {
+
+    @Id
+    private UUID id;
 
     private String requestName;
 

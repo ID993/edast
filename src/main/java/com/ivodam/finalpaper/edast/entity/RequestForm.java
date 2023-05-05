@@ -10,9 +10,9 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 @Entity(name = "request_form")
-public abstract class RequestForm {
+public class RequestForm {
 
     @Id
     @GeneratedValue(generator = "uuid2")

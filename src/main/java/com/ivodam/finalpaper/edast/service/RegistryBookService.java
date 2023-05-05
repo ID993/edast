@@ -96,7 +96,7 @@ public class RegistryBookService {
         var registryBook = registryBookRepository.findByRequestId(requestId).orElse(null);
         assert registryBook != null;
         registryBook.setStatus("Completed");
-        registryBook.setCompletedDate(LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT)));
+        //registryBook.setCompletedDate(LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT)));
         registryBookRepository.save(registryBook);
     }
 }

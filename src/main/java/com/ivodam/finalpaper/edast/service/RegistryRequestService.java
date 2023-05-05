@@ -1,15 +1,13 @@
 package com.ivodam.finalpaper.edast.service;
 
 
-import com.ivodam.finalpaper.edast.entity.BDMRequest;
 import com.ivodam.finalpaper.edast.entity.RegistryRequest;
+import com.ivodam.finalpaper.edast.entity.RequestForm;
 import com.ivodam.finalpaper.edast.repository.RegistryRequestRepository;
 import com.ivodam.finalpaper.edast.repository.RequestFormRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,8 +23,8 @@ public class RegistryRequestService {
         return registryRequestRepository.save(request);
     }
 
-    public RegistryRequest findById(UUID id) {
-        return (RegistryRequest) requestFormRepository.findById(id).orElse(null);
+    public RequestForm findById(UUID id) {
+        return requestFormRepository.findById(id).orElse(null);
     }
 
     public void deleteById(UUID id) {
