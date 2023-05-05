@@ -7,7 +7,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface BDMRequestRepository extends JpaRepository<BDMRequest, UUID> {
-
-
-    List<BDMRequest> findAllByUserId(UUID userId);
+        List<BDMRequest> findAllByUserId(UUID userId);
 }
