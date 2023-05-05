@@ -33,6 +33,7 @@ public class SecurityConfiguration{
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
         http
@@ -47,6 +48,8 @@ public class SecurityConfiguration{
                 .permitAll()
                 .requestMatchers("/styles/**")
                 .permitAll()
+                .requestMatchers("/js/**")
+                .permitAll()
                 .requestMatchers("/forgot-password/**")
                 .hasRole("ANONYMOUS")
                 .requestMatchers("/users/**")
@@ -54,7 +57,9 @@ public class SecurityConfiguration{
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin(form -> form.loginPage("/login"))
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true))
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")

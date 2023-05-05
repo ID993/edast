@@ -3,6 +3,7 @@ package com.ivodam.finalpaper.edast.views;
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
+import com.ivodam.finalpaper.edast.helpers.PasswordHandler;
 import com.ivodam.finalpaper.edast.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class UserAccountView {
 
     private final UserService userService;
+    private final PasswordHandler passwordHandler;
 
     @GetMapping("/account")
     public String getAccount(Model model) throws AppException {
@@ -41,7 +43,6 @@ public class UserAccountView {
                              @ModelAttribute("user") UserDto userDto,
                              HttpServletRequest request,
                              Errors errors) throws AppException {
-        System.out.println(userDto);
         userService.updateUserAccount(userDto);
         return "redirect:/account";
     }
@@ -65,7 +66,7 @@ public class UserAccountView {
                                      @RequestParam String confirmPassword) throws AppException, IOException {
         var user = userService.findByEmail(
                 SecurityContextHolder.getContext().getAuthentication().getName());
-        if (!userService.checkIfValidOldPassword(user, oldPassword)) {
+        if (!passwordHandler.checkIfValidOldPassword(user, oldPassword)) {
             throw new IOException("Wrong old password");
         } else if (!password.equals(confirmPassword)) {
             throw new IOException("Passwords do not match");

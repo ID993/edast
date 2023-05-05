@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Controller
@@ -40,7 +41,12 @@ public class PasswordResetView {
     }
 
     @PostMapping("/forgot-password/reset/{id}")
-    public String changeForgottenPasswordPost(@PathVariable UUID id, @RequestParam String password) throws AppException {
+    public String changeForgottenPasswordPost(@PathVariable UUID id,
+                                              @RequestParam String password,
+                                              @RequestParam String confirmPassword) throws AppException, IOException {
+        if (!password.equals(confirmPassword)) {
+            throw new IOException("Passwords do not match");
+        }
         var user = userService.findById(id);
         userService.updatePassword(user, password);
         return "redirect:/login";

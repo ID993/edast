@@ -9,32 +9,62 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/index.js}"></script>
+  <link th:href="@{/styles/css/index.css}" rel="stylesheet">
 
 </head>
-<body class="text-center">
-
+<body>
 <div th:replace="~{fragments/header :: header}"></div>
+<section class="jobs">
+  <h3 class="text-center m-3" style="font-family: 'Arial',serif; font-weight: bold">Choose one of the requests you need</h3>
+  <hr>
+  <div class="row">
+    <div class="jobs-col">
+      <h3>Registry</h3>
+      <p>Get certified copies of registry records for the purpose of tracing family history and
+        finding information about Your ancestors. Specifically, You can obtain
+        birth, marriage, and death certificates for members of family who were born, married,
+        or died.</p>
+      <a class="btn btn-primary mt-3" th:href="@{/requests/BDM}">Registry Requests</a>
 
-<div class="container mx-auto mt-5">
-  <h1>
-    Make a request<br>
-    <div th:text="${#authentication.principal.name}"></div><br>
-  </h1>
-  <div sec:authorize="hasRole('USER')">
-    Text visible to user.<br>
-    <a class="btn btn-secondary mb-3 m-3" th:href="@{/my-requests/{id}((id=${user.getId()}))}">My requests</a>
+    </div>
+    <div class="jobs-col">
+      <h3>Work</h3>
+      <p>If you have previously worked for a company that has archive material in our archives,
+        we may be able to provide you with a work certificate to verify your employment history.
+        A work certificate is a document that confirms your employment dates, job title,
+        and other relevant details.</p>
+      <a class="btn btn-primary" th:href="@{/requests/WORK}">Work Requests</a>
+    </div>
+    <div class="jobs-col">
+      <h3>School</h3>
+      <p>We can help you locate school certificates that have been archived in the state archives.
+        Schools maintain registry books of student records that are eventually transferred to the
+        archives for safekeeping. Contact us if you need help finding your school certificate.</p>
+      <a class="btn btn-primary" th:href="@{/requests/SCHOOL}">School Requests</a>
+    </div>
+    <div class="jobs-col">
+      <h3>Cadastre</h3>
+      <p>Looking for information about a property or land parcel? Our archives hold cadastre records that can provide
+        details about land ownership, boundaries, and other relevant information.</p>
+      <a class="btn btn-primary" th:href="@{/requests/CADASTRAL}">Cadastral Requests</a>
+    </div>
+    <div class="jobs-col">
+      <h3>Special</h3>
+      <p>Do you have a special request for archive records that are not covered by our standard services?
+        Contact us today to discuss your needs and how we can assist you. Our expert staff will work with
+        you to find the records you need and provide you with the information and support you require.</p>
+      <a class="btn btn-primary" th:href="@{/requests/SPECIAL}">Special requests</a>
+    </div>
+    <div class="jobs-col-room">
+      <h3>Reading room</h3>
+      <p>Are you planning to visit our archives to conduct research or review records? Reserve a spot in our
+        reading room today to ensure that you have access to the materials you need. Contact us with your preferred
+        date and time, and we will confirm your reservation.</p>
+      <a class="btn btn-outline-light" th:href="@{/reading-room}">Reading room reservation</a>
+    </div>
   </div>
-    <a class="btn btn-info mb-3 m-3" th:href="@{/requests/BDM}">BDM Requests</a>
-    <a class="btn btn-info mb-3 m-3" th:href="@{/requests/WORK}">Work Requests</a>
-    <a class="btn btn-info mb-3 m-3" th:href="@{/requests/SCHOOL}">School Requests</a>
-    <a class="btn btn-info mb-3 m-3" th:href="@{/requests/CADASTRAL}">Cadastral Requests</a>
-  </div>
-  <div sec:authorize="hasRole('EMPLOYEE')">
-    Text visible to employee. <br>
-    <a class="btn btn-dark mb-3 m-3" th:href="@{/requests}">Requests</a>
-  </div>
-
-
+</section>
 <div th:replace="~{fragments/footer.html :: footer}"></div>
 </body>
 </html>

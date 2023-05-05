@@ -1,5 +1,8 @@
 package com.ivodam.finalpaper.edast.restUtility;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import lombok.AllArgsConstructor;
@@ -11,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 @RestController
 @AllArgsConstructor
@@ -57,7 +62,42 @@ public class Utility {
         restTemplate.exchange(postUrl, HttpMethod.POST, requestEntity, classType);
     }
 
+    public void readAndPrintJson() throws IOException {
+        String jsonPath = "C:\\Users\\ivoda\\Desktop\\edast\\src\\main\\resources\\static\\json\\archive.json";
+        String outputPath = "C:\\Users\\ivoda\\Desktop\\edast\\src\\main\\resources\\static\\json\\newArchive.json";
+        // Read the contents of the file into a String
+        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonPath)));
 
+        // Print the JSON content to the console
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(jsonContent);
 
+        ObjectNode outputJsonNode = objectMapper.createObjectNode();
+        // Iterate over the fields of the JSON object and translate their keys
+        Iterator<Map.Entry<String, JsonNode>> fieldsIterator = jsonNode.fields();
+        while (fieldsIterator.hasNext()) {
+            Map.Entry<String, JsonNode> field = fieldsIterator.next();
+            String translatedKey = translate(field.getKey()); // replace with your translation function
+            JsonNode value = field.getValue();
+            // do something with the translated key and value
+            outputJsonNode.set(translatedKey, value);
+        }
+        objectMapper.writeValue(Paths.get(outputPath).toFile(), outputJsonNode);
+    }
+
+    private static String translate(String key) {
+        if (Objects.equals(key, "Signatura"))
+            return "Signature";
+        else if ("Naziv".equals(key))
+            return "Title";
+        else if ("Od".equals(key))
+            return "From";
+        else if ("Do".equals(key))
+            return "To";
+        else if ("Klasa".equals(key))
+            return "Class";
+        else
+            return "Type";
+    }
 
 }

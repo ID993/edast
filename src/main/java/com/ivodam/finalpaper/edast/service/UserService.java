@@ -4,6 +4,7 @@ import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
+import com.ivodam.finalpaper.edast.helpers.PasswordHandler;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.repository.UserRepository;
 import com.ivodam.finalpaper.edast.security.SecurityConfiguration;
@@ -14,10 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 @AllArgsConstructor
@@ -26,21 +24,8 @@ public class UserService {
     private UserRepository userRepository;
     private SecurityConfiguration configuration;
     private UserMapper userMapper;
+    private PasswordHandler passwordHandler;
 
-
-    private static final String PASSWORD_PATTERN =
-            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
-
-    private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-
-    public boolean isValid(final String password) {
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
-    }
-
-    public boolean checkIfValidOldPassword(User user, String oldPassword){
-        return configuration.passwordEncoder().matches(oldPassword, user.getPassword());
-    }
 
     public void updatePassword(User user, String password) {
         user.setPassword(configuration.passwordEncoder().encode(password));
@@ -48,7 +33,7 @@ public class UserService {
     }
 
     public User create(User user) throws AppException {
-        if(!isValid(user.getPassword()))
+        if(!passwordHandler.isValid(user.getPassword()))
             throw new AppException("Password is not valid", HttpStatus.BAD_REQUEST);
         user.setPassword(configuration.passwordEncoder().encode(user.getPassword()));
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
