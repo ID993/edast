@@ -32,6 +32,7 @@ public class User implements UserDetails{
     @Column(name = "user_id", columnDefinition = "uuid", updatable = false)
     private UUID id;
 
+    @Size(min = 2, message = "Name must be at least 2 characters long")
     private String name;
 
     @Email(message = "Enter a valid email address")
@@ -56,12 +57,8 @@ public class User implements UserDetails{
 
     private String jobTitle;
 
-
-
     @Transient
     private Set<GrantedAuthority> authorities;
-
-
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = new HashSet<>(authorities);
@@ -69,7 +66,6 @@ public class User implements UserDetails{
                 authorities.stream()
                         .map(GrantedAuthority::getAuthority)
                         .toList()));
-
     }
 
     @Override
@@ -86,22 +82,18 @@ public class User implements UserDetails{
     public String getUsername() {
         return this.email;
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
     @Override
     public boolean isEnabled() {
         return true;

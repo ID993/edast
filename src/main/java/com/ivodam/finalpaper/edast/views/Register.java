@@ -49,8 +49,7 @@ public class Register {
         redirectAttributes.addFlashAttribute("message", "Success");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         user.setRole(Enums.Roles.ROLE_USER);
-        var createdUser = userService.create(user);
-        System.out.println("User created: " + createdUser);
+        userService.create(user);
         return "redirect:/login";
     }
 
@@ -72,14 +71,13 @@ public class Register {
         redirectAttributes.addFlashAttribute("message", "Failed username");
         redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
         if (result.hasErrors() || userService.existsByEmail(user.getEmail())) {
-            System.out.println(result.getAllErrors() + "\n" + userService.existsByEmail(user.getEmail()));
             return "admin-register";
         }
         redirectAttributes.addFlashAttribute("message", "Success");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         user.setAddress("Enter address");
         user.setMobile("Enter mobile number");
-        var createdUser = userService.create(user);
+        userService.create(user);
         return "redirect:/users/list";
     }
 

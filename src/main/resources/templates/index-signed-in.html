@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
-    <script type="text/javascript" th:src="@{/scripts/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
     <link th:href="@{/styles/css/index.css}" rel="stylesheet">
 </head>
 <body>
@@ -22,18 +22,19 @@
 <!--<section style="background-color: #eee; position: relative;">-->
 <section style="min-height: 78vh; display: flex; flex-direction: column; background-color: #eee">
     <div class="container mx-auto mt-5">
-        <h2 style="font-family: 'Monsieur La Doulaise',serif; font-weight: bold">
-            Welcome to e-dast,
+        <h2 style="font-family: 'Arial',serif; font-weight: bold">
+            Welcome to <i>eDAST</i>,
             <span th:text="${#authentication.principal.name}"></span><br>     <!--OVO TRIBA PROMINIT, ADMIN MOŽE VIDIT SVE, USER NE-->
         </h2>
 
         <div sec:authorize="hasAnyRole('USER', 'EMPLOYEE', 'ADMIN')">
-            <a class="btn btn-outline-dark mb-3 m-3" th:href="@{/my-requests/{id}(id=${user.getId()})}">My requests</a>
+            <a class="btn btn-outline-dark mb-3 m-3" th:href="@{/my-requests/{id}(id=${session.user.id})}">My requests</a>
+
         </div>
         <div sec:authorize="hasRole('ADMIN')">
             <a class="btn btn-outline-primary mb-3 m-3" th:href="@{/requests/all}">All Requests</a>
         </div>
-        <div sec:authorize="hasRole('USER')">
+        <div sec:authorize="hasAnyRole('USER', 'EMPLOYEE', 'ADMIN')">
             <a class="btn btn-primary mb-3 m-3" th:href="@{/requests}">Make a Request</a>
         </div>
     </div>

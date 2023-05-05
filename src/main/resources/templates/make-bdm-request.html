@@ -9,85 +9,116 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
-  <link th:href="@{/styles/css/index.css}" rel="stylesheet">
+  <script type="text/javascript" th:src="@{/js/index.js}"></script>
+  <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
 
 </head>
 <body>
-
-<section class="h-100 bg-dark position-static">
-  <div class="container py-5 h-100">
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee; position: static">
+  <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card card-registration my-4">
-<!--          <div class="row g-0">-->
-
-<!--            <div class="col-xl-6">-->
-              <div class="card-body p-md-4 text-black">
-                <h3 class="mb-4 text-uppercase">BDM Request</h3>
-
+      <div class="col-lg-12 col-xl-11">
+        <div class="text-black" style="border-radius: 25px;">
+          <div class="p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center justify-content-evenly h3 fw-bold mb-2 mx-1 mx-md-4 mt-4">Request for birth, marriage or death certificate</p>
+                <hr>
                 <form id="form" class="mx-1 mx-md-4" th:object="${bdmRequest}" method="POST" enctype="utf8">
-
-                  <div class="form-outline mb-4">
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
+                  <div >
                       <input class="form-check-input" type="radio" id="bdmSelectionBirth" th:value="Birth" name="selectionRadio" th:field="*{bdmSelection}"/>
-                      <label class="form-check-label" for="bdmSelectionBirth">Birth</label>
-
-                      <input class="form-check-input" type="radio" id="selectionRadioDeath" th:value="Death" name="selectionRadio" th:field="*{bdmSelection}"/>
-                      <label class="form-check-label" for="selectionRadioDeath">Death</label>
-
-                      <input class="form-check-input" type="radio" id="selectionRadioMarriage" th:value="Marriage" name="selectionRadio" th:field="*{bdmSelection}"/>
-                      <label class="form-check-label" for="selectionRadioMarriage">Marriage</label>
-
+                      <label class="form-check-label" for="bdmSelectionBirth">Birth</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
+                  <div >
+                    <input class="form-check-input" type="radio" id="selectionRadioDeath" th:value="Death" name="selectionRadio" th:field="*{bdmSelection}"/>
+                    <label class="form-check-label" for="selectionRadioDeath">Death</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div >
+                    <input class="form-check-input" type="radio" id="selectionRadioMarriage" th:value="Marriage" name="selectionRadio" th:field="*{bdmSelection}"/>
+                    <label class="form-check-label" for="selectionRadioMarriage">Marriage</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  </div>
+
 
                   <h5 class="mb-4 text-uppercase">Information about the person for whom a certified copy is requested:</h5>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="name" class="form-control form-control-lg" th:field="*{fullName}"/>
-                    <label class="form-label" for="name">Full name</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-pencil fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="name" class="form-control form-control-lg" th:field="*{fullName}"/>
+                      <label class="form-label" for="name">Full name</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}"/>
-                    <label class="form-label" for="dateOfBirth">Date of birth</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-calendar-alt fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}"/>
+                      <label class="form-label" for="dateOfBirth">Date of birth</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="placeOfBirth" class="form-control form-control-lg" th:field="*{placeOfBirth}"/>
-                    <label class="form-label" for="placeOfBirth">Place of birth</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="placeOfBirth" class="form-control form-control-lg" th:field="*{placeOfBirth}"/>
+                      <label class="form-label" for="placeOfBirth">Place of birth</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="fathersName" class="form-control form-control-lg" th:field="*{fathersName}"/>
-                    <label class="form-label" for="fathersName">Fathers name</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-male fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="fathersName" class="form-control form-control-lg" th:field="*{fathersName}"/>
+                      <label class="form-label" for="fathersName">Fathers name</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="mothersName" class="form-control form-control-lg" th:field="*{mothersName}"/>
-                    <label class="form-label" for="mothersName">Mothers name</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-female fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="mothersName" class="form-control form-control-lg" th:field="*{mothersName}"/>
+                      <label class="form-label" for="mothersName">Mothers name</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="mothersMaidenName" class="form-control form-control-lg" th:field="*{mothersMaidenName}"/>
-                    <label class="form-label" for="mothersMaidenName">Mothers maiden name</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-history fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="mothersMaidenName" class="form-control form-control-lg" th:field="*{mothersMaidenName}"/>
+                      <label class="form-label" for="mothersMaidenName">Mothers maiden name</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="dateOfMarriage" class="form-control form-control-lg" th:field="*{dateOfMarriage}"/>
-                    <label class="form-label" for="dateOfMarriage">Date of marriage (for Marriage certification)</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-calendar fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="dateOfMarriage" class="form-control form-control-lg" th:field="*{dateOfMarriage}"/>
+                      <label class="form-label" for="dateOfMarriage">Date of marriage (for Marriage certification)</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="placeOfMarriage" class="form-control form-control-lg" th:field="*{placeOfMarriage}"/>
-                    <label class="form-label" for="placeOfMarriage">Place of marriage (for Marriage certification)</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-map-marker fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="placeOfMarriage" class="form-control form-control-lg" th:field="*{placeOfMarriage}"/>
+                      <label class="form-label" for="placeOfMarriage">Place of marriage (for Marriage certification)</label>
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="dateOfDeath" class="form-control form-control-lg" th:field="*{dateOfDeath}"/>
-                    <label class="form-label" for="dateOfDeath">Date of Death</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-skull fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="dateOfDeath" class="form-control form-control-lg" th:field="*{dateOfDeath}"/>
+                      <label class="form-label" for="dateOfDeath">Date of Death (for Death certification)</label>
+                    </div>
                   </div>
 
 
-                  <div class="d-flex justify-content-end pt-3">
+                  <div class="d-flex justify-content-center pt-3">
                     <button type="reset" class="btn btn-light btn-lg">Reset all</button>
                     <button type="submit" class="btn btn-primary btn-lg ms-2">Send</button>
                   </div>

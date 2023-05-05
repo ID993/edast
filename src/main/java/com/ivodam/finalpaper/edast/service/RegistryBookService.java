@@ -59,7 +59,10 @@ public class RegistryBookService {
             return LocalDate.now().plusDays(15).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
     }
 
+
+
     public void save(UUID requestId, String requestName) {
+
         var registryBook = new RegistryBook();
         registryBook.setClassNumber(classNumberGenerator(requestName));
         registryBook.setRegistryNumber("2189-101-" + LocalDate.now().getYear() + "-"  + requestName + "/1");
@@ -91,7 +94,9 @@ public class RegistryBookService {
 
     public void updateRegistryBook(UUID requestId) {
         var registryBook = registryBookRepository.findByRequestId(requestId).orElse(null);
+        assert registryBook != null;
         registryBook.setStatus("Completed");
+        registryBook.setCompletedDate(LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT)));
         registryBookRepository.save(registryBook);
     }
 }
