@@ -1,5 +1,11 @@
-function dropDown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function accDropDown() {
+    document.getElementById("accDropdown").classList.toggle("show");
+}
+function reqDropDown() {
+    document.getElementById("reqDropdown").classList.toggle("show");
+}
+function userDropDown() {
+    document.getElementById("userDropdown").classList.toggle("show");
 }
 
 window.onclick = function(event) {

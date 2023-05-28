@@ -1,3 +1,4 @@
+
 .dropbtn {
     /*background-color: #eee;*/
     color: black;
@@ -16,6 +17,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    text-align: start !important;
 }
 
 .dropdown-content {
@@ -40,3 +42,16 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+.badge {
+    position: relative;
+    top: -20px;
+    left: -25px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.inbox-button {
+    margin:5px;
+
+}
+

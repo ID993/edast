@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @AllArgsConstructor
 public class Register {
 
-    //implement password confirmation
+    //implement password confirmation and userdto
 
     private UserService userService;
 
@@ -58,7 +58,7 @@ public class Register {
         var user = new User();
         user.setPassword("Password-#1");
         model.addAttribute("user", user);
-        return "admin-register";
+        return "admin/admin-register";
     }
 
     @PostMapping("/admin/register")
@@ -71,14 +71,14 @@ public class Register {
         redirectAttributes.addFlashAttribute("message", "Failed username");
         redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
         if (result.hasErrors() || userService.existsByEmail(user.getEmail())) {
-            return "admin-register";
+            return "admin/admin-register";
         }
         redirectAttributes.addFlashAttribute("message", "Success");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         user.setAddress("Enter address");
         user.setMobile("Enter mobile number");
         userService.create(user);
-        return "redirect:/users/list";
+        return "redirect:/users/all";
     }
 
 }

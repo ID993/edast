@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -25,19 +26,19 @@ public class PasswordResetView {
 
     @GetMapping("/forgot-password")
     public String resetPassword() {
-        return "forgot-password";
+        return "password/forgot-password";
     }
 
 
     @PostMapping("/forgot-password")
     public String resetPassword(@RequestParam String email) throws MessagingException, AppException {
         mailService.sendPasswordResetLink(email);
-        return "forgot-password-success";
+        return "password/forgot-password-success";
     }
 
     @GetMapping("/forgot-password/reset/{id}")
     public String changeForgottenPasswordGet(@PathVariable UUID id) {
-        return "forgot-password-reset";
+        return "password/forgot-password-reset";
     }
 
     @PostMapping("/forgot-password/reset/{id}")

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>BDM requests</title>
@@ -12,22 +12,23 @@
   <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
   <link th:href="@{/styles/css/sidebar.css}" rel="stylesheet">
   <script type="text/javascript" th:src="@{/js/sidebar.js}"></script>
+
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <section style="background-color: #eee; height: 100vh">
   <div class="container">
 
-
     <h1>Registry Requests</h1>
+
     <table class="table table-striped">
       <thead>
       <tr>
         <th>Date</th>
         <th>Selection</th>
-        <th>Requester</th>
-        <th>Person of Interest</th>
-        <th>Completed On</th>
+        <th>Person of interest</th>
+        <th>Completed</th>
+        <th></th>
         <th></th>
       </tr>
       </thead>
@@ -36,22 +37,21 @@
           <tr>
             <td th:text="${request.dateCreated}"></td>
             <td th:text="${request.bdmSelection}"></td>
-            <td th:text="${request.user.getName()}"></td>
             <td th:text="${request.fullName}"></td>
+            <td th:text="${request.isCompleted() ? 'Yes' : 'No'}"></td>
+            <td> <a th:href="@{/request/{requestName}/{requestId}(requestName=${request.getRequestName()},requestId=${request.getId()})}" class="btn btn-primary">Details</a>
+            <td th:if="${request.isCompleted()}">
+              <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
+            </td>
             <td></td>
-            <td> <a th:href="@{/bdm-requests/{id}(id=${request.getId()})}" class="btn btn-primary">Details</a> </td>
-<!--            <td> <a th:href="@{/{requestName}/{id}(requestName=${request.getRequestName()},id=${request.getId()})}" class="btn btn-primary">Details</a> </td>-->
           </tr>
         </th:block>
       </tbody>
     </table>
     <a th:href="@{/bdm-requests}" class="btn btn-outline-primary">Create new</a>
+
   </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
-
-
-
-

@@ -1,4 +1,4 @@
-package com.ivodam.finalpaper.edast.restUtility;
+package com.ivodam.finalpaper.edast.utility;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

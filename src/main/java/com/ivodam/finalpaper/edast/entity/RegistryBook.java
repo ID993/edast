@@ -35,15 +35,17 @@ public class RegistryBook {
 
     private String deadlineDate;
 
-    //private String completedDate;
+    private String completedDate;
 
     private UUID requestId;
+
+    private boolean read;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private User employee;
 
-//    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

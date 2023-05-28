@@ -1,7 +1,6 @@
 package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.dto.MailDto;
-import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -9,29 +8,31 @@ import lombok.AllArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Objects;
 
 @Service
+@EnableAsync
 @AllArgsConstructor
 public class MailService {
 
     private UserService userService;
     private JavaMailSender mailSender;
 
+    @Async
     public void sendRequest(MailDto mailDto) throws MessagingException {
 
-        //var auth = SecurityContextHolder.getContext().getAuthentication();
-        //if (auth != null) {
-            //var user = (User)auth.getPrincipal();
-            MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message);
-            helper.setSubject(mailDto.getSubject());
-            helper.setFrom(mailDto.getFrom());
-            helper.setTo(mailDto.getTo());
-            helper.setText(mailDto.getMessage());
-            mailSender.send(message);
-        //}
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setSubject(mailDto.getSubject());
+        helper.setFrom(mailDto.getFrom());
+        helper.setTo(mailDto.getTo());
+        helper.setText(mailDto.getMessage());
+        mailSender.send(message);
+
     }
 
     @Async
@@ -48,6 +49,36 @@ public class MailService {
         mailSender.send(message);
     }
 
-    private static final MailDto mail = new MailDto("joe.daminew@gmail.com", "ivo.damjanovic@live.com", "Test", "Test");
 
+
+//    @Qualifier("taskExecutor")
+//    private TaskExecutor taskExecutor;
+
+    @Async
+    public void sendEmailAttachment(final String subject, final String message, final String fromEmailAddress,
+                                    final String toEmailAddresses, final boolean isHtmlMail,
+                                    MultipartFile[] multipartFiles) {
+        //taskExecutor.execute(() -> {
+            try {
+                MimeMessage mimeMessage = mailSender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+                helper.setFrom(fromEmailAddress);
+                helper.setTo(toEmailAddresses);
+                helper.setSubject(subject);
+    
+                if (isHtmlMail) {
+                    helper.setText("<html><body>" + message + "</html></body>", true);
+                } else {
+                    helper.setText(message);
+                }
+                for (MultipartFile file: multipartFiles) {
+                    helper.addAttachment(Objects.requireNonNull(file.getOriginalFilename()), file);
+                }
+                mailSender.send(mimeMessage);
+                System.out.println("Email sending complete.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        //});
+    }
 }
