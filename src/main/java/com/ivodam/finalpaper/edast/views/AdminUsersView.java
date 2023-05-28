@@ -24,20 +24,32 @@ public class AdminUsersView {
     @RequestMapping("/search")
     public String searchUsers(@RequestParam String name, Model model) {
         model.addAttribute("users", userService.findAllByNameContainingIgnoreCase(name));
-        return "users-list";
+        return "admin/users-all";
     }
 
-    @GetMapping("/users/list")
-    public String getAllUsers(Model model) {
+    @GetMapping("/users/all")
+    public String getAll(Model model) {
         model.addAttribute("users", userService.findAll());
-        return "users-list";
+        return "admin/users-all";
     }
 
-    @GetMapping("/users/list/{id}")
+    @GetMapping("/users/citizens")
+    public String getAllUsers(Model model) {
+        model.addAttribute("users", userService.findAllUsers());
+        return "admin/users-all";
+    }
+
+    @GetMapping("/users/employees")
+    public String getAllEmployees(Model model) {
+        model.addAttribute("users", userService.findAllEmployee());
+        return "admin/users-all";
+    }
+
+    @GetMapping("/users/all/{id}")
     public String getUserById(Model model, @PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
         model.addAttribute("user", user);
-        return "users-update-roles";
+        return "admin/users-update-roles";
     }
 
     @GetMapping("/users/add-admin/{id}")
@@ -45,7 +57,7 @@ public class AdminUsersView {
         var user = userService.findById(id);
         user.setRole(Enums.Roles.ROLE_ADMIN);
         userService.update(user);
-        return "redirect:/users/list/{id}";
+        return "redirect:/users/all/{id}";
     }
 
     @GetMapping("/users/add-employee/{id}")
@@ -53,13 +65,13 @@ public class AdminUsersView {
         var user = userService.findById(id);
         user.setRole(Enums.Roles.ROLE_EMPLOYEE);
         userService.update(user);
-        return "redirect:/users/list/{id}";
+        return "redirect:/users/all/{id}";
     }
 
     @GetMapping("admin/account/delete/{id}")
     public String deleteUserById(@PathVariable UUID id) {
         userService.deleteById(id);
-        return "redirect:/users/list";
+        return "redirect:/users/all";
     }
 
 }

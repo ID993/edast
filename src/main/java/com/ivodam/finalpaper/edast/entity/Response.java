@@ -22,7 +22,6 @@ public class Response {
     @Column(name = "id", columnDefinition = "uuid", updatable = false)
     private UUID id;
 
-
     private String title;
 
     private String content;
@@ -31,7 +30,13 @@ public class Response {
 
     private UUID requestId;
 
+    private boolean read;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private User employee;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

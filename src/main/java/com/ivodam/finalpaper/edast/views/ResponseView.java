@@ -1,19 +1,21 @@
 package com.ivodam.finalpaper.edast.views;
 
-import com.ivodam.finalpaper.edast.dto.MailDto;
 import com.ivodam.finalpaper.edast.entity.Response;
-import com.ivodam.finalpaper.edast.service.BDMRequestService;
+import com.ivodam.finalpaper.edast.entity.User;
+import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.service.MailService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
-import jakarta.mail.MessagingException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
@@ -23,8 +25,6 @@ public class ResponseView {
 
     private final ResponseService responseService;
 
-    private final BDMRequestService bdmRequestService;
-
     private final RegistryBookService registryBookService;
 
     private final MailService mailService;
@@ -32,7 +32,7 @@ public class ResponseView {
     @GetMapping("/responses")
     public String responses(Model model){
         model.addAttribute("responses", responseService.findAll());
-        return "responses";
+        return "responses/responses";
     }
 
     @GetMapping("/responses/{requestId}")
@@ -40,29 +40,38 @@ public class ResponseView {
         var registryBookRecord = registryBookService.findByRequestId(requestId);
         model.addAttribute("response", new Response());
         model.addAttribute("record", registryBookRecord);
-        return "make-response";
+        return "responses/make-response";
     }
+
 
     @PostMapping("/responses/{requestId}")
     public String responses(@PathVariable UUID requestId,
-                            @ModelAttribute Response response) throws MessagingException {
-
-        var request = bdmRequestService.findById(requestId);
-        var employee = registryBookService.findByRequestId(requestId).getEmployee();
-        var mail = new MailDto();
-        mail.setFrom(employee.getEmail());
-        mail.setTo(request.getUser().getEmail());
-        mail.setSubject(response.getTitle());
-        mail.setMessage("Your request has been processed. Please check your responses.");
-        response.setRequestId(requestId);
-        response.setEmployee(employee);
-        responseService.create(response);
+                            @ModelAttribute Response response,
+                            @ModelAttribute("files") MultipartFile[] files) {
+        var coverLetter = responseService.create(requestId, response);
         registryBookService.updateRegistryBook(requestId);
-        mailService.sendRequest(mail);
-        return "redirect:/requests/" + requestId + "/response";
+        mailService.sendEmailAttachment(coverLetter.getTitle(), coverLetter.getContent(),
+                coverLetter.getEmployee().getEmail(), coverLetter.getUser().getEmail(), true, files);
+        return "redirect:/";
     }
 
-    //DODATI U REGISTRY BOOK USERID MANY TO ONE
+    @GetMapping("/response/request/{id}")
+    public String getRespond(@PathVariable UUID id, Model model, HttpServletRequest request) {
+        var user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var response = responseService.findByRequestId(id);
+        if(user.getRole().equals(Enums.Roles.ROLE_USER)) {
+            response.setRead(true);
+            responseService.update(response);
+            request.getSession().setAttribute("msgCount", responseService.countByRead(false, user.getId()));
+        }
+        model.addAttribute("response", response);
+        return "responses/response-of-request";
+    }
 
 
+    @GetMapping("/responses/all/{userId}")
+    public String allUserResponses(@PathVariable UUID userId, Model model){
+        model.addAttribute("responses", responseService.findAllByUserId(userId));
+        return "responses/responses";
+    }
 }

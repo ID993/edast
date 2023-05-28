@@ -28,14 +28,14 @@ public class UserAccountView {
         var user = userService.findByEmail(
                 SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("user", user);
-        return "account";
+        return "account/account";
     }
 
     @GetMapping("account/edit/{id}")
     public String editUser(@PathVariable UUID id, Model model) throws AppException {
         model.addAttribute("user", userService.findById(id));
         model.addAttribute("roles", Enums.Roles.values());
-        return "edit-user";
+        return "account/account-edit";
     }
 
     @PostMapping("account/edit/{id}")
@@ -57,7 +57,7 @@ public class UserAccountView {
 
     @GetMapping("/account/change-password")
     public String changePassword() {
-        return "change-password";
+        return "password/change-password";
     }
 
     @PostMapping("/account/change-password")

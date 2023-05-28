@@ -46,6 +46,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findAllUsers() {
+        return userRepository.findAllByRole(Enums.Roles.ROLE_USER);
+    }
+
+    public List<User> findAllEmployee() {
+        return userRepository.findAllByRole(Enums.Roles.ROLE_EMPLOYEE);
+    }
+
     public User findById(UUID id) throws AppException {
             return userRepository.findById(id)
                     .orElseThrow(() -> new AppException("User with id: " + id + " not found", HttpStatus.NOT_FOUND));

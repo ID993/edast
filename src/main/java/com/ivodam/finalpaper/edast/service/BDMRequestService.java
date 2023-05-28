@@ -21,6 +21,8 @@ public class BDMRequestService {
     private final RegistryBookService registryBookService;
 
     public BDMRequest saveRequest(BDMRequest bdmRequest) {
+        bdmRequest.setRead(false);
+        bdmRequest.setCompleted(false);
         bdmRequest.setDateCreated(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy.")));
         return bdmRequestRepository.save(bdmRequest);
     }
@@ -38,6 +40,11 @@ public class BDMRequestService {
     }
 
     public void updateRequest(BDMRequest bdmRequest) {
+        bdmRequestRepository.save(bdmRequest);
+    }
+
+    public void readRequest(BDMRequest bdmRequest) {
+        bdmRequest.setRead(true);
         bdmRequestRepository.save(bdmRequest);
     }
 

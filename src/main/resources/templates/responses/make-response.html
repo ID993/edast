@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
     <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
 </head>
 <body>
@@ -36,7 +36,8 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td th:text="'Date: ' + ${record.getDeadlineDate()}"></td>
+                                <td th:text="'Date: ' + ${#dates.format(#dates.createNow(), 'dd.MM.yyyy.')}"></td>
+
                                 <td></td>
                             </tr>
                             <tr>
@@ -44,15 +45,15 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td th:text="'&emsp;&emsp;' + ${record.getEmployee().getName()}"></td>
+                                <td th:text="'&emsp;&emsp;' + ${record.getUser().getName()}"></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td th:text="'&emsp;&emsp;' + ${record.getEmployee().getAddress()}"></td>
+                                <td th:text="'&emsp;&emsp;' + ${record.getUser().getAddress()}"></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td th:text="'&emsp;&emsp;' + ${record.getEmployee().getEmail()}"></td>
+                                <td th:text="'&emsp;&emsp;' + ${record.getUser().getEmail()}"></td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -61,7 +62,7 @@
                 </div>
             </div>
             <div class="col-xl-4 text-black card-padding form-max-h flex-outline w-50 justify-content-evenly">
-                <form method="post" th:object="${response}">
+                <form method="post" th:object="${response}" enctype="multipart/form-data">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-floating flex-fill mb-0">
                             <input type="text" id="subject" class="form-control" th:field="*{title}" required/>
@@ -74,9 +75,13 @@
                             <label class="form-label" for="message">Message</label>
                         </div>
                     </div>
-<!--                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">-->
-<!--                        <button class="btn btn-outline-dark mt-auto" style="width: 100px;" onclick="history.back()">Back</button>-->
-<!--                    </div>-->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-image fa-lg me-3 fa-fw"></i>
+                        <div class="form-floating flex-fill mb-0">
+                            <input type="file" id="files" class="form-control" name="files" accept="*/*" multiple/>
+                            <label class="form-label" for="files">Upload files</label>
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button type="submit" class="btn btn-primary btn-lg">Send</button>
                     </div>

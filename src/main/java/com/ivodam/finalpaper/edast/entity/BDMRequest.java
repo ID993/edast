@@ -46,6 +46,10 @@ public class BDMRequest {
 
     private String dateCreated;
 
+    private boolean read;
+
+    private boolean completed;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
