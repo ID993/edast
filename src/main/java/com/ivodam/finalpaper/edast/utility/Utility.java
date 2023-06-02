@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ivodam.finalpaper.edast.dto.UserDto;
+import com.ivodam.finalpaper.edast.entity.Document;
 import com.ivodam.finalpaper.edast.enums.Enums;
+import com.ivodam.finalpaper.edast.service.DocumentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,14 +16,55 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.WebRequest;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.zip.Deflater;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 @RestController
 @AllArgsConstructor
 public class Utility {
+
+    private final DocumentService documentService;
+
+    public byte[] createZipFile(UUID id) throws IOException {
+        var zipFile = File.createTempFile("download", ".zip");
+        var zipOutput = new FileOutputStream(zipFile);
+        var zipOutputStream = new ZipOutputStream(zipOutput);
+        zipOutputStream.setLevel(Deflater.DEFAULT_COMPRESSION);
+        var files = documentService.findAllByResponseId(id);
+        try {
+            for (Document document : files) {
+                var filePath = "src/main/resources/static/storage/" + document.getName();
+
+                var file = new File(filePath);
+                var fileContent = new byte[(int) file.length()];
+                try (var inputStream = new FileInputStream(file)) {
+                    inputStream.read(fileContent);
+                }
+
+                var zipEntry = new ZipEntry(document.getName());
+                zipOutputStream.putNextEntry(zipEntry);
+
+                zipOutputStream.write(fileContent);
+                zipOutputStream.closeEntry();
+            }
+        } finally {
+            zipOutputStream.close();
+        }
+        var zipContent = new byte[(int) zipFile.length()];
+        try (var inputStream = new FileInputStream(zipFile)) {
+            inputStream.read(zipContent);
+        }
+        zipFile.delete();
+        return zipContent;
+    }
 
     public void messageConverter(RestTemplate restTemplate) {
         List<HttpMessageConverter<?>> converters = restTemplate.getMessageConverters();
