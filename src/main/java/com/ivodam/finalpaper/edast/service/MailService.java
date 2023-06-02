@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Objects;
 
 @Service
-@EnableAsync
 @AllArgsConstructor
 public class MailService {
 

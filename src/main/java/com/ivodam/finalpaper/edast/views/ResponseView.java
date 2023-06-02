@@ -3,6 +3,7 @@ package com.ivodam.finalpaper.edast.views;
 import com.ivodam.finalpaper.edast.entity.Response;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
+import com.ivodam.finalpaper.edast.service.DocumentService;
 import com.ivodam.finalpaper.edast.service.MailService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Controller
@@ -28,6 +30,8 @@ public class ResponseView {
     private final RegistryBookService registryBookService;
 
     private final MailService mailService;
+
+    private final DocumentService documentService;
 
     @GetMapping("/responses")
     public String responses(Model model){
@@ -47,9 +51,10 @@ public class ResponseView {
     @PostMapping("/responses/{requestId}")
     public String responses(@PathVariable UUID requestId,
                             @ModelAttribute Response response,
-                            @ModelAttribute("files") MultipartFile[] files) {
+                            @ModelAttribute("files") MultipartFile[] files) throws IOException {
         var coverLetter = responseService.create(requestId, response);
         registryBookService.updateRegistryBook(requestId);
+        documentService.storeDocuments(coverLetter.getId(), files);
         mailService.sendEmailAttachment(coverLetter.getTitle(), coverLetter.getContent(),
                 coverLetter.getEmployee().getEmail(), coverLetter.getUser().getEmail(), true, files);
         return "redirect:/";

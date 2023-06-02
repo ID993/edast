@@ -76,11 +76,13 @@ public class BdmRequestView {
         model.addAttribute("request", bdmRequest);
         if(user.getRole().equals(Enums.Roles.ROLE_USER)) {
             return "user-bdm-request-details";
+        } else if (user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE)) {
+            bdmRequestService.readRequest(bdmRequest);
+            registryBookService.updateReadStatus(requestId);
+            request.getSession().setAttribute("msgCount", registryBookService.countByEmployeeIdAndRead(user.getId(), false));
+            return "employee-bdm-request-details";
         }
-        bdmRequestService.readRequest(bdmRequest);
-        registryBookService.updateReadStatus(requestId);
-        request.getSession().setAttribute("msgCount", registryBookService.countByEmployeeIdAndRead(user.getId(), false));
-        return "employee-bdm-request-details";
+        return "redirect:/bdm-requests/all";
     }
 
 
