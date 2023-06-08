@@ -15,27 +15,35 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee; height: 100vh;">
+<section style="background-color: #eee;">
     <div class="container">
-
+        <h1>Requests</h1>
+        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
+            <form action="/search" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <hr>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Class number</th>
-                <th>Registry number</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Received</th>
-                <th>Deadline</th>
-                <th>Requester</th>
-                <th>Employee</th>
-                <th>Completed on</th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='classNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Class' + (${sortBy} == 'classNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='registryNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Registry number' + (${sortBy} == 'registryNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='title',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Title' + (${sortBy} == 'title' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='status',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Status' + (${sortBy} == 'status' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='receivedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Received' + (${sortBy} == 'receivedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='deadlineDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Deadline' + (${sortBy} == 'deadlineDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='user',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Requester' + (${sortBy} == 'user' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='employee',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Employee' + (${sortBy} == 'employee' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},page=0,size=${requests.size},sortBy='completedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th></th>
                 <th></th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <th:block th:each="record: ${requests}">
+            <th:block th:each="record: ${requests.content}">
                 <tr th:classappend="${(record.isRead()) ? 'message-read' : 'message-unread'}">
                     <td th:text="${record.getClassNumber()}"></td>
                     <td th:text="${record.getRegistryNumber()}"></td>
@@ -56,6 +64,11 @@
             </th:block>
             </tbody>
         </table>
+        <div class="text-center">
+            <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/requests/all/{userId}(userId=${session.user.id},page=${currentPage - 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+            <span th:text="${currentPage + 1} + ' of ' + ${requests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+            <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < requests.totalPages}" th:href="@{/requests/all/{userId}(userId=${session.user.id},page=${currentPage + 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+        </div>
     </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>

@@ -5,6 +5,8 @@ import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.repository.BDMRequestRepository;
 import com.ivodam.finalpaper.edast.repository.RegistryBookRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
@@ -93,12 +95,12 @@ public class RegistryBookService {
     public List<RegistryBook> findByRequestName(String requestName) {
         return registryBookRepository.findByRequestName(requestName);
     }
-    public List<RegistryBook> findByEmployeeId(UUID id) {
-        return registryBookRepository.findByEmployeeId(id);
+    public Page<RegistryBook> findByEmployeeId(UUID id, Pageable pageable) {
+        return registryBookRepository.findByEmployeeId(id, pageable);
     }
 
-    public List<RegistryBook> findByEmployeeIdAndRequestName(UUID id, String requestName) {
-        return registryBookRepository.findByEmployeeIdAndRequestName(id, requestName);
+    public Page<RegistryBook> findByEmployeeIdAndRequestName(UUID id, String requestName, Pageable pageable) {
+        return registryBookRepository.findByEmployeeIdAndRequestName(id, requestName, pageable);
     }
 
     public void updateRegistryBook(UUID id) {
@@ -124,8 +126,8 @@ public class RegistryBookService {
         registryBookRepository.save(registryBook);
     }
 
-    public List<RegistryBook> findByEmployeeIdAndReadOrderByReceivedDateDesc(UUID employeeId, boolean read) {
-        return registryBookRepository.findByEmployeeIdAndReadOrderByReceivedDateDesc(employeeId, read);
+    public Page<RegistryBook> findByEmployeeIdAndRead(UUID employeeId, boolean read, Pageable pageable) {
+        return registryBookRepository.findByEmployeeIdAndRead(employeeId, read, pageable);
     }
 
     public List<RegistryBook> findByEmployeeIdOrderByReceivedDateDesc(UUID employeeId) {
@@ -137,5 +139,41 @@ public class RegistryBookService {
     }
     public long countByEmployeeIdAndRead(UUID employeeId, boolean read) {
         return registryBookRepository.countByEmployeeIdAndRead(employeeId, read);
+    }
+
+    public Page<RegistryBook> searchByClassNumberOrUserOrEmployee(String keyword, Pageable pageable) {
+        return registryBookRepository.searchAllByClassNumberOrUserOrEmployee(keyword, pageable);
+    }
+
+    public Page<RegistryBook> searchByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllBdmByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllBdmByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllWorkByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllWorkByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllEducationByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllEducationByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllCadastralByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllCadastralByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllSpecialByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
+        return registryBookRepository.searchAllSpecialByClassNumberOrUser(keyword, employeeId, pageable);
+    }
+
+    public Page<RegistryBook> searchAllByClassNumberOrUserOrEmployeeAndRequestName(String keyword, String requestName, Pageable pageable) {
+        return registryBookRepository.searchAllByClassNumberOrUserOrEmployeeAndRequestName(keyword, requestName, pageable);
+    }
+
+    public Page<RegistryBook> findAllPaging(Pageable pageable) {
+        return registryBookRepository.findAll(pageable);
     }
 }

@@ -33,8 +33,8 @@ public class UserService {
     }
 
     public User create(User user) throws AppException {
-        if(!passwordHandler.isValid(user.getPassword()))
-            throw new AppException("Password is not valid", HttpStatus.BAD_REQUEST);
+//        if(!passwordHandler.isValid(user.getPassword()))
+//            throw new AppException("Password is not valid", HttpStatus.BAD_REQUEST);
         user.setPassword(configuration.passwordEncoder().encode(user.getPassword()));
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         user.setJoinDate(LocalDate.now().format(dateFormat));
@@ -73,9 +73,10 @@ public class UserService {
     }
 
 
-    public User update(User user) {
+    public User updateRole(User user) {
         return userRepository.save(user);
     }
+
 
     public void updateUserAccount(UserDto userDto) throws AppException {
         var user = findById(userDto.getId());

@@ -18,9 +18,14 @@
 <div th:replace="~{fragments/header :: header}"></div>
 <section style="background-color: #eee; height: 100vh">
   <div class="container">
-
     <h1>Registry Requests</h1>
-
+    <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
+      <form action="/search-bdm-requests" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    <hr>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -28,6 +33,7 @@
         <th>Selection</th>
         <th>Person of interest</th>
         <th>Completed</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -43,6 +49,7 @@
             <td th:if="${request.isCompleted()}">
               <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
             </td>
+            <td> <a th:href="@{/bdm-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger">Delete</a> </td>
             <td></td>
           </tr>
         </th:block>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <title>Make Special Request</title>
+  <meta charset="utf-8">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+  <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+
+
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee; position: static">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="text-black" style="border-radius: 25px;">
+          <div class="p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center justify-content-evenly h3 fw-bold mb-2 mx-1 mx-md-4 mt-4">Request for making certified copies:</p>
+                <hr>
+                <form id="form" class="mx-1 mx-md-4" th:object="${specialRequest}" method="POST" enctype="utf8">
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-pencil-alt fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="title" class="form-control form-control-lg" th:field="*{title}"/>
+                      <label class="form-label" for="title">Title</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-id-card-alt fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="creatorName" class="form-control form-control-lg" th:field="*{creatorName}"/>
+                      <label class="form-label" for="creatorName">Creator name</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-file fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <textarea class="form-control" name="description" id="description" cols="30" rows="5" style="height: 364px" th:field="*{documentDescription}" required></textarea>
+                      <label class="form-label" for="description">Document description</label>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center pt-3">
+                    <button type="reset" class="btn btn-light btn-lg">Reset all</button>
+                    <button type="submit" class="btn btn-primary btn-lg ms-2">Send</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

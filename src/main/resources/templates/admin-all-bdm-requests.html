@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>All registry requests</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+    <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+    <link th:href="@{/styles/css/message.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/sidebar.js}"></script>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee;">
+    <div class="container">
+        <h1>Registry requests</h1>
+        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
+            <form action="/search-bdm" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Class number</th>
+                <th>Registry number</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Received</th>
+                <th>Deadline</th>
+                <th>Requester</th>
+                <th>Employee</th>
+                <th>Completed on</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="record: ${requests}">
+                <tr th:classappend="${(record.isRead()) ? 'message-read' : 'message-unread'}">
+                    <td th:text="${record.getClassNumber()}"></td>
+                    <td th:text="${record.getRegistryNumber()}"></td>
+                    <td th:text="${record.getTitle()}"></td>
+                    <td th:text="${record.getStatus()}"></td>
+                    <td th:text="${record.getReceivedDate()}"></td>
+                    <td th:text="${record.getDeadlineDate()}"></td>
+                    <td th:text="${record.getUser().getName()}"></td>
+                    <td th:text="${record.getEmployee().getName()}"></td>
+                    <td th:text="${record.getCompletedDate()}"></td>
+                    <td> <a th:href="@{/request/{requestName}/{requestId}(requestName=${record.getRequestName()},requestId=${record.getRequestId()})}" class="btn btn-primary">Details</a>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</section>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

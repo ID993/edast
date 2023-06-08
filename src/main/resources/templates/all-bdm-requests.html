@@ -15,7 +15,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee; height: 100vh">
+<section style="background-color: #eee;">
   <div class="container">
 
 
@@ -38,6 +38,7 @@
             <td th:text="${request.bdmSelection}"></td>
             <td th:text="${request.user.getName()}"></td>
             <td th:text="${request.fullName}"></td>
+
             <td></td>
             <td> <a th:href="@{/bdm-requests/{id}(id=${request.getId()})}" class="btn btn-primary">Details</a> </td>
 <!--            <td> <a th:href="@{/{requestName}/{id}(requestName=${request.getRequestName()},id=${request.getId()})}" class="btn btn-primary">Details</a> </td>-->
