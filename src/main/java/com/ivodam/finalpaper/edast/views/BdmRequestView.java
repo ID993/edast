@@ -12,10 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -49,7 +46,7 @@ public class BdmRequestView {
     @GetMapping("/bdm-requests/all")
     public String allRequests(Model model){
         model.addAttribute("requests", registryBookService.findByRequestName("BDM"));
-        return "all-requests";
+        return "admin-all-bdm-requests";
     }
 
     @GetMapping("/user-bdm-requests/all/{userId}")
@@ -65,9 +62,12 @@ public class BdmRequestView {
     }
     @GetMapping("/bdm-requests/delete/{id}")
     public String deleteById(@PathVariable UUID id) {
+        var user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         bdmRequestService.deleteById(id);
-        return "redirect:/user-bdm-requests/all/{userId}";
+        return "redirect:/user-bdm-requests/all/" + user.getId();
     }
+
+
 
     @GetMapping("request/BDM/{requestId}")
     public String employeeBdmRequestDetails(@PathVariable UUID requestId, Model model, HttpServletRequest request) {
@@ -85,5 +85,10 @@ public class BdmRequestView {
         return "redirect:/bdm-requests/all";
     }
 
-
+    @RequestMapping("/search-bdm-requests")
+    public String searchRequests(@RequestParam String name, Model model) {
+        var user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("bdmRequests", bdmRequestService.searchAllByKeyword(name, user.getId()));
+        return "user-bdm-requests";
+    }
 }

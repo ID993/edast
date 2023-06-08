@@ -4,6 +4,7 @@ import com.ivodam.finalpaper.edast.enums.Enums;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -36,9 +37,11 @@ public class User implements UserDetails{
     private String name;
 
     @Email(message = "Enter a valid email address")
+    @NotNull(message = "Email is required")
     private String email;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "Password must contain at least one uppercase letter, one lowercase letter and one number")
     @NotNull(message = "Password is required")
     private String password;
 
@@ -53,6 +56,7 @@ public class User implements UserDetails{
     @NotNull(message = "Personal Identification Number is required")
     private String personalIdentificationNumber;
 
+    @Size(min = 9, message = "Mobile number must be at least 9 characters long")
     private String mobile;
 
     private String jobTitle;

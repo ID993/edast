@@ -27,9 +27,9 @@ public class UserController {
     }
 
     @PostMapping("/users/add-role")
-    public User update(@RequestBody UserDto userDto) {
-        var user = userMapper.userDtoToUser(userDto);
-        return userService.update(user);
+    public User update(@RequestBody User user) {
+        //var user = userMapper.userDtoToUser(userDto);
+        return userService.updateRole(user);
     }
 
 

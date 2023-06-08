@@ -16,8 +16,13 @@
 <div th:replace="~{fragments/header :: header}"></div>
 <section style="height: 100vh;">
   <div class="container">
-
     <h1>Users</h1>
+      <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
+        <form action="/search-users" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+          <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
     <hr>
     <table class="table table-striped">
       <thead>
@@ -27,6 +32,7 @@
           <th>Date joined</th>
           <th>Job title</th>
           <th>Role</th>
+          <th></th>
           <th></th>
           <th></th>
         </tr>
@@ -40,7 +46,9 @@
           <td th:text="${user.jobTitle}"></td>
           <td th:text="${user.role.getDisplayName()}"></td>
           <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a> </td>
-          <td> <a th:href="@{/users/all/{id}(id=${user.getId()})}" class="btn btn-primary">Update</a> </td>
+          <td th:if="${user.getRole().getDisplayName() == 'Employee'}">
+            <a th:href="@{/users/all/{id}(id=${user.getId()})}" class="btn btn-primary">Update</a> </td>
+          </td>
         </tr>
       </th:block>
       </tbody>

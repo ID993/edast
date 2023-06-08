@@ -73,12 +73,12 @@
           </li>
         </ul>
 
-        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
-          <form action="/search" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
-            <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
+<!--        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">-->
+<!--          <form action="/search" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">-->
+<!--            <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">-->
+<!--            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>-->
+<!--          </form>-->
+<!--        </div>-->
 
         <ul class="navbar-nav">
           <div sec:authorize="hasRole('ANONYMOUS')">
@@ -95,7 +95,7 @@
 				<a sec:authorize="hasAnyRole('USER')" class="inbox-button btn btn-primary" th:href="@{/responses/all/{id}(id=${session.user.id})}">
 				<i class="fa fa-envelope"></i>
 				</a>
-                <a sec:authorize="hasAnyRole('EMPLOYEE')" class="inbox-button btn btn-primary" th:href="@{/requests/all/unread/{id}(id=${session.user.id})}">
+                <a sec:authorize="hasAnyRole('EMPLOYEE')" class="inbox-button btn btn-primary" th:href="@{/requests/unread/{userId}(userId=${session.user.id})}">
 				<i class="fa fa-envelope"></i>
 				</a>
 				<span sec:authorize="hasAnyRole('USER', 'EMPLOYEE')" class="badge badge-dark" th:text="${session.msgCount}"></span>

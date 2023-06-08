@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <title>Make Cadastral Request</title>
+  <meta charset="utf-8">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+  <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+
+
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee; position: static">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="text-black" style="border-radius: 25px;">
+          <div class="p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center justify-content-evenly h3 fw-bold mb-2 mx-1 mx-md-4 mt-4">Request for making certified copies of cadastral materials from:</p>
+                <hr>
+                <form id="form" class="mx-1 mx-md-4" th:object="${cadastralRequest}" method="POST" enctype="utf8">
+                  Chose the type of cadastral material:<br>
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
+                  <div >
+                      <input class="form-check-input" type="radio" id="cartographic" th:value="Cartographic" name="selectionRadio" th:field="*{cadastralSelection}"/>
+                      <label class="form-check-label" for="cartographic">Cartographic</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div >
+                    <input class="form-check-input" type="radio" id="written" th:value="Written" name="selectionRadio" th:field="*{cadastralSelection}"/>
+                    <label class="form-check-label" for="written">Written</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div >
+                    <input class="form-check-input" type="radio" id="both" th:value="All" name="selectionRadio" th:field="*{cadastralSelection}"/>
+                    <label class="form-check-label" for="both">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-map fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="cadastralMunicipality" class="form-control form-control-lg" th:field="*{cadastralMunicipality}"/>
+                      <label class="form-label" for="cadastralMunicipality">Cadastral municipality</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-map-marked-alt fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="landParcels" class="form-control form-control-lg" th:field="*{landParcels}"/>
+                      <label class="form-label" for="landParcels">Land parcels (e.g.: 34/1, 43/2...)</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-building fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="buildingParcels" class="form-control form-control-lg" th:field="*{buildingParcels}"/>
+                      <label class="form-label" for="buildingParcels">Building parcels (e.g.: 23/1, 23/2...)</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-clock fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0">
+                      <input type="text" id="period" class="form-control form-control-lg" th:field="*{period}"/>
+                      <label class="form-label" for="period">Period (e.g.: 1831-1883)</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center pt-3">
+                    <button type="reset" class="btn btn-light btn-lg">Reset all</button>
+                    <button type="submit" class="btn btn-primary btn-lg ms-2">Send</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

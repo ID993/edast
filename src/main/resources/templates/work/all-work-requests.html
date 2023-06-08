@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Work requests</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+  <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+  <link th:href="@{/styles/css/sidebar.css}" rel="stylesheet">
+  <script type="text/javascript" th:src="@{/js/sidebar.js}"></script>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee; height: 100vh">
+  <div class="container">
+
+
+    <h1>Work Requests</h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Selection</th>
+        <th>Requester</th>
+        <th>Person of Interest</th>
+        <th>Completed On</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        <th:block th:each="request: ${workRequests}">
+          <tr>
+            <td th:text="${request.dateCreated}"></td>
+            <td th:text="${request.workSelection}"></td>
+            <td th:text="${request.user.getName()}"></td>
+            <td th:text="${request.fullName}"></td>
+
+            <td></td>
+            <td> <a th:href="@{/work-requests/{id}(id=${request.getId()})}" class="btn btn-primary">Details</a> </td>
+<!--            <td> <a th:href="@{/{requestName}/{id}(requestName=${request.getRequestName()},id=${request.getId()})}" class="btn btn-primary">Details</a> </td>-->
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+    <a th:href="@{/work-requests}" class="btn btn-outline-primary">Create new</a>
+  </div>
+</section>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
+
+
+
+

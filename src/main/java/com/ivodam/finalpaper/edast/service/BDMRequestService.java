@@ -48,6 +48,7 @@ public class BDMRequestService {
         bdmRequestRepository.save(bdmRequest);
     }
 
+
     public List<BDMRequest> findAll() {
         return bdmRequestRepository.findAll();
     }
@@ -55,4 +56,14 @@ public class BDMRequestService {
     public List<BDMRequest> findAllByUserId(UUID userId) {
         return bdmRequestRepository.findAllByUserId(userId);
     }
+
+    public List<BDMRequest> searchAllByFullNameContainingIgnoreCase(String fullName) {
+        return bdmRequestRepository.searchAllByFullNameContainingIgnoreCase(fullName);
+    }
+
+    public List<BDMRequest> searchAllByKeyword(String keyword, UUID userId) {
+        return bdmRequestRepository.searchAllByKeyword(keyword, userId);
+    }
+
+
 }
