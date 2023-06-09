@@ -1,10 +1,10 @@
 package com.ivodam.finalpaper.edast.service;
 
-import com.ivodam.finalpaper.edast.entity.BDMRequest;
-import com.ivodam.finalpaper.edast.entity.SpecialRequest;
 import com.ivodam.finalpaper.edast.entity.WorkRequest;
 import com.ivodam.finalpaper.edast.repository.WorkRequestRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -58,7 +58,7 @@ public class WorkRequestService {
         return workRequestRepository.findAllByUserId(userId);
     }
 
-    public List<WorkRequest> searchAllByKeyword(String keyword, UUID userId) {
-        return workRequestRepository.searchAllByKeyword(keyword, userId);
+    public Page<WorkRequest> searchAllByKeyword(String keyword, UUID userId, Pageable pageable) {
+        return workRequestRepository.searchAllByKeyword(keyword, userId, pageable);
     }
 }

@@ -21,7 +21,7 @@
     <h1>Cadastral Requests</h1>
     <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
       <form action="/search-cadastral-requests" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -29,20 +29,21 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Date</th>
-        <th>Selection</th>
-        <th>Cadastral municipality</th>
-        <th>Land parcels</th>
-        <th>Building parcels</th>
-        <th>Period</th>
-        <th>Completed</th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='dateCreated',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Date' + (${sortBy} == 'dateCreated' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='cadastralSelection',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Selection' + (${sortBy} == 'cadastralSelection' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='cadastralMunicipality',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Municipality' + (${sortBy} == 'cadastralMunicipality' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='landParcels',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Land Parcels' + (${sortBy} == 'landParcels' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='buildingParcels',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Building Parcels' + (${sortBy} == 'buildingParcels' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='period',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Period' + (${sortBy} == 'period' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${cadastralRequests.size},sortBy='completed',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completed' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
       </thead>
       <tbody>
-        <th:block th:each="request: ${cadastralRequests}">
+        <th:block th:each="request: ${cadastralRequests.content}">
           <tr>
             <td th:text="${request.dateCreated}"></td>
             <td th:text="${request.cadastralSelection}"></td>
@@ -62,7 +63,11 @@
       </tbody>
     </table>
     <a th:href="@{/cadastral-requests}" class="btn btn-outline-primary">Create new</a>
-
+    <div class="text-center">
+      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${cadastralRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+      <span th:text="${currentPage + 1} + ' of ' + ${cadastralRequests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < cadastralRequests.totalPages}" th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${cadastralRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+    </div>
   </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>

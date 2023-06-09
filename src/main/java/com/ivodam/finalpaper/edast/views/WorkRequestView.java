@@ -9,6 +9,8 @@ import com.ivodam.finalpaper.edast.service.ResponseService;
 import com.ivodam.finalpaper.edast.service.WorkRequestService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,14 +46,45 @@ public class WorkRequestView {
     }
 
     @GetMapping("/work-requests/all")
-    public String allWorkRequests(Model model){
-        model.addAttribute("requests", registryBookService.findByRequestName("Work"));
+    public String allWorkRequests(@RequestParam(defaultValue = "") String keyword,
+                                  @RequestParam(defaultValue = "0") int page,
+                                  @RequestParam(defaultValue = "6") int size,
+                                  @RequestParam(defaultValue = "classNumber") String sortBy,
+                                  @RequestParam(defaultValue = "asc") String sortOrder,
+                                  Model model){
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var requests = registryBookService.searchAllByClassNumberOrUserOrEmployeeAndRequestName(keyword, "Work", pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "work/admin-all-work-requests";
     }
 
     @GetMapping("/user-work-requests/all/{userId}")
-    public String allUserWorkRequests(@PathVariable UUID userId, Model model){
-        model.addAttribute("workRequests", workRequestService.findAllByUserId(userId));
+    public String allUserWorkRequests(@PathVariable UUID userId,
+                                      @RequestParam(defaultValue = "") String keyword,
+                                      @RequestParam(defaultValue = "0") int page,
+                                      @RequestParam(defaultValue = "6") int size,
+                                      @RequestParam(defaultValue = "dateCreated") String sortBy,
+                                      @RequestParam(defaultValue = "asc") String sortOrder,
+                                      Model model) {
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var workRequests = workRequestService.searchAllByKeyword(keyword, userId, pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("workRequests", workRequests);
         return "work/user-work-requests";
     }
 
@@ -84,9 +117,24 @@ public class WorkRequestView {
     }
 
     @RequestMapping("/search-work-requests")
-    public String searchRequests(@RequestParam String name, Model model) {
-        var user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("workRequests", workRequestService.searchAllByKeyword(name, user.getId()));
+    public String searchRequests(@RequestParam(defaultValue = "") String keyword,
+                                 @RequestParam(defaultValue = "0") int page,
+                                 @RequestParam(defaultValue = "6") int size,
+                                 @RequestParam(defaultValue = "dateCreated") String sortBy,
+                                 @RequestParam(defaultValue = "asc") String sortOrder,
+                                 Model model) {
+        var user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var workRequests = workRequestService.searchAllByKeyword(keyword, user.getId(), pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("workRequests", workRequests);
         return "work/user-work-requests";
     }
 }

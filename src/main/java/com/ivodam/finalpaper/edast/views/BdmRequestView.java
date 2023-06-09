@@ -9,6 +9,8 @@ import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,14 +46,45 @@ public class BdmRequestView {
     }
 
     @GetMapping("/bdm-requests/all")
-    public String allRequests(Model model){
-        model.addAttribute("requests", registryBookService.findByRequestName("BDM"));
+    public String allRequests(@RequestParam(defaultValue = "") String keyword,
+                              @RequestParam(defaultValue = "0") int page,
+                              @RequestParam(defaultValue = "6") int size,
+                              @RequestParam(defaultValue = "classNumber") String sortBy,
+                              @RequestParam(defaultValue = "asc") String sortOrder,
+                              Model model){
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var requests = registryBookService.searchAllByClassNumberOrUserOrEmployeeAndRequestName(keyword, "BDM", pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "admin-all-bdm-requests";
     }
 
     @GetMapping("/user-bdm-requests/all/{userId}")
-    public String allUserBdmRequests(@PathVariable UUID userId, Model model){
-        model.addAttribute("bdmRequests", bdmRequestService.findAllByUserId(userId));
+    public String allUserBdmRequests(@PathVariable UUID userId,
+                                     @RequestParam(defaultValue = "") String keyword,
+                                     @RequestParam(defaultValue = "0") int page,
+                                     @RequestParam(defaultValue = "6") int size,
+                                     @RequestParam(defaultValue = "dateCreated") String sortBy,
+                                     @RequestParam(defaultValue = "asc") String sortOrder,
+                                     Model model) {
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var bdmRequests = bdmRequestService.searchAllByKeyword(keyword, userId, pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("bdmRequests", bdmRequests);
         return "user-bdm-requests";
     }
 
@@ -66,8 +99,6 @@ public class BdmRequestView {
         bdmRequestService.deleteById(id);
         return "redirect:/user-bdm-requests/all/" + user.getId();
     }
-
-
 
     @GetMapping("request/BDM/{requestId}")
     public String employeeBdmRequestDetails(@PathVariable UUID requestId, Model model, HttpServletRequest request) {
@@ -86,9 +117,24 @@ public class BdmRequestView {
     }
 
     @RequestMapping("/search-bdm-requests")
-    public String searchRequests(@RequestParam String name, Model model) {
-        var user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("bdmRequests", bdmRequestService.searchAllByKeyword(name, user.getId()));
+    public String searchRequests(@RequestParam(defaultValue = "") String keyword,
+                                 @RequestParam(defaultValue = "0") int page,
+                                 @RequestParam(defaultValue = "6") int size,
+                                 @RequestParam(defaultValue = "dateCreated") String sortBy,
+                                 @RequestParam(defaultValue = "asc") String sortOrder,
+                                 Model model) {
+        var user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        var pageable = PageRequest.of(page, size, sort);
+        var bdmRequests = bdmRequestService.searchAllByKeyword(keyword, user.getId(), pageable);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("bdmRequests", bdmRequests);
         return "user-bdm-requests";
     }
 }

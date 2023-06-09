@@ -28,15 +28,15 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='classNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Class' + (${sortBy} == 'classNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='registryNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Registry number' + (${sortBy} == 'registryNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='title',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Title' + (${sortBy} == 'title' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='status',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Status' + (${sortBy} == 'status' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='receivedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Received' + (${sortBy} == 'receivedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='deadlineDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Deadline' + (${sortBy} == 'deadlineDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='user',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Requester' + (${sortBy} == 'user' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='employee',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Employee' + (${sortBy} == 'employee' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
-                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=0,size=${requests.size},sortBy='completedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='classNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Class' + (${sortBy} == 'classNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='registryNumber',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Registry number' + (${sortBy} == 'registryNumber' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='title',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Title' + (${sortBy} == 'title' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='status',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Status' + (${sortBy} == 'status' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='receivedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Received' + (${sortBy} == 'receivedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='deadlineDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Deadline' + (${sortBy} == 'deadlineDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='user.name',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Requester' + (${sortBy} == 'user.name' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='employee.name',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Employee' + (${sortBy} == 'employee.name' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='completedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
                 <th></th>
             </tr>
             </thead>
@@ -58,9 +58,9 @@
             </tbody>
         </table>
         <div class="text-center">
-            <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=${currentPage - 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+            <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
             <span th:text="${currentPage + 1} + ' of ' + ${requests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
-            <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < requests.totalPages}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},page=${currentPage + 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+            <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < requests.totalPages}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
         </div>
     </div>
 </section>

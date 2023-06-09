@@ -3,6 +3,8 @@ package com.ivodam.finalpaper.edast.service;
 import com.ivodam.finalpaper.edast.entity.BDMRequest;
 import com.ivodam.finalpaper.edast.repository.BDMRequestRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -61,8 +63,8 @@ public class BDMRequestService {
         return bdmRequestRepository.searchAllByFullNameContainingIgnoreCase(fullName);
     }
 
-    public List<BDMRequest> searchAllByKeyword(String keyword, UUID userId) {
-        return bdmRequestRepository.searchAllByKeyword(keyword, userId);
+    public Page<BDMRequest> searchAllByKeyword(String keyword, UUID userId, Pageable pageable) {
+        return bdmRequestRepository.searchAllByKeyword(keyword, userId, pageable);
     }
 
 

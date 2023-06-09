@@ -6,6 +6,8 @@ import com.ivodam.finalpaper.edast.entity.WorkRequest;
 import com.ivodam.finalpaper.edast.repository.EducationRequestRepository;
 import com.ivodam.finalpaper.edast.repository.WorkRequestRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -57,7 +59,7 @@ public class EducationRequestService {
         return educationRequestRepository.findAllByUserId(userId);
     }
 
-    public List<EducationRequest> searchAllByKeyword(String keyword, UUID userId) {
-        return educationRequestRepository.searchAllByKeyword(keyword, userId);
+    public Page<EducationRequest> searchAllByKeyword(String keyword, UUID userId, Pageable pageable) {
+        return educationRequestRepository.searchAllByKeyword(keyword, userId, pageable);
     }
 }

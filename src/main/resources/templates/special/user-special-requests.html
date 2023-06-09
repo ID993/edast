@@ -21,7 +21,7 @@
     <h1>Special Requests</h1>
     <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
       <form action="/search-special-requests" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -29,17 +29,17 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Date</th>
-        <th>Title</th>
-        <th>Creator name</th>
-        <th>Completed</th>
+        <th><a th:href="@{/user-special-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${specialRequests.size},sortBy='dateCreated',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Date' + (${sortBy} == 'dateCreated' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-special-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${specialRequests.size},sortBy='title',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Title' + (${sortBy} == 'title' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-special-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${specialRequests.size},sortBy='creatorName',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Creator' + (${sortBy} == 'creatorName' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-special-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${specialRequests.size},sortBy='completed',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completed' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
       </thead>
       <tbody>
-        <th:block th:each="request: ${specialRequests}">
+        <th:block th:each="request: ${specialRequests.content}">
           <tr>
             <td th:text="${request.dateCreated}"></td>
             <td th:text="${request.title}"></td>
@@ -56,7 +56,11 @@
       </tbody>
     </table>
     <a th:href="@{/special-requests}" class="btn btn-outline-primary">Create new</a>
-
+    <div class="text-center">
+      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/user-special-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${specialRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+      <span th:text="${currentPage + 1} + ' of ' + ${specialRequests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < specialRequests.totalPages}" th:href="@{/user-bdm-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${specialRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+    </div>
   </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>

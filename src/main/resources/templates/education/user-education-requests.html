@@ -21,7 +21,7 @@
     <h1>Education Requests</h1>
     <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
       <form action="/search-education-requests" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -29,20 +29,20 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Date</th>
-        <th>Selection</th>
-        <th>Person of interest</th>
-        <th>School name</th>
-        <th>Year of enrollment</th>
-        <th>Year of graduation</th>
-        <th>Completed</th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='dateCreated',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Date' + (${sortBy} == 'dateCreated' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='educationSelection',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Selection' + (${sortBy} == 'cadastralSelection' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='fullName',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Person of interest' + (${sortBy} == 'fullName' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='schoolName',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'School Name' + (${sortBy} == 'schoolName' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='yearOfEnrollment',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Enrolled' + (${sortBy} == 'yearOfEnrollment' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='yearOfGraduation',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Graduated' + (${sortBy} == 'yearOfGraduation' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+        <th><a th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${educationRequests.size},sortBy='completed',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completed' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
       </thead>
       <tbody>
-        <th:block th:each="request: ${educationRequests}">
+        <th:block th:each="request: ${educationRequests.content}">
           <tr>
             <td th:text="${request.dateCreated}"></td>
             <td th:text="${request.educationSelection}"></td>
@@ -62,7 +62,11 @@
       </tbody>
     </table>
     <a th:href="@{/education-requests}" class="btn btn-outline-primary">Create new</a>
-
+    <div class="text-center">
+      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/user-education-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${educationRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+      <span th:text="${currentPage + 1} + ' of ' + ${educationRequests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < educationRequests.totalPages}" th:href="@{/user-cadastral-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${educationRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+    </div>
   </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>
