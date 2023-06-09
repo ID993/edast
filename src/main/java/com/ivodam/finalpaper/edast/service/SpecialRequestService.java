@@ -1,10 +1,10 @@
 package com.ivodam.finalpaper.edast.service;
 
-import com.ivodam.finalpaper.edast.entity.CadastralRequest;
 import com.ivodam.finalpaper.edast.entity.SpecialRequest;
-import com.ivodam.finalpaper.edast.repository.CadastralRequestRepository;
 import com.ivodam.finalpaper.edast.repository.SpecialRequestRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -60,7 +60,7 @@ public class SpecialRequestService {
         return specialRequestRepository.findAllByUserId(userId);
     }
 
-    public List<SpecialRequest> searchAllByKeyword(String keyword, UUID userId) {
-        return specialRequestRepository.searchAllByKeyword(keyword, userId);
+    public Page<SpecialRequest> searchAllByKeyword(String keyword, UUID userId, Pageable pageable) {
+        return specialRequestRepository.searchAllByKeyword(keyword, userId, pageable);
     }
 }

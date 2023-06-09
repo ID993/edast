@@ -92,11 +92,11 @@ public class RegistryBookService {
         return registryBookRepository.findByRequestId(id).orElse(null);
     }
 
-    public List<RegistryBook> findByRequestName(String requestName) {
-        return registryBookRepository.findByRequestName(requestName);
+    public Page<RegistryBook> findByRequestName(String requestName, Pageable pageable) {
+        return registryBookRepository.findByRequestName(requestName, pageable);
     }
-    public Page<RegistryBook> findByEmployeeId(UUID id, Pageable pageable) {
-        return registryBookRepository.findByEmployeeId(id, pageable);
+    public Page<RegistryBook> findByEmployeeIdAndKeyword(UUID id, String keyword, Pageable pageable) {
+        return registryBookRepository.findByEmployeeIdAndKeyword(id, keyword, pageable);
     }
 
     public Page<RegistryBook> findByEmployeeIdAndRequestName(UUID id, String requestName, Pageable pageable) {
@@ -143,10 +143,6 @@ public class RegistryBookService {
 
     public Page<RegistryBook> searchByClassNumberOrUserOrEmployee(String keyword, Pageable pageable) {
         return registryBookRepository.searchAllByClassNumberOrUserOrEmployee(keyword, pageable);
-    }
-
-    public Page<RegistryBook> searchByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {
-        return registryBookRepository.searchAllByClassNumberOrUser(keyword, employeeId, pageable);
     }
 
     public Page<RegistryBook> searchAllBdmByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable) {

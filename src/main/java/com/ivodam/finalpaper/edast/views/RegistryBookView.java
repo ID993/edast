@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Controller
@@ -26,7 +27,8 @@ public class RegistryBookView {
     private final UserService userService;
 
     @GetMapping("/requests/all")
-    public String allRequests(@RequestParam(defaultValue = "0") int page,
+    public String allRequests(@RequestParam(defaultValue = "") String keyword,
+                              @RequestParam(defaultValue = "0") int page,
                               @RequestParam(defaultValue = "6") int size,
                               @RequestParam(defaultValue = "classNumber") String sortBy,
                               @RequestParam(defaultValue = "asc") String sortOrder,
@@ -36,17 +38,19 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findAllPaging(pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchByClassNumberOrUserOrEmployee(keyword, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
-        return "all-requests";
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
+        return "admin-all-requests";
     }
 
     //Employee
     @GetMapping("/requests/all/{userId}")
     public String allRequestsOfEmployee(@PathVariable UUID userId,
+                                        @RequestParam(defaultValue = "") String keyword,
                                         @RequestParam(defaultValue = "0") int page,
                                         @RequestParam(defaultValue = "6") int size,
                                         @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -61,17 +65,19 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeId(user.getId(), pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.findByEmployeeIdAndKeyword(user.getId(), keyword, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
-        return "all-requests";
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
+        return "employee-all-requests";
     }
 
 
     @GetMapping("/requests/all/bdm/{employeeId}")
     public String allBdmRequestsOfEmployee(@PathVariable UUID employeeId,
+                                           @RequestParam(defaultValue = "") String keyword,
                                            @RequestParam(defaultValue = "0") int page,
                                            @RequestParam(defaultValue = "6") int size,
                                            @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -82,16 +88,18 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeIdAndRequestName(employeeId, "BDM", pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchAllBdmByClassNumberOrUser(keyword, employeeId, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "employee-all-bdm-requests";
     }
 
     @GetMapping("/requests/all/work/{employeeId}")
     public String allWorkRequestsOfEmployee(@PathVariable UUID employeeId,
+                                            @RequestParam(defaultValue = "") String keyword,
                                             @RequestParam(defaultValue = "0") int page,
                                             @RequestParam(defaultValue = "6") int size,
                                             @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -102,16 +110,18 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeIdAndRequestName(employeeId, "Work", pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchAllWorkByClassNumberOrUser(keyword, employeeId, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "work/employee-all-work-requests";
     }
 
     @GetMapping("/requests/all/education/{employeeId}")
     public String allEducationRequestsOfEmployee(@PathVariable UUID employeeId,
+                                                 @RequestParam(defaultValue = "") String keyword,
                                                  @RequestParam(defaultValue = "0") int page,
                                                  @RequestParam(defaultValue = "6") int size,
                                                  @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -122,16 +132,18 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeIdAndRequestName(employeeId, "Education", pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchAllEducationByClassNumberOrUser(keyword, employeeId, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "education/employee-all-education-requests";
     }
 
     @GetMapping("/requests/all/cadastral/{employeeId}")
     public String allCadastralRequestsOfEmployee(@PathVariable UUID employeeId,
+                                                 @RequestParam(defaultValue = "") String keyword,
                                                  @RequestParam(defaultValue = "0") int page,
                                                  @RequestParam(defaultValue = "6") int size,
                                                  @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -142,16 +154,18 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeIdAndRequestName(employeeId, "Cadastral", pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchAllCadastralByClassNumberOrUser(keyword, employeeId, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "cadastral/employee-all-cadastral-requests";
     }
 
     @GetMapping("/requests/all/special/{employeeId}")
     public String allSpecialRequestsOfEmployee(@PathVariable UUID employeeId,
+                                               @RequestParam(defaultValue = "") String keyword,
                                                @RequestParam(defaultValue = "0") int page,
                                                @RequestParam(defaultValue = "6") int size,
                                                @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -162,11 +176,12 @@ public class RegistryBookView {
             sort = sort.descending();
         }
         var pageable = PageRequest.of(page, size, sort);
-        var requests = registryBookService.findByEmployeeIdAndRequestName(employeeId, "Special", pageable);
-        model.addAttribute("requests", requests);
+        var requests = registryBookService.searchAllSpecialByClassNumberOrUser(keyword, employeeId, pageable);
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("requests", requests);
         return "special/employee-all-special-requests";
     }
 
@@ -203,12 +218,13 @@ public class RegistryBookView {
         var registryBook = registryBookService.findById(id);
         var employee = userService.findById(userId);
         registryBook.setEmployee(employee);
+        registryBook.setRead(false);
         registryBookService.update(registryBook);
         return "redirect:/requests/all";
     }
 
     @RequestMapping("/search")
-    public String searchAllRequests(@RequestParam String keyword,
+    public String searchAllRequests(@RequestParam(defaultValue = "") String keyword,
                                     @RequestParam(defaultValue = "0") int page,
                                     @RequestParam(defaultValue = "6") int size,
                                     @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -222,17 +238,18 @@ public class RegistryBookView {
         var pageable = PageRequest.of(page, size, sort);
         var requests = registryBookService.searchByClassNumberOrUserOrEmployee(keyword, pageable);
         if(user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE)) {
-            requests = registryBookService.searchByClassNumberOrUser(keyword, user.getId(), pageable);
+            requests = registryBookService.findByEmployeeIdAndKeyword(user.getId(), keyword, pageable);
         }
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "all-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "employee-all-requests" : "admin-all-requests";
     }
 
     @RequestMapping("/search-bdm")
-    public String searchBdm(@RequestParam String keyword,
+    public String searchBdm(@RequestParam(defaultValue = "") String keyword,
                             @RequestParam(defaultValue = "0") int page,
                             @RequestParam(defaultValue = "6") int size,
                             @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -251,12 +268,13 @@ public class RegistryBookView {
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "employee-all-bdm-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "employee-all-bdm-requests" : "admin-all-bdm-requests";
     }
 
     @RequestMapping("/search-work")
-    public String searchWork(@RequestParam String keyword,
+    public String searchWork(@RequestParam(defaultValue = "") String keyword,
                              @RequestParam(defaultValue = "0") int page,
                              @RequestParam(defaultValue = "6") int size,
                              @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -275,12 +293,13 @@ public class RegistryBookView {
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "work/employee-all-work-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "work/employee-all-work-requests" : "work/admin-all-work-requests";
     }
 
     @RequestMapping("/search-education")
-    public String searchEducation(@RequestParam String keyword,
+    public String searchEducation(@RequestParam(defaultValue = "") String keyword,
                                   @RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "6") int size,
                                   @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -299,12 +318,13 @@ public class RegistryBookView {
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "education/employee-all-education-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "education/employee-all-education-requests" : "education/admin-all-education-requests";
     }
 
     @RequestMapping("/search-cadastral")
-    public String searchCadastral(@RequestParam String keyword,
+    public String searchCadastral(@RequestParam(defaultValue = "") String keyword,
                                   @RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "6") int size,
                                   @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -323,12 +343,13 @@ public class RegistryBookView {
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "cadastral/employee-all-cadastral-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "cadastral/employee-all-cadastral-requests" : "cadastral/admin-all-cadastral-requests";
     }
 
     @RequestMapping("/search-special")
-    public String searchSpecial(@RequestParam String keyword,
+    public String searchSpecial(@RequestParam(defaultValue = "") String keyword,
                                 @RequestParam(defaultValue = "0") int page,
                                 @RequestParam(defaultValue = "6") int size,
                                 @RequestParam(defaultValue = "classNumber") String sortBy,
@@ -347,34 +368,10 @@ public class RegistryBookView {
         model.addAttribute("currentPage", page);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("requests", requests);
-        return "special/employee-all-special-requests";
+        return user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE) ? "special/employee-all-special-requests" : "special/admin-all-special-requests";
     }
-
-//    @GetMapping("/paging")
-//    public String search(@RequestParam(defaultValue = "0") int page,
-//                         @RequestParam(defaultValue = "6") int size,
-//                         @RequestParam(defaultValue = "classNumber") String sortBy,
-//                         @RequestParam(defaultValue = "asc") String sortOrder,
-//                         Model model) {
-//        var sort = Sort.by(sortBy);
-//        if (sortOrder.equalsIgnoreCase("desc")) {
-//            sort = sort.descending();
-//        }
-//
-//        var pageable = PageRequest.of(page, size, sort);
-//        var resultPage = registryBookService.findAllPaging(pageable);
-//
-//        model.addAttribute("resultPage", resultPage);
-//        model.addAttribute("currentPage", page);
-//        model.addAttribute("sortBy", sortBy);
-//        model.addAttribute("sortOrder", sortOrder);
-//        return "all-requests-test";
-//    }
-
-
-
-
 
 
 }
