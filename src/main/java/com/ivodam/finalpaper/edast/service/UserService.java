@@ -8,7 +8,10 @@ import com.ivodam.finalpaper.edast.helpers.PasswordHandler;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.repository.UserRepository;
 import com.ivodam.finalpaper.edast.security.SecurityConfiguration;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +35,10 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User create(User user) throws AppException {
-//        if(!passwordHandler.isValid(user.getPassword()))
-//            throw new AppException("Password is not valid", HttpStatus.BAD_REQUEST);
+    @Transactional
+    public User create(UserDto userDto) {
+
+        var user = userMapper.userDtoToUser(userDto);
         user.setPassword(configuration.passwordEncoder().encode(user.getPassword()));
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         user.setJoinDate(LocalDate.now().format(dateFormat));
@@ -42,17 +46,14 @@ public class UserService {
 
     }
 
-    public List<User> findAll() {
-        return userRepository.findAll();
+
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
+    public Page<User> findAllByRole(Enums.Roles role, Pageable pageable) {
+        return userRepository.findAllByRole(role, pageable);
     }
 
-    public List<User> findAllUsers() {
-        return userRepository.findAllByRole(Enums.Roles.ROLE_USER);
-    }
-
-    public List<User> findAllEmployee() {
-        return userRepository.findAllByRole(Enums.Roles.ROLE_EMPLOYEE);
-    }
 
     public User findById(UUID id) throws AppException {
             return userRepository.findById(id)
@@ -85,15 +86,37 @@ public class UserService {
         userDto.setRole(user.getRole());
         userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
         var updatedUser = userMapper.userDtoToUser(userDto);
+        System.out.println(updatedUser);
         userRepository.save(updatedUser);
     }
 
-    public List<User> findAllByNameContainingIgnoreCase(String name) {
-        return userRepository.findAllByNameContainingIgnoreCase(name);
+    public Page<User> findAllByNameContainingIgnoreCase(String name, Pageable pageable) {
+        return userRepository.findAllByNameContainingIgnoreCase(name, pageable);
     }
 
     public List<User> findAllByRoleAndJobTitle(String role, String jobTitle) {
         return userRepository.findAllByRoleAndJobTitle(Enums.Roles.valueOf(role), jobTitle);
     }
 
+    public long count() {
+        return userRepository.count();
+    }
+
+    public List<Object[]> countByRole() {
+        return userRepository.getTotalUsersByRole();
+    }
+
+    public String isUserLegit(UserDto user) {
+        if (existsByEmail(user.getEmail())) {
+            return "Email already exists";
+        } else if (!passwordHandler.isValid(user.getPassword())) {
+            return "Password is not valid";
+        } else if (!passwordHandler.checkConfirmPassword(user.getPassword(), user.getConfirmPassword())) {
+            return "Passwords do not match";
+        } else if (!user.getCaptcha().equals(user.getHiddenCaptcha())) {
+            return "Captcha is not valid";
+        } else {
+            return "Success";
+        }
+    }
 }

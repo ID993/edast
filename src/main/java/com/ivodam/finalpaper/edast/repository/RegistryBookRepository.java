@@ -14,8 +14,12 @@ import java.util.UUID;
 
 public interface RegistryBookRepository extends JpaRepository<RegistryBook, UUID> {
 
+
+    @Query("SELECT r.requestName, COUNT(r) FROM registry_book r GROUP BY r.requestName")
+    List<Object[]> getTotalRequestsByRequestName();
     Optional<RegistryBook> findByRequestId(UUID requestId);
 
+    List<RegistryBook> findByEmployeeIdAndStatus(UUID employeeId, String status);
     Page<RegistryBook> findByRequestName(String requestName, Pageable pageable);
     Page<RegistryBook> findByEmployeeIdAndRequestName(UUID employeeId, String requestName, Pageable pageable);
 

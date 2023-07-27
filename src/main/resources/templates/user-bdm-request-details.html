@@ -85,7 +85,7 @@
                   <span th:if="${request.isCompleted()}">
                     <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
                   </span>
-                  <a th:href="@{/bdm-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
+                  <a sec:authorize="hasRole('USER')" th:href="@{/bdm-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
                 </div>
               </div>
             </div>

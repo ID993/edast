@@ -12,6 +12,7 @@ import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.WebRequest;
@@ -32,6 +33,8 @@ import java.util.zip.ZipOutputStream;
 public class Utility {
 
     private final DocumentService documentService;
+
+
 
     public byte[] createZipFile(UUID id) throws IOException {
         var zipFile = File.createTempFile("download", ".zip");

@@ -31,6 +31,7 @@
                     <i class="fas fa-pencil fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="name" class="form-control form-control-lg" th:field="*{name}" required/>
+                      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                       <label class="form-label" for="name">Full name</label>
                     </div>
                   </div>
@@ -39,29 +40,47 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="email" id="email" class="form-control form-control-lg" th:field="*{email}"/>
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                       <label class="form-label" for="email">E-mail</label>
                     </div>
                   </div>
 
                   <div class="form-floating flex-fill mb-0">
                     <input type="hidden" id="pass" class="form-control form-control-lg" th:value="${user.password}" th:field="*{password}"/>
+                    <span class="text-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{personalIdentificationNumber}"></span>
                   </div>
 
-                  <div class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></div>
+                  <div class="form-floating flex-fill mb-0">
+                    <input type="hidden" id="confpass" class="form-control form-control-lg" th:value="${user.confirmPassword}" th:field="*{confirmPassword}"/>
+                    <span class="text-warning" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
+                  </div>
+
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-id-card fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="pin" class="form-control form-control-lg" th:field="*{personalIdentificationNumber}" required/>
+                      <span class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></span>
                       <label class="form-label" for="pin">PIN</label>
                     </div>
                   </div>
 
+<!--                  <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                    <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>-->
+<!--                    <div class="form-floating flex-fill mb-0">-->
+<!--                      <input type="text" id="jobTitle" class="form-control form-control-lg" th:field="*{jobTitle}" required/>-->
+<!--                      <label class="form-label" for="jobTitle">Job Title</label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
-                      <input type="text" id="jobTitle" class="form-control form-control-lg" th:field="*{jobTitle}" required/>
-                      <label class="form-label" for="jobTitle">Job Title</label>
+                      <select sec:authorize="hasAnyRole('ADMIN')" class="form-control" id="dropDownList" name="job">
+                        <option value="0">select option</option>
+                        <option th:each="option : ${jobs}" th:value="${option.getDisplayName()}" th:text="${option.getDisplayName()}" th:selected="${user.jobTitle == option.getDisplayName()}"></option>
+                      </select>
+                      <label class="form-label" for="dropDownList">Change Job title</label>
                     </div>
                   </div>
 
@@ -87,17 +106,17 @@
                   </div>
                 </form>
 
-                <div th:switch="${message}">
-                  <div th:case="'Success'" class="alert alert-success">
-                    <strong>Success!</strong> Successfully registered.
-                  </div>
-                  <div th:case="'Failed username'" class="alert alert-danger">
-                    <strong>Failure!</strong> Username exists, choose another.
-                  </div>
-                  <div th:case="'Failed password'" class="alert alert-danger">
-                    <strong>Failure!</strong> Passwords doesn't match.
-                  </div>
-                </div>
+<!--                <div th:switch="${message}">-->
+<!--                  <div th:case="'Success'" class="alert alert-success">-->
+<!--                    <strong>Success!</strong> Successfully registered.-->
+<!--                  </div>-->
+<!--                  <div th:case="'Failed username'" class="alert alert-danger">-->
+<!--                    <strong>Failure!</strong> Username exists, choose another.-->
+<!--                  </div>-->
+<!--                  <div th:case="'Failed password'" class="alert alert-danger">-->
+<!--                    <strong>Failure!</strong> Passwords doesn't match.-->
+<!--                  </div>-->
+<!--                </div>-->
 
               </div>
             </div>

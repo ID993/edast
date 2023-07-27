@@ -3,6 +3,7 @@ package com.ivodam.finalpaper.edast.views;
 import com.ivodam.finalpaper.edast.entity.Response;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.service.DocumentService;
 import com.ivodam.finalpaper.edast.service.MailService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
@@ -51,7 +52,7 @@ public class ResponseView {
     @PostMapping("/responses/{requestId}")
     public String responses(@PathVariable UUID requestId,
                             @ModelAttribute Response response,
-                            @ModelAttribute("files") MultipartFile[] files) throws IOException {
+                            @ModelAttribute("files") MultipartFile[] files) throws IOException, AppException {
         var coverLetter = responseService.create(requestId, response);
         registryBookService.updateRegistryBook(requestId);
         documentService.storeDocuments(coverLetter.getId(), files);

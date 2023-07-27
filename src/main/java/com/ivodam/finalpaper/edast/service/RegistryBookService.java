@@ -2,11 +2,12 @@ package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.entity.RegistryBook;
 import com.ivodam.finalpaper.edast.entity.User;
-import com.ivodam.finalpaper.edast.repository.BDMRequestRepository;
-import com.ivodam.finalpaper.edast.repository.RegistryBookRepository;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
+import com.ivodam.finalpaper.edast.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
@@ -22,15 +23,20 @@ public class RegistryBookService {
     private final RegistryBookRepository registryBookRepository;
     private final UserService userService;
     private final BDMRequestRepository bdmRequestRepository;
+    private final WorkRequestRepository workRequestRepository;
+    private final EducationRequestRepository educationRequestRepository;
+    private final CadastralRequestRepository cadastralRequestRepository;
+    private final SpecialRequestRepository specialRequestRepository;
     private static final String STATUS = "In progress";
     private static final String DATE_FORMAT = "dd.MM.yyyy.";
 
-    public String classNumberGenerator(String requestName){
-        return "611-12/" + LocalDate.now().getYear() + "-05/"
+
+    public String classNumberGenerator(String requestName) {
+        return "611-12/" + LocalDate.now().getYear() + "-" + requestName.toUpperCase()
                 + (registryBookRepository.countByRequestName(requestName) + 1);
     }
 
-    public User findUserWithLeastRequests(){
+    public User findUserWithLeastRequests() {
         var users = userService.findAllByRoleAndJobTitle("ROLE_EMPLOYEE", "Archivist");
         var userWithLeastRequests = users.get(0);
         for (User user : users) {
@@ -41,13 +47,32 @@ public class RegistryBookService {
         return userWithLeastRequests;
     }
 
-    public String getDateDay(){
+    public static int index = 0;
+    public User roundRobin() {
+        var users = userService.findAllByRoleAndJobTitle("ROLE_EMPLOYEE", "Archivist");
+        if (index >= users.size())
+            index = 0;
+        var user = users.get(index);
+        index++;
+        return user;
+    }
+
+    public void divideRequests(UUID userId) {
+        var registryBooks = registryBookRepository.findByEmployeeIdAndStatus(userId, "In progress");
+        for (var regBook : registryBooks) {
+            regBook.setEmployee(roundRobin());
+            regBook.setRead(false);
+            registryBookRepository.save(regBook);
+        }
+    }
+
+    public String getDateDay(long days){
         if(LocalDate.now().getDayOfWeek() == DayOfWeek.SATURDAY)
-            return LocalDate.now().plusDays(2).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
+            return LocalDate.now().plusDays(days + 2).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
         else if(LocalDate.now().getDayOfWeek() == DayOfWeek.SUNDAY)
-            return LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
+            return LocalDate.now().plusDays(days + 1).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
         else
-            return LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT));
+            return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern(DATE_FORMAT));
     }
 
     public String getDeadlineDate(){
@@ -67,10 +92,10 @@ public class RegistryBookService {
         registryBook.setTitle(requestName + " Request");
         registryBook.setRequestName(requestName);
         registryBook.setStatus(STATUS);
-        registryBook.setReceivedDate(getDateDay());
-        registryBook.setDeadlineDate(getDeadlineDate());
+        registryBook.setReceivedDate(getDateDay(0));
+        registryBook.setDeadlineDate(getDateDay(15));
         registryBook.setRequestId(requestId);
-        registryBook.setEmployee(findUserWithLeastRequests());
+        registryBook.setEmployee(roundRobin());
         registryBook.setUser(user);
         registryBook.setRead(false);
         registryBookRepository.save(registryBook);
@@ -103,16 +128,48 @@ public class RegistryBookService {
         return registryBookRepository.findByEmployeeIdAndRequestName(id, requestName, pageable);
     }
 
-    public void updateRegistryBook(UUID id) {
-        var registryBook = registryBookRepository.findByRequestId(id).orElse(null);
-        var bdmRequest = bdmRequestRepository.findById(id).orElse(null);
-        assert registryBook != null;
-        assert bdmRequest != null;
-        bdmRequest.setCompleted(true);
+    public void updateRequestByName(UUID requestId,String requestName) throws AppException {
+        switch (requestName) {
+            case "BDM" -> {
+                var bdmRequest = bdmRequestRepository.findById(requestId).orElseThrow(() ->
+                        new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
+                bdmRequest.setCompleted(true);
+                bdmRequestRepository.save(bdmRequest);
+            }
+            case "Work" -> {
+                var workRequest = workRequestRepository.findById(requestId).orElseThrow(() ->
+                        new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
+                workRequest.setCompleted(true);
+                workRequestRepository.save(workRequest);
+            }
+            case "Education" -> {
+                var educationRequest = educationRequestRepository.findById(requestId).orElseThrow(() ->
+                        new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
+                educationRequest.setCompleted(true);
+                educationRequestRepository.save(educationRequest);
+            }
+            case "Cadastral" -> {
+                var cadastralRequest = cadastralRequestRepository.findById(requestId).orElseThrow(() ->
+                        new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
+                cadastralRequest.setCompleted(true);
+                cadastralRequestRepository.save(cadastralRequest);
+            }
+            default -> {
+                var specialRequest = specialRequestRepository.findById(requestId).orElseThrow(() ->
+                        new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
+                specialRequest.setCompleted(true);
+                specialRequestRepository.save(specialRequest);
+            }
+        }
+    }
+
+    public void updateRegistryBook(UUID id) throws AppException {
+        var registryBook = registryBookRepository.findByRequestId(id).orElseThrow(() ->
+                new AppException("Request with id: " + id + " not found", HttpStatus.NOT_FOUND));
+        updateRequestByName(id, registryBook.getRequestName());
         registryBook.setStatus("Completed");
         registryBook.setCompletedDate(LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT)));
         registryBookRepository.save(registryBook);
-        bdmRequestRepository.save(bdmRequest);
     }
 
     public void update(RegistryBook registryBook) {
@@ -130,13 +187,7 @@ public class RegistryBookService {
         return registryBookRepository.findByEmployeeIdAndRead(employeeId, read, pageable);
     }
 
-    public List<RegistryBook> findByEmployeeIdOrderByReceivedDateDesc(UUID employeeId) {
-        return registryBookRepository.findByEmployeeIdOrderByReceivedDateDesc(employeeId);
-    }
 
-    public List<RegistryBook> orderByReceivedDateDesc() {
-        return registryBookRepository.findByOrderByReceivedDateDesc();
-    }
     public long countByEmployeeIdAndRead(UUID employeeId, boolean read) {
         return registryBookRepository.countByEmployeeIdAndRead(employeeId, read);
     }
@@ -171,5 +222,13 @@ public class RegistryBookService {
 
     public Page<RegistryBook> findAllPaging(Pageable pageable) {
         return registryBookRepository.findAll(pageable);
+    }
+
+    public List<Object[]> countByRequestName() {
+        return registryBookRepository.getTotalRequestsByRequestName();
+    }
+
+    public long count() {
+        return registryBookRepository.count();
     }
 }

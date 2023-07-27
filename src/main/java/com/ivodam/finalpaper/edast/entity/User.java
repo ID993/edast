@@ -45,6 +45,7 @@ public class User implements UserDetails{
     @NotNull(message = "Password is required")
     private String password;
 
+    @Size(min = 2, message = "Address must be at least 8 characters long")
     private String address;
 
     private String joinDate;
@@ -63,6 +64,15 @@ public class User implements UserDetails{
 
     @Transient
     private Set<GrantedAuthority> authorities;
+
+    @Transient
+    private String captcha;
+
+    @Transient
+    private String hiddenCaptcha;
+
+    @Transient
+    private String realCaptcha;
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = new HashSet<>(authorities);

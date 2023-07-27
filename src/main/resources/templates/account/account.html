@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-5">
                                     <a th:href="@{/account/edit/{id}(id=${user.getId()})}" class="btn btn-primary mt-3 m-lg-2">Edit</a>
-                                    <a th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
+                                    <a sec:authorize="hasAnyRole('ADMIN', 'USER')" th:href="@{/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
                                 </div>
                             </div>
                         </div>
