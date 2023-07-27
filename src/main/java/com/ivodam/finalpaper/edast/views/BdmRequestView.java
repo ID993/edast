@@ -113,7 +113,7 @@ public class BdmRequestView {
             request.getSession().setAttribute("msgCount", registryBookService.countByEmployeeIdAndRead(user.getId(), false));
             return "employee-bdm-request-details";
         }
-        return "redirect:/bdm-requests/all";
+        return "user-bdm-request-details";
     }
 
     @RequestMapping("/search-bdm-requests")

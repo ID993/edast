@@ -54,4 +54,26 @@ public class Enums {
         }
 
     }
+
+    public enum JobPosition {
+        DIRECTOR("Director"),
+        ARCHIVAL_ADVISOR("Archival Advisor"),
+        SENIOR_ARCHIVIST("Senior Archivist"),
+        SPECIALIZED_ARCHIVIST("Specialized Archivist"),
+        ARCHIVIST("Archivist"),
+        ARCHIVE_TECHNICIAN("Archive Technician"),
+        ACCOUNTANT("Accountant"),
+        ADMINISTRATIVE_CLERK("Administrative Clerk"),
+        CARETAKER("Caretaker"),
+        CLEANER("Cleaner");
+
+        public final String label;
+        JobPosition(String label) {
+            this.label = label;
+        }
+        public String getDisplayName() {
+            return label;
+        }
+
+    }
 }

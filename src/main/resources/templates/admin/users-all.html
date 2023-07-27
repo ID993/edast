@@ -14,7 +14,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="height: 100vh;">
+<section style="height: 100vh; background-color: #eee">
   <div class="container">
     <h1>Users</h1>
       <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -54,7 +54,11 @@
       </tbody>
     </table>
     <a th:href="@{/admin/register}" class="btn btn-outline-primary">Add</a>
-
+    <div class="text-center">
+      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/users/all(page=${currentPage - 1},size=${users.size})}"></a>
+      <span th:text="${currentPage + 1} + ' of ' + ${users.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < users.totalPages}" th:href="@{/users/all(page=${currentPage + 1},size=${users.size})}"></a>
+    </div>
   </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>

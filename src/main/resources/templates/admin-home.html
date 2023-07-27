@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Requests</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web Page for State Archives">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+  <link th:href="@{/styles/css/index.css}" rel="stylesheet">
+  <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.41.0/dist/apexcharts.min.js"></script>
+
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee; height: 75vh">
+  <h3 class="text-center m-3" style="font-family: 'Arial', serif; font-weight: bold;">Statistics of institution</h3>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Requests Statistics Chart</h5>
+            <div id="radialBarChart"></div>
+            <script th:inline="javascript">
+              document.addEventListener("DOMContentLoaded", () => {
+                var chartData = [[${chartData}]];
+                new ApexCharts(document.querySelector("#radialBarChart"), {
+                  series: chartData.map((item) => item[1]),
+                  chart: {
+                    height: 350,
+                    type: 'radialBar',
+                    toolbar: {
+                      show: true
+                    }
+                  },
+                  plotOptions: {
+                    radialBar: {
+                      dataLabels: {
+                        name: {
+                          fontSize: '50px',
+                        },
+                        value: {
+                          fontSize: '30px',
+                          formatter: function(w) {
+                            return w;
+                          }
+                        },
+                        total: {
+                          show: true,
+                          label: 'Total',
+                          formatter: function() {
+                            return [[${total}]];
+                          }
+                        }
+                      }
+                    }
+                  },
+                  labels: chartData.map(item => item[0])
+                }).render();
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Users Statistics Chart</h5>
+
+            <div id="barChart"></div>
+
+            <script th:inline="javascript">
+              function getRoleDisplayName(role) {
+                switch (role) {
+                  case 'ROLE_ADMIN':
+                    return 'Admin';
+                  case 'ROLE_USER':
+                    return 'User';
+                  case 'ROLE_EMPLOYEE':
+                    return 'Employee';
+                  default:
+                    return role;
+                }
+              }
+              document.addEventListener("DOMContentLoaded", () => {
+                var userData = [[${usersByRole}]];
+                var totalUsers = [[${totalUsers}]];
+
+
+                new ApexCharts(document.querySelector("#barChart"), {
+                  series: [{
+                    name: 'Total',
+                    data: userData.map((item) => item[1])
+                  }],
+                  chart: {
+                    height: 350,
+                    type: 'bar',
+                    toolbar: {
+                      show: true
+                    }
+                  },
+                  plotOptions: {
+                    bar: {
+                      dataLabels: {
+                        position: 'top'
+                      }
+                    }
+                  },
+                  xaxis: {
+                    categories: userData.map(item => getRoleDisplayName(item[0]))
+                  },
+                  yaxis: {
+                    title: {
+                      text: 'Users'
+                    }
+                  },
+                  title: {
+                    text: 'Total users',
+                    align: 'center',
+                    floating: true
+                  },
+                  subtitle: {
+                    text: `Total: ${totalUsers}`,
+                    align: 'center',
+                    margin: 10
+                  }
+                }).render();
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<div th:replace="~{fragments/footer.html :: footer}"></div>
+
+</body>
+</html>
