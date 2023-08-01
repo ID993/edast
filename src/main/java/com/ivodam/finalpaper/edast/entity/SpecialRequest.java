@@ -2,6 +2,7 @@ package com.ivodam.finalpaper.edast.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,10 +25,13 @@ public class SpecialRequest {
 
     private String requestName;
 
+    @Size(min = 2, max = 255, message = "Title must be between 4 and 255 characters")
     private String title;
 
+    @Size(min = 4, max = 50, message = "Creator name must be between 4 and 50 characters")
     private String creatorName;
 
+    @Size(max = 1024, message = "Description must be less than 1024 characters")
     private String documentDescription;
 
     private String dateCreated;

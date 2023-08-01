@@ -8,12 +8,14 @@ import com.ivodam.finalpaper.edast.service.BDMRequestService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -28,18 +30,24 @@ public class BdmRequestView {
     private final ResponseService responseService;
 
 
-
     @GetMapping("/bdm-requests")
     public String requests(Model model){
-        model.addAttribute("bdmRequest", new BDMRequest());
+        var bdmRequest = new BDMRequest();
+        model.addAttribute("bdmRequest", bdmRequest);
         return "make-bdm-request";
     }
 
     @PostMapping("/bdm-requests")
-    public String requests(@ModelAttribute BDMRequest bdmRequest) {
+    public String requests(@Valid @ModelAttribute("bdmRequest") BDMRequest bdmRequest,
+                           BindingResult result,
+                           @RequestParam String bdmSelection) {
+        if (result.hasErrors()) {
+            return "make-bdm-request";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         bdmRequest.setUser(user);
         bdmRequest.setRequestName("BDM");
+        bdmRequest.setBdmSelection(bdmSelection);
         var request = bdmRequestService.saveRequest(bdmRequest);
         registryBookService.create(request.getId(), request.getRequestName(), user);
         return "redirect:/user-bdm-requests/all/" + user.getId();

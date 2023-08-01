@@ -45,24 +45,18 @@ public class Index {
             }
             else if(user.getRole() == Enums.Roles.ROLE_USER)
                 request.getSession().setAttribute("msgCount", responseService.countByRead(false, user.getId()));
-            else if(user.getRole() == Enums.Roles.ROLE_EMPLOYEE)
+            else if(user.getRole() == Enums.Roles.ROLE_EMPLOYEE) {
                 request.getSession().setAttribute("msgCount", registryBookService.countByEmployeeIdAndRead(user.getId(), false));
+                request.getSession().setAttribute("total", registryBookService.countByEmployeeId(user.getId()));
+                request.getSession().setAttribute("totalCompleted", registryBookService.countByEmployeeIdAndStatus(user.getId(), "Completed"));
+                return "employee-home";
+            }
             return "home";
         }
         return "index";
     }
 
-    @GetMapping("/statistics")
-    public String showStatistics(Model model) {
-        var chartData = registryBookService.countByRequestName();
-        for (var data : chartData) {
-            System.out.println(Arrays.toString(data));
-        }
-        model.addAttribute("chartData", chartData);
-        model.addAttribute("total", registryBookService.count());
-        return "admin-home";
-    }
-    private User getLoggedInUsername(){
+        private User getLoggedInUsername(){
         return (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 

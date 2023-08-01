@@ -8,12 +8,14 @@ import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import com.ivodam.finalpaper.edast.service.WorkRequestService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -36,7 +38,11 @@ public class WorkRequestView {
     }
 
     @PostMapping("/work-requests")
-    public String workRequests(@ModelAttribute WorkRequest workRequest) {
+    public String workRequests(@Valid @ModelAttribute WorkRequest workRequest,
+                               BindingResult result) {
+        if (result.hasErrors()) {
+            return "work/make-work-request";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         workRequest.setUser(user);
         workRequest.setRequestName("Work");

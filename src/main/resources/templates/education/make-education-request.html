@@ -23,25 +23,26 @@
         <div class="text-black" style="border-radius: 25px;">
           <div class="p-md-5">
             <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+              <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
                 <p class="text-center justify-content-evenly h3 fw-bold mb-2 mx-1 mx-md-4 mt-4">Request for education certificate</p>
                 <hr>
                 <form id="form" class="mx-1 mx-md-4" th:object="${educationRequest}" method="POST" enctype="utf8">
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
-                  <div >
-                      <input class="form-check-input" type="radio" id="finalExam" th:value="Final-exam" name="selectionRadio" th:field="*{educationSelection}"/>
-                      <label class="form-check-label" for="finalExam">Final exam</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="text-warning" th:if="${#fields.hasErrors('educationSelection')}" th:errors="*{educationSelection}"></span>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
+                    <div >
+                        <input class="form-check-input" type="radio" id="finalExam" th:value="Final-exam" name="selectionRadio" th:field="*{educationSelection}"/>
+                        <label class="form-check-label" for="finalExam">Final exam</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div >
+                      <input class="form-check-input" type="radio" id="classes" th:value="Classes" name="selectionRadio" th:field="*{educationSelection}"/>
+                      <label class="form-check-label" for="classes">Classes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div >
+                      <input class="form-check-input" type="radio" id="both" th:value="Both" name="selectionRadio" th:field="*{educationSelection}"/>
+                      <label class="form-check-label" for="both">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
                   </div>
-                  <div >
-                    <input class="form-check-input" type="radio" id="classes" th:value="Classes" name="selectionRadio" th:field="*{educationSelection}"/>
-                    <label class="form-check-label" for="classes">Classes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </div>
-                  <div >
-                    <input class="form-check-input" type="radio" id="both" th:value="Both" name="selectionRadio" th:field="*{educationSelection}"/>
-                    <label class="form-check-label" for="both">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </div>
-                </div>
 
                   <h5 class="mb-4 text-uppercase">Information about the person for whom a certified copy is requested:</h5>
 
@@ -49,6 +50,7 @@
                     <i class="fas fa-pencil fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="name" class="form-control form-control-lg" th:field="*{fullName}"/>
+                      <span class="text-warning" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
                       <label class="form-label" for="name">Full name</label>
                     </div>
                   </div>
@@ -56,7 +58,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-calendar-alt fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
-                      <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}"/>
+                      <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}" required/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></span>
                       <label class="form-label" for="dateOfBirth">Date of birth</label>
                     </div>
                   </div>
@@ -65,6 +68,7 @@
                     <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="placeOfBirth" class="form-control form-control-lg" th:field="*{placeOfBirth}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('placeOfBirth')}" th:errors="*{placeOfBirth}"></span>
                       <label class="form-label" for="placeOfBirth">Place of birth</label>
                     </div>
                   </div>
@@ -73,6 +77,7 @@
                     <i class="fas fa-school fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="employersName" class="form-control form-control-lg" th:field="*{schoolName}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('schoolName')}" th:errors="*{schoolName}"></span>
                       <label class="form-label" for="employersName">School Name</label>
                     </div>
                   </div>
@@ -81,6 +86,7 @@
                     <i class="fas fa-calendar fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="yearEnrollment" class="form-control form-control-lg" th:field="*{yearOfEnrollment}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('yearOfEnrollment')}" th:errors="*{yearOfEnrollment}"></span>
                       <label class="form-label" for="yearEnrollment">Year of enrollment</label>
                     </div>
                   </div>
@@ -89,6 +95,7 @@
                     <i class="fas fa-graduation-cap fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="yearsOfGraduation" class="form-control form-control-lg" th:field="*{yearOfGraduation}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('yearOfGraduation')}" th:errors="*{yearOfGraduation}"></span>
                       <label class="form-label" for="yearsOfGraduation">Year of Graduation</label>
                     </div>
                   </div>
@@ -97,6 +104,7 @@
                     <i class="fas fa-book-reader fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="diploma" class="form-control form-control-lg" th:field="*{idOfDiploma}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('idOfDiploma')}" th:errors="*{idOfDiploma}"></span>
                       <label class="form-label" for="diploma">Identification number of the diploma</label>
                     </div>
                   </div>
@@ -105,10 +113,12 @@
                     <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="occupation" class="form-control form-control-lg" th:field="*{occupation}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('occupation')}" th:errors="*{occupation}"></span>
                       <label class="form-label" for="occupation">Acquired Occupation</label>
                     </div>
                   </div>
 
+                  <span class="text-warning" th:if="${#fields.hasErrors('adultEducation')}" th:errors="*{adultEducation}"></span>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
                     Adult program:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -121,9 +131,6 @@
                       <label class="form-check-label" for="no">No</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                   </div>
-
-<!--                  NOTE: If the request is not in the applicant's name, it must be attached-->
-<!--                  authorization/power of attorney of the person to whom the data refer.-->
 
                   <div class="d-flex justify-content-center pt-3">
                     <button type="reset" class="btn btn-light btn-lg">Reset all</button>

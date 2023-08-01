@@ -37,13 +37,20 @@ public class UserService {
 
     @Transactional
     public User create(UserDto userDto) {
-
         var user = userMapper.userDtoToUser(userDto);
         user.setPassword(configuration.passwordEncoder().encode(user.getPassword()));
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         user.setJoinDate(LocalDate.now().format(dateFormat));
         return userRepository.save(user);
 
+    }
+
+    @Transactional
+    public User create(User user) {
+        user.setPassword(configuration.passwordEncoder().encode(user.getPassword()));
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+        user.setJoinDate(LocalDate.now().format(dateFormat));
+        return userRepository.save(user);
     }
 
 
@@ -90,8 +97,8 @@ public class UserService {
         userRepository.save(updatedUser);
     }
 
-    public Page<User> findAllByNameContainingIgnoreCase(String name, Pageable pageable) {
-        return userRepository.findAllByNameContainingIgnoreCase(name, pageable);
+    public Page<User> findAllByEmailOrNameContainingIgnoreCase(String search, Pageable pageable) {
+        return userRepository.findAllByEmailOrNameContainingIgnoreCase(search, pageable);
     }
 
     public List<User> findAllByRoleAndJobTitle(String role, String jobTitle) {

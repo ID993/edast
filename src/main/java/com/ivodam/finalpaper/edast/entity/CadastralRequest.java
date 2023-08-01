@@ -2,6 +2,8 @@ package com.ivodam.finalpaper.edast.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,14 +26,18 @@ public class CadastralRequest {
 
     private String requestName;
 
+    @NotEmpty(message = "Please select one option")
     private String cadastralSelection;
 
+
+    @Size(min = 2, max = 50, message = "Municipality must be between 2 and 50 characters")
     private String cadastralMunicipality;
 
     private String landParcels;
 
     private String buildingParcels;
 
+    @Size(min = 4, max = 50, message = "Period must be between 4 and 50 characters.")
     private String period;
 
     private String dateCreated;

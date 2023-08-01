@@ -43,7 +43,6 @@ public class DocumentView {
         var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.setContentDispositionFormData("attachment", "edast.zip");
-
         return ResponseEntity.ok().headers(headers).body(zipContent);
     }
 }

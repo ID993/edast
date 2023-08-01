@@ -27,9 +27,9 @@
               <div class="dropdown">
                 <button th:onclick="userDropDown()" class="dropbtn">Users</button>
                 <div id="userDropdown" class="dropdown-content">
-                  <a href="/users/all">All</a>
-                  <a href="/users/citizens">Citizens</a>
-                  <a href="/users/employees">Employees</a>
+                  <a th:href="@{/users(type='all')}">All</a>
+                  <a th:href="@{/users(type='citizens')}">Citizens</a>
+                  <a th:href="@{/users(type='employees')}">Employees</a>
                 </div>
               </div>
             </li>

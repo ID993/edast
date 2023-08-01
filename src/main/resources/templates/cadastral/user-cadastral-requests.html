@@ -16,7 +16,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee; height: 100vh">
+<section style="background-color: #eee;">
   <div class="container">
     <h1>Cadastral Requests</h1>
     <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -54,7 +54,7 @@
             <td th:text="${request.isCompleted() ? 'Yes' : 'No'}"></td>
             <td> <a th:href="@{/request/{requestName}/{requestId}(requestName=${request.getRequestName()},requestId=${request.getId()})}" class="btn btn-primary">Details</a> </td>
             <td th:if="${request.isCompleted()}">
-              <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
+              <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open</a>
             </td>
             <td> <a th:href="@{/cadastral-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger">Delete</a> </td>
             <td></td>
