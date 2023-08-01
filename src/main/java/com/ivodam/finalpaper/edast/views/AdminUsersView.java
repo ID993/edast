@@ -5,6 +5,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
+import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.UserService;
 import jakarta.validation.Valid;
@@ -23,47 +24,38 @@ public class AdminUsersView {
 
     private final UserService userService;
     private final RegistryBookService registryBookService;
+    private final UserMapper userMapper;
 
     @RequestMapping("/search-users")
     public String searchUsers(Model model,
-                              @RequestParam String name,
+                              @RequestParam String search,
                               @RequestParam(defaultValue = "0") int page,
                               @RequestParam(defaultValue = "6") int size) {
         var pageable = PageRequest.of(page, size);
-        model.addAttribute("users", userService.findAllByNameContainingIgnoreCase(name, pageable));
+        model.addAttribute("users", userService.findAllByEmailOrNameContainingIgnoreCase(search, pageable));
         model.addAttribute("currentPage", page);
         return "admin/users-all";
     }
 
-    @GetMapping("/users/all")
+    @GetMapping("/users")
     public String getAll(Model model,
                          @RequestParam(defaultValue = "0") int page,
-                         @RequestParam(defaultValue = "6") int size) {
+                         @RequestParam(defaultValue = "6") int size,
+                         @RequestParam(defaultValue = "all") String type) {
         var pageable = PageRequest.of(page, size);
-        model.addAttribute("users", userService.findAll(pageable));
+        switch (type) {
+            case "all" ->
+                    model.addAttribute("users", userService.findAll(pageable));
+            case "citizens" ->
+                    model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_USER, pageable));
+            case "employees" ->
+                    model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_EMPLOYEE, pageable));
+        }
+        model.addAttribute("type", type);
         model.addAttribute("currentPage", page);
         return "admin/users-all";
     }
 
-    @GetMapping("/users/citizens")
-    public String getAllUsers(Model model,
-                              @RequestParam(defaultValue = "0") int page,
-                              @RequestParam(defaultValue = "6") int size) {
-        var pageable = PageRequest.of(page, size);
-        model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_USER, pageable));
-        model.addAttribute("currentPage", page);
-        return "admin/users-all";
-    }
-
-    @GetMapping("/users/employees")
-    public String getAllEmployees(Model model,
-                                  @RequestParam(defaultValue = "0") int page,
-                                  @RequestParam(defaultValue = "6") int size) {
-        var pageable = PageRequest.of(page, size);
-        model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_EMPLOYEE, pageable));
-        model.addAttribute("currentPage", page);
-        return "admin/users-all";
-    }
 
     @GetMapping("/users/all/{id}")
     public String getUserById(Model model, @PathVariable UUID id) throws AppException {
@@ -74,7 +66,7 @@ public class AdminUsersView {
 
     @GetMapping("/users/edit/{id}")
     public String editUserById(Model model, @PathVariable UUID id) throws AppException {
-        var user = userService.findById(id);
+        var user = userMapper.userToUserDto(userService.findById(id));
         model.addAttribute("user", user);
         model.addAttribute("jobs", Enums.JobPosition.values());
         return "admin/admin-user-edit";
@@ -82,7 +74,7 @@ public class AdminUsersView {
 
     @PostMapping("/users/edit/{id}")
     public String editUserById(@PathVariable UUID id,
-                               @Valid @ModelAttribute("user") UserDto user,
+                               @ModelAttribute("user") UserDto user,
                                @RequestParam String job) throws AppException {
         user.setJobTitle(job);
         System.out.println(user);
@@ -110,11 +102,15 @@ public class AdminUsersView {
     @GetMapping("admin/account/delete/{id}")
     public String deleteUserById(@PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
+        if (user.getRole().equals(Enums.Roles.ROLE_USER)) {
+            userService.deleteById(id);
+            return "redirect:/users";
+        }
         user.setRole(Enums.Roles.ROLE_USER);
         userService.updateRole(user);
         registryBookService.divideRequests(id);
         //userService.deleteById(id);
-        return "redirect:/users/all";
+        return "redirect:/users";
     }
 
 }

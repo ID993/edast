@@ -192,6 +192,14 @@ public class RegistryBookService {
         return registryBookRepository.countByEmployeeIdAndRead(employeeId, read);
     }
 
+    public long countByEmployeeId(UUID employeeId) {
+        return registryBookRepository.countByEmployeeId(employeeId);
+    }
+
+    public long countByEmployeeIdAndStatus(UUID employeeId, String status) {
+        return registryBookRepository.countByEmployeeIdAndStatus(employeeId, status);
+    }
+
     public Page<RegistryBook> searchByClassNumberOrUserOrEmployee(String keyword, Pageable pageable) {
         return registryBookRepository.searchAllByClassNumberOrUserOrEmployee(keyword, pageable);
     }

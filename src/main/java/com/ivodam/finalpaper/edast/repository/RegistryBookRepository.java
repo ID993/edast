@@ -31,8 +31,10 @@ public interface RegistryBookRepository extends JpaRepository<RegistryBook, UUID
 
     long countByRequestName(String requestName);
 
+    long countByEmployeeId(UUID employeeId);
     long countByEmployeeIdAndRead(UUID employeeId, boolean read);
 
+    long countByEmployeeIdAndStatus(UUID employeeId, String status);
     long countByStatusAndEmployeeId(String status, UUID employeeId);
 
     @Query("SELECT e FROM registry_book e WHERE e.employee.id IN (SELECT u.id FROM users u WHERE u.id = :employeeId) AND (LOWER(e.classNumber) LIKE %:keyword% OR LOWER(e.user.name) LIKE %:keyword%)")

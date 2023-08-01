@@ -2,12 +2,10 @@ package com.ivodam.finalpaper.edast.entity;
 
 import com.ivodam.finalpaper.edast.enums.Enums;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,6 +36,7 @@ public class User implements UserDetails{
 
     @Email(message = "Enter a valid email address")
     @NotNull(message = "Email is required")
+    @NotEmpty(message = "Email is required")
     private String email;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
@@ -54,11 +53,14 @@ public class User implements UserDetails{
 
     @Column(name = "pin")
     @Size(min = 11, max = 11, message = "Personal Identification Number must be 11 digits long")
+    @Pattern(regexp = "^[0-9]*$", message = "Personal Identification Number must contain only digits")
     @NotNull(message = "Personal Identification Number is required")
     private String personalIdentificationNumber;
 
     @Size(min = 9, message = "Mobile number must be at least 9 characters long")
+    @Pattern(regexp = "^[0-9]*$", message = "Mobile number must contain only digits")
     private String mobile;
+
 
     private String jobTitle;
 

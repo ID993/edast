@@ -8,12 +8,14 @@ import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import com.ivodam.finalpaper.edast.service.SpecialRequestService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -36,7 +38,11 @@ public class SpecialRequestView {
     }
 
     @PostMapping("/special-requests")
-    public String specialRequests(@ModelAttribute SpecialRequest specialRequest) {
+    public String specialRequests(@Valid @ModelAttribute SpecialRequest specialRequest,
+                                  BindingResult result) {
+        if (result.hasErrors()) {
+            return "special/make-special-request";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         specialRequest.setUser(user);
         specialRequest.setRequestName("Special");

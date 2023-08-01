@@ -10,12 +10,14 @@ import com.ivodam.finalpaper.edast.service.EducationRequestService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -38,7 +40,15 @@ public class CadastralRequestView {
     }
 
     @PostMapping("/cadastral-requests")
-    public String cadastralRequests(@ModelAttribute CadastralRequest cadastralRequest) {
+    public String cadastralRequests(@Valid @ModelAttribute CadastralRequest cadastralRequest,
+                                    BindingResult result,
+                                    Model model) {
+        if (result.hasErrors()) {
+            return "cadastral/make-cadastral-request";
+        } else if (cadastralRequest.getLandParcels().isEmpty() && cadastralRequest.getBuildingParcels().isEmpty()) {
+            model.addAttribute("message", "Land parcels or building parcels must be entered!");
+            return "cadastral/make-cadastral-request";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         cadastralRequest.setUser(user);
         cadastralRequest.setRequestName("Cadastral");

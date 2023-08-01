@@ -23,31 +23,34 @@
         <div class="text-black" style="border-radius: 25px;">
           <div class="p-md-5">
             <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+              <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
                 <p class="text-center justify-content-evenly h3 fw-bold mb-2 mx-1 mx-md-4 mt-4">Request for making certified copies of cadastral materials from:</p>
                 <hr>
                 <form id="form" class="mx-1 mx-md-4" th:object="${cadastralRequest}" method="POST" enctype="utf8">
                   Chose the type of cadastral material:<br>
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
-                  <div >
+                  <span class="text-warning" th:if="${#fields.hasErrors('cadastralSelection')}" th:errors="*{cadastralSelection}"></span>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-hand-point-right fa-lg me-3 fa-fw"></i>
+                    <div>
                       <input class="form-check-input" type="radio" id="cartographic" th:value="Cartographic" name="selectionRadio" th:field="*{cadastralSelection}"/>
                       <label class="form-check-label" for="cartographic">Cartographic</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div >
+                      <input class="form-check-input" type="radio" id="written" th:value="Written" name="selectionRadio" th:field="*{cadastralSelection}"/>
+                      <label class="form-check-label" for="written">Written</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div >
+                      <input class="form-check-input" type="radio" id="both" th:value="All" name="selectionRadio" th:field="*{cadastralSelection}"/>
+                      <label class="form-check-label" for="both">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
                   </div>
-                  <div >
-                    <input class="form-check-input" type="radio" id="written" th:value="Written" name="selectionRadio" th:field="*{cadastralSelection}"/>
-                    <label class="form-check-label" for="written">Written</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </div>
-                  <div >
-                    <input class="form-check-input" type="radio" id="both" th:value="All" name="selectionRadio" th:field="*{cadastralSelection}"/>
-                    <label class="form-check-label" for="both">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </div>
-                </div>
+
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-map fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="cadastralMunicipality" class="form-control form-control-lg" th:field="*{cadastralMunicipality}"/>
+                      <span class="text-warning" th:if="${#fields.hasErrors('cadastralMunicipality')}" th:errors="*{cadastralMunicipality}"></span>
                       <label class="form-label" for="cadastralMunicipality">Cadastral municipality</label>
                     </div>
                   </div>
@@ -56,7 +59,7 @@
                     <i class="fas fa-map-marked-alt fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="landParcels" class="form-control form-control-lg" th:field="*{landParcels}"/>
-                      <label class="form-label" for="landParcels">Land parcels (e.g.: 34/1, 43/2...)</label>
+                      <label class="form-label" for="landParcels">Land parcels (e.g.: 343, 43/2...)</label>
                     </div>
                   </div>
 
@@ -64,7 +67,8 @@
                     <i class="fas fa-building fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="buildingParcels" class="form-control form-control-lg" th:field="*{buildingParcels}"/>
-                      <label class="form-label" for="buildingParcels">Building parcels (e.g.: 23/1, 23/2...)</label>
+                      <label class="form-label" for="buildingParcels">Building parcels (e.g.: 235, 23/2...)</label>
+                      <span class="text-warning" th:if="${message!=null}" th:text="${message}"></span>
                     </div>
                   </div>
 
@@ -72,6 +76,7 @@
                     <i class="fas fa-clock fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
                       <input type="text" id="period" class="form-control form-control-lg" th:field="*{period}"/>
+                        <span class="text-warning" th:if="${#fields.hasErrors('period')}" th:errors="*{period}"></span>
                       <label class="form-label" for="period">Period (e.g.: 1831-1883)</label>
                     </div>
                   </div>

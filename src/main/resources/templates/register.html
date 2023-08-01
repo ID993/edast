@@ -26,31 +26,31 @@
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
                                     <form id="form" class="mx-1 mx-md-4" th:object="${user}" method="POST" enctype="utf8">
-                                        <div class="text-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-pencil fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
                                                 <input type="text" id="name" class="form-control form-control-lg" th:field="*{name}"/>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                                                 <label class="form-label" for="name">Full name</label>
                                             </div>
                                         </div>
 
-                                        <div class="text-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
-                                                <input type="email" id="email" class="form-control form-control-lg" th:field="*{email}"/>
+                                                <input type="email" id="email" class="form-control form-control-lg" th:field="*{email}" required/>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                                                 <label class="form-label" for="email">E-mail</label>
                                             </div>
                                         </div>
-
-<!--                                        <div class="text-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>-->
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
                                                 <input type="password" id="password" class="form-control form-control-lg" th:field="*{password}"/>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                                                 <label class="form-label" for="password">Password</label>
                                             </div>
                                         </div>
@@ -59,6 +59,7 @@
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
                                                 <input type="password" id="confirmPassword" class="form-control form-control-lg" th:field="*{confirmPassword}"/>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
                                                 <label class="form-label" for="confirmPassword">Confirm Password</label>
                                             </div>
                                         </div>
@@ -82,6 +83,7 @@
                                             <i class="fas fa-mobile fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
                                                 <input type="text" id="mobile" class="form-control form-control-lg" th:field="*{mobile}"/>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></span>
                                                 <label class="form-label" for="mobile">Mobile</label>
                                             </div>
                                         </div>
@@ -94,13 +96,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></div>
-
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-id-card fa-lg me-3 fa-fw"></i>
                                             <div class="form-floating flex-fill mb-0">
                                                 <input type="text" id="pin" class="form-control form-control-lg" th:field="*{personalIdentificationNumber}"/>
-                                                <label class="form-label" for="pin">OIB</label>
+                                                <span class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></span>
+                                                <label class="form-label" for="pin">PIN</label>
                                             </div>
                                         </div>
 
@@ -146,17 +147,6 @@
                                 <span class="alert alert-danger" th:text="${message}"></span>
                             </div>
 
-<!--                                    <div th:switch="${message}">-->
-<!--                                        <div th:case="'Success'" class="alert alert-success">-->
-<!--                                            <strong>Success!</strong> Successfully registered.-->
-<!--                                        </div>-->
-<!--                                        <div th:case="'Failed username'" class="alert alert-danger">-->
-<!--                                            <strong>Failure!</strong> Username exists, choose another.-->
-<!--                                        </div>-->
-<!--                                        <div th:case="'Failed password'" class="alert alert-danger">-->
-<!--                                            <strong>Failure!</strong> Passwords doesn't match.-->
-<!--                                        </div>-->
-<!--                                    </div>-->
                             </div>
                         </div>
 

@@ -10,12 +10,14 @@ import com.ivodam.finalpaper.edast.service.RegistryBookService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import com.ivodam.finalpaper.edast.service.WorkRequestService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -38,7 +40,12 @@ public class EducationRequestView {
     }
 
     @PostMapping("/education-requests")
-    public String educationRequests(@ModelAttribute EducationRequest educationRequest) {
+    public String educationRequests(@Valid @ModelAttribute EducationRequest educationRequest,
+                                    BindingResult result,
+                                    Model model) {
+        if (result.hasErrors()) {
+            return "education/make-education-request";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         educationRequest.setUser(user);
         educationRequest.setRequestName("Education");
