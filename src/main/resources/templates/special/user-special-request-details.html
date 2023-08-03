@@ -39,7 +39,7 @@
                   <div class="d-flex flex-row mb-1">
                     Description:&nbsp;&nbsp;
                     <span class="h6 mt-1" th:text="*{documentDescription}"></span></div>
-                </div>
+                  </div>
                 <div class="d-flex flex-row align-items-center mb-5">
                   <span th:if="${request.isCompleted()}">
                     <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>

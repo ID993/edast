@@ -74,6 +74,7 @@ public class BdmRequestView {
         return "admin-all-bdm-requests";
     }
 
+
     @GetMapping("/user-bdm-requests/all/{userId}")
     public String allUserBdmRequests(@PathVariable UUID userId,
                                      @RequestParam(defaultValue = "") String keyword,

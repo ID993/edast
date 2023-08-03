@@ -93,7 +93,6 @@ public class UserService {
         userDto.setRole(user.getRole());
         userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
         var updatedUser = userMapper.userDtoToUser(userDto);
-        System.out.println(updatedUser);
         userRepository.save(updatedUser);
     }
 

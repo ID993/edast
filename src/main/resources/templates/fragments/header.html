@@ -71,14 +71,23 @@
               </div>
             </div>
           </li>
+          <li class="nav-item" sec:authorize="hasAnyRole('ADMIN', 'EMPLOYEE')">
+            <div class="dropdown">
+              <button th:onclick="reservationDropDown()" class="dropbtn">Reservations</button>
+              <div id="reservationDropdown" class="dropdown-content">
+                <a th:href="@{/reservations}">All</a>
+                <a th:href="@{/reservations/today}">Today's</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" sec:authorize="hasRole('USER')">
+            <div>
+              <a th:href="@{/reservations}">
+                <button class="dropbtn">Reservations</button>
+              </a>
+            </div>
+          </li>
         </ul>
-
-<!--        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">-->
-<!--          <form action="/search" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">-->
-<!--            <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="name" aria-label="Search" style="max-width: 300px; margin-right: 5px;">-->
-<!--            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>-->
-<!--          </form>-->
-<!--        </div>-->
 
         <ul class="navbar-nav">
           <div sec:authorize="hasRole('ANONYMOUS')">
