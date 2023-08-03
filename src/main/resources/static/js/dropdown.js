@@ -8,6 +8,10 @@ function userDropDown() {
     document.getElementById("userDropdown").classList.toggle("show");
 }
 
+function reservationDropDown() {
+    document.getElementById("reservationDropdown").classList.toggle("show");
+}
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         const dropdowns = document.getElementsByClassName("dropdown-content");

@@ -8,6 +8,7 @@ import com.ivodam.finalpaper.edast.entity.Document;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.service.DocumentService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -35,6 +36,13 @@ public class Utility {
     private final DocumentService documentService;
 
 
+    public Sort getSort(String sortBy, String sortOrder) {
+        var sort = Sort.by(sortBy);
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            sort = sort.descending();
+        }
+        return sort;
+    }
 
     public byte[] createZipFile(UUID id) throws IOException {
         var zipFile = File.createTempFile("download", ".zip");

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
+    <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
+    <link th:href="@{/styles/css/message.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/sidebar.js}"></script>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<section style="background-color: #eee;">
+    <div class="container">
+        <h1>Reservations</h1>
+        <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
+            <form action="/reservations" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="keyword" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><a th:href="@{/reservations(keyword=${keyword},page=0,size=${reservations.size},sortBy='dateOfReservation',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Reservation date' + (${sortBy} == 'dateOfReservation' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/reservations(keyword=${keyword},page=0,size=${reservations.size},sortBy='user.name',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'User' + (${sortBy} == 'user.name' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/reservations(keyword=${keyword},page=0,size=${reservations.size},sortBy='fondSignature',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Fond' + (${sortBy} == 'fondSignature' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th><a th:href="@{/reservations(keyword=${keyword},page=0,size=${reservations.size},sortBy='dateCreated',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Created on' + (${sortBy} == 'dateCreated' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="record: ${reservations.content}">
+                <tr>
+                    <td th:text="${record.getDateOfReservation()}"></td>
+                    <td th:text="${record.getUser().getName()}"></td>
+                    <td th:text="${record.getFondSignature()}"></td>
+                    <td th:text="${record.getDateCreated()}"></td>
+                    <td> <a th:href="@{/reservation-details/{id}(id=${record.getId()})}" class="btn btn-primary">Details</a>
+                    <td> <a sec:authorize="hasRole('USER')" th:href="@{/reservation/{id}/delete(id=${record.getId()})}" class="btn btn-danger">Cancel</a>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <div th:if="${reservations.totalPages!=0}" class="text-center">
+            <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/reservations(keyword=${keyword},page=${currentPage - 1},size=${reservations.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+            <span th:text="${currentPage + 1} + ' of ' + ${reservations.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
+            <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < reservations.totalPages}" th:href="@{/reservations(keyword=${keyword},page=${currentPage + 1},size=${reservations.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
+        </div>
+    </div>
+</section>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
