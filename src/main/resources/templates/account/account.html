@@ -37,16 +37,8 @@
                                     <span class="h6 mt-2" th:text="${user.getEmail()}"></span>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-1" th:object="${user}">
-                                    <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>
-                                    <span class="h6 mt-2" th:text="${user.getAddress()}"></span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center mb-1" th:object="${user}">
-                                    <i class="fas fa-mobile-alt fa-lg me-3 fa-fw"></i>
-                                    <span class="h6 mt-2" th:text="${user.getMobile()}"></span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center mb-1" th:object="${user}">
-                                    <i class="fas fa-id-card fa-lg me-3 fa-fw"></i>
-                                    <span class="h6 mt-2" th:text="${user.getPersonalIdentificationNumber()}"></span>
+                                    <i class="fas fa-calendar-alt fa-lg me-3 fa-fw"></i>
+                                    <span class="h6 mt-2" th:text="${user.getJoinDate()}"></span>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-1" th:object="${user}">
                                     <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>

@@ -65,6 +65,9 @@
                                 </form>
                                 <br>
                             </div>
+                            <div th:if="${message!=null}" class="text-center">
+                                <span class="alert alert-warning" th:text="${message}"></span>
+                            </div>
                         </div>
                     </div>
                 </div>

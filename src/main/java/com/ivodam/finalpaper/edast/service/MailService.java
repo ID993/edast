@@ -1,6 +1,7 @@
 package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.dto.MailDto;
+import com.ivodam.finalpaper.edast.entity.Reservation;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -21,18 +22,6 @@ public class MailService {
     private UserService userService;
     private JavaMailSender mailSender;
 
-    @Async
-    public void sendRequest(MailDto mailDto) throws MessagingException {
-
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setSubject(mailDto.getSubject());
-        helper.setFrom(mailDto.getFrom());
-        helper.setTo(mailDto.getTo());
-        helper.setText(mailDto.getMessage());
-        mailSender.send(message);
-
-    }
 
     @Async
     public void sendPasswordResetLink(String email) throws MessagingException, AppException {
@@ -48,16 +37,25 @@ public class MailService {
         mailSender.send(message);
     }
 
-
-
-//    @Qualifier("taskExecutor")
-//    private TaskExecutor taskExecutor;
+    @Async
+    public void sendReservationConfirmation(String email, Reservation reservation) throws MessagingException, AppException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setSubject("e-dast - Reservation confirmed" + reservation.getDateOfReservation());
+        helper.setFrom("joe.daminew@gmail.com");
+        helper.setTo(email);
+        helper.setText("</b><br><br> Hello, " + email + "!<br><br>"
+                + "Your reservation is confirmed for " + reservation.getDateOfReservation()
+                + ".<br><br><h4>You have reserved:</h4><b>Fond/collection</b>: "
+                + reservation.getFondSignature() + ". <br><b>Technical units</b>: "
+                + reservation.getTechnicalUnits() + "<br><br>We hope You'll find what You're looking for.<br>" +
+                "<b>Important notice:</b>It is possible to change the reservation no later than 2 days before the reservation.", true);
+        mailSender.send(message);
+    }
 
     @Async
     public void sendEmailAttachment(final String subject, final String message, final String fromEmailAddress,
-                                    final String toEmailAddresses, final boolean isHtmlMail,
-                                    MultipartFile[] multipartFiles) {
-        //taskExecutor.execute(() -> {
+                                    final String toEmailAddresses, final boolean isHtmlMail) {
             try {
                 MimeMessage mimeMessage = mailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
@@ -70,14 +68,13 @@ public class MailService {
                 } else {
                     helper.setText(message);
                 }
-                for (MultipartFile file: multipartFiles) {
-                    helper.addAttachment(Objects.requireNonNull(file.getOriginalFilename()), file);
-                }
+//                for (MultipartFile file: multipartFiles) {
+//                    helper.addAttachment(Objects.requireNonNull(file.getOriginalFilename()), file);
+//                }
                 mailSender.send(mimeMessage);
                 System.out.println("Email sending complete.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        //});
     }
 }

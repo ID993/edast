@@ -32,23 +32,12 @@ public class RegistryBookService {
 
 
     public String classNumberGenerator(String requestName) {
-        return "611-12/" + LocalDate.now().getYear() + "-" + requestName.toUpperCase()
+        return "611-03/" + LocalDate.now().getYear() + "-" + requestName.substring(0, 3).toUpperCase() + "/"
                 + (registryBookRepository.countByRequestName(requestName) + 1);
     }
 
-    public User findUserWithLeastRequests() {
-        var users = userService.findAllByRoleAndJobTitle("ROLE_EMPLOYEE", "Archivist");
-        var userWithLeastRequests = users.get(0);
-        for (User user : users) {
-            if(registryBookRepository.countByStatusAndEmployeeId(STATUS, user.getId()) <=
-                    registryBookRepository.countByStatusAndEmployeeId(STATUS, userWithLeastRequests.getId()))
-                userWithLeastRequests = user;
-        }
-        return userWithLeastRequests;
-    }
-
     public static int index = 0;
-    public User roundRobin() {
+    public User assignRequestToEmployee() {
         var users = userService.findAllByRoleAndJobTitle("ROLE_EMPLOYEE", "Archivist");
         if (index >= users.size())
             index = 0;
@@ -60,7 +49,7 @@ public class RegistryBookService {
     public void divideRequests(UUID userId) {
         var registryBooks = registryBookRepository.findByEmployeeIdAndStatus(userId, "In progress");
         for (var regBook : registryBooks) {
-            regBook.setEmployee(roundRobin());
+            regBook.setEmployee(assignRequestToEmployee());
             regBook.setRead(false);
             registryBookRepository.save(regBook);
         }
@@ -88,14 +77,14 @@ public class RegistryBookService {
     public void create(UUID requestId, String requestName, User user) {
         var registryBook = new RegistryBook();
         registryBook.setClassNumber(classNumberGenerator(requestName));
-        registryBook.setRegistryNumber("2189-101-" + LocalDate.now().getYear() + "-"  + requestName + "/1");
+        registryBook.setRegistryNumber("380-" + LocalDate.now().getYear() + "-01");
         registryBook.setTitle(requestName + " Request");
         registryBook.setRequestName(requestName);
         registryBook.setStatus(STATUS);
         registryBook.setReceivedDate(getDateDay(0));
         registryBook.setDeadlineDate(getDateDay(15));
         registryBook.setRequestId(requestId);
-        registryBook.setEmployee(roundRobin());
+        registryBook.setEmployee(assignRequestToEmployee());
         registryBook.setUser(user);
         registryBook.setRead(false);
         registryBookRepository.save(registryBook);
@@ -105,28 +94,25 @@ public class RegistryBookService {
         registryBookRepository.deleteById(id);
     }
 
-    public RegistryBook findById(UUID id) {
-        return registryBookRepository.findById(id).orElse(null);
+    public RegistryBook findById(UUID id) throws AppException {
+        return registryBookRepository.findById(id).orElseThrow(() ->
+                new AppException("Record with id: " + id + " is not found", HttpStatus.NOT_FOUND));
     }
 
     public List<RegistryBook> findAll() {
         return registryBookRepository.findAll();
     }
 
-    public RegistryBook findByRequestId(UUID id) {
-        return registryBookRepository.findByRequestId(id).orElse(null);
+    public RegistryBook findByRequestId(UUID id) throws AppException {
+        return registryBookRepository.findByRequestId(id).orElseThrow(() ->
+                new AppException("Record with request id: " + id + " is not found", HttpStatus.NOT_FOUND));
     }
 
-    public Page<RegistryBook> findByRequestName(String requestName, Pageable pageable) {
-        return registryBookRepository.findByRequestName(requestName, pageable);
-    }
+
     public Page<RegistryBook> findByEmployeeIdAndKeyword(UUID id, String keyword, Pageable pageable) {
         return registryBookRepository.findByEmployeeIdAndKeyword(id, keyword, pageable);
     }
 
-    public Page<RegistryBook> findByEmployeeIdAndRequestName(UUID id, String requestName, Pageable pageable) {
-        return registryBookRepository.findByEmployeeIdAndRequestName(id, requestName, pageable);
-    }
 
     public void updateRequestByName(UUID requestId,String requestName) throws AppException {
         switch (requestName) {
@@ -187,7 +173,6 @@ public class RegistryBookService {
         return registryBookRepository.findByEmployeeIdAndRead(employeeId, read, pageable);
     }
 
-
     public long countByEmployeeIdAndRead(UUID employeeId, boolean read) {
         return registryBookRepository.countByEmployeeIdAndRead(employeeId, read);
     }
@@ -228,9 +213,6 @@ public class RegistryBookService {
         return registryBookRepository.searchAllByClassNumberOrUserOrEmployeeAndRequestName(keyword, requestName, pageable);
     }
 
-    public Page<RegistryBook> findAllPaging(Pageable pageable) {
-        return registryBookRepository.findAll(pageable);
-    }
 
     public List<Object[]> countByRequestName() {
         return registryBookRepository.getTotalRequestsByRequestName();

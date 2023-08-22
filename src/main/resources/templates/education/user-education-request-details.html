@@ -74,12 +74,14 @@
                 </div>
 
 
-
                 <div class="d-flex flex-row align-items-center mb-5">
                   <span th:if="${request.isCompleted()}">
                     <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
                   </span>
-                  <a th:href="@{/education-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
+                  <span sec:authorize="hasRole('EMPLOYEE')" th:if="${!request.isCompleted()}">
+                    <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary mt-3 m-lg-2">Write Cover Letter</a>
+                  </span>
+                  <a sec:authorize="hasRole('USER')" th:href="@{/education-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
                 </div>
               </div>
             </div>

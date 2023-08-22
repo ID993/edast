@@ -3,6 +3,7 @@ package com.ivodam.finalpaper.edast.service;
 import com.ivodam.finalpaper.edast.entity.BDMRequest;
 import com.ivodam.finalpaper.edast.entity.EducationRequest;
 import com.ivodam.finalpaper.edast.entity.WorkRequest;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.repository.EducationRequestRepository;
 import com.ivodam.finalpaper.edast.repository.WorkRequestRepository;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,7 @@ public class EducationRequestService {
         return educationRequestRepository.findById(id).orElse(null);
     }
 
-    public void deleteById(UUID id) {
+    public void deleteById(UUID id) throws AppException {
         var registryBook = registryBookService.findByRequestId(id);
         if (registryBook != null) {
             registryBookService.deleteById(registryBook.getId());

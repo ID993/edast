@@ -44,22 +44,22 @@ public class User implements UserDetails{
     @NotNull(message = "Password is required")
     private String password;
 
-    @Size(min = 2, message = "Address must be at least 8 characters long")
-    private String address;
+//    @Size(min = 2, message = "Address must be at least 8 characters long")
+//    private String address;
 
     private String joinDate;
 
     private Enums.Roles role;
 
-    @Column(name = "pin")
-    @Size(min = 11, max = 11, message = "Personal Identification Number must be 11 digits long")
-    @Pattern(regexp = "^[0-9]*$", message = "Personal Identification Number must contain only digits")
-    @NotNull(message = "Personal Identification Number is required")
-    private String personalIdentificationNumber;
-
-    @Size(min = 9, message = "Mobile number must be at least 9 characters long")
-    @Pattern(regexp = "^[0-9]*$", message = "Mobile number must contain only digits")
-    private String mobile;
+//    @Column(name = "pin")
+//    @Size(min = 11, max = 11, message = "Personal Identification Number must be 11 digits long")
+//    @Pattern(regexp = "^[0-9]*$", message = "Personal Identification Number must contain only digits")
+//    @NotNull(message = "Personal Identification Number is required")
+//    private String personalIdentificationNumber;
+//
+//    @Size(min = 9, message = "Mobile number must be at least 9 characters long")
+//    @Pattern(regexp = "^[0-9]*$", message = "Mobile number must contain only digits")
+//    private String mobile;
 
 
     private String jobTitle;
@@ -98,6 +98,8 @@ public class User implements UserDetails{
     public String getUsername() {
         return this.email;
     }
+
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
