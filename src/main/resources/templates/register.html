@@ -12,7 +12,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
     <script th:src="@{/js/password.js}" type="text/javascript"></script>
-
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
@@ -23,7 +22,7 @@
                 <div class="text-black" style="border-radius: 25px;">
                     <div class="p-md-5">
                         <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                            <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
                                     <form id="form" class="mx-1 mx-md-4" th:object="${user}" method="POST" enctype="utf8">
 
@@ -71,22 +70,22 @@
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>
-                                            <div class="form-floating flex-fill mb-0">
-                                                <input type="text" id="address" class="form-control form-control-lg" th:field="*{address}"/>
-                                                <label class="form-label" for="address">Address</label>
-                                            </div>
-                                        </div>
+<!--                                        <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                                            <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>-->
+<!--                                            <div class="form-floating flex-fill mb-0">-->
+<!--                                                <input type="text" id="address" class="form-control form-control-lg" th:field="*{address}"/>-->
+<!--                                                <label class="form-label" for="address">Address</label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-mobile fa-lg me-3 fa-fw"></i>
-                                            <div class="form-floating flex-fill mb-0">
-                                                <input type="text" id="mobile" class="form-control form-control-lg" th:field="*{mobile}"/>
-                                                <span class="text-warning" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></span>
-                                                <label class="form-label" for="mobile">Mobile</label>
-                                            </div>
-                                        </div>
+<!--                                        <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                                            <i class="fas fa-mobile fa-lg me-3 fa-fw"></i>-->
+<!--                                            <div class="form-floating flex-fill mb-0">-->
+<!--                                                <input type="text" id="mobile" class="form-control form-control-lg" th:field="*{mobile}"/>-->
+<!--                                                <span class="text-warning" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></span>-->
+<!--                                                <label class="form-label" for="mobile">Mobile</label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>
@@ -96,14 +95,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-id-card fa-lg me-3 fa-fw"></i>
-                                            <div class="form-floating flex-fill mb-0">
-                                                <input type="text" id="pin" class="form-control form-control-lg" th:field="*{personalIdentificationNumber}"/>
-                                                <span class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></span>
-                                                <label class="form-label" for="pin">PIN</label>
-                                            </div>
-                                        </div>
+<!--                                        <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                                            <i class="fas fa-id-card fa-lg me-3 fa-fw"></i>-->
+<!--                                            <div class="form-floating flex-fill mb-0">-->
+<!--                                                <input type="text" id="pin" class="form-control form-control-lg" th:field="*{personalIdentificationNumber}"/>-->
+<!--                                                <span class="text-warning" th:if="${#fields.hasErrors('personalIdentificationNumber')}" th:errors="*{personalIdentificationNumber}"></span>-->
+<!--                                                <label class="form-label" for="pin">PIN</label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
                                         <div class="form-floating flex-fill mb-0">
                                             <div class="col-12">
@@ -134,7 +133,6 @@
                                         </div>
                                         <br>
 
-
                                         <div class="d-flex justify-content-end pt-3">
                                             <button type="reset" class="btn btn-light btn-lg">Reset all</button>
                                             <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
@@ -144,7 +142,7 @@
                             </div>
 
                             <div th:if="${message!=null}" class="text-center">
-                                <span class="alert alert-danger" th:text="${message}"></span>
+                                <span class="alert alert-warning" th:text="${message}"></span>
                             </div>
 
                             </div>

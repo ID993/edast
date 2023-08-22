@@ -4,6 +4,7 @@ package com.ivodam.finalpaper.edast.service;
 import com.ivodam.finalpaper.edast.entity.Reservation;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.repository.ReservationRepository;
+import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,11 +20,18 @@ import java.util.UUID;
 public class ReservationService {
 
     private ReservationRepository reservationRepository;
+    private MailService mailService;
 
 
-    public Reservation create(Reservation reservation) {
+    public boolean existsByUserAndDate(UUID userId, String dateOfReservation) {
+        return reservationRepository.existsByUserIdAndDateOfReservation(userId, dateOfReservation);
+    }
+
+    public Reservation create(Reservation reservation) throws AppException, MessagingException {
         reservation.setDateCreated(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy.")));
-        return reservationRepository.save(reservation);
+        var r = reservationRepository.save(reservation);
+        mailService.sendReservationConfirmation(reservation.getUser().getEmail(), r);
+        return r;
     }
 
     public boolean canUpdateReservation(String dateOfReservation) {

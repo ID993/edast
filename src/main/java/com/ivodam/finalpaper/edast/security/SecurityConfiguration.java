@@ -37,7 +37,6 @@ public class SecurityConfiguration{
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
         http
-                //.anonymous().disable()
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/")
@@ -68,6 +67,5 @@ public class SecurityConfiguration{
 
         return http.build();
     }
-
 
 }

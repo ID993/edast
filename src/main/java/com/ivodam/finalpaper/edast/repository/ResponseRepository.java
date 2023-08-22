@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface ResponseRepository extends JpaRepository<Response, UUID> {
 
-    Response findByRequestId(UUID requestId);
+    Response findByRegistryBookId(UUID requestId);
 
     List<Response> findAllByUserId(UUID userId);
 

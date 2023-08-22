@@ -3,6 +3,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Make Response</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
@@ -14,7 +16,7 @@
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 
-<section style="background-color: #eee; height: 100vh;">
+<section style="background-color: #eee;">
     <div class="container">
         <br>
         <h2>Send response</h2>
@@ -46,10 +48,6 @@
                             </tr>
                             <tr>
                                 <td th:text="'&emsp;&emsp;' + ${record.getUser().getName()}"></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td th:text="'&emsp;&emsp;' + ${record.getUser().getAddress()}"></td>
                                 <td></td>
                             </tr>
                             <tr>

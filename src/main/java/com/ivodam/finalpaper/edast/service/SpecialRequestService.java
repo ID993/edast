@@ -1,6 +1,7 @@
 package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.entity.SpecialRequest;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.repository.SpecialRequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -33,7 +34,7 @@ public class SpecialRequestService {
         return specialRequestRepository.findById(id).orElse(null);
     }
 
-    public void deleteById(UUID id) {
+    public void deleteById(UUID id) throws AppException {
         var registryBook = registryBookService.findByRequestId(id);
         //var specialRequest = specialRequestRepository.findById(id).get();
         if (registryBook != null) {

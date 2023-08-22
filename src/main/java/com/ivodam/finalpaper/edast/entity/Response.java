@@ -28,9 +28,13 @@ public class Response {
 
     private String dateOfCreation;
 
-    private UUID requestId;
+    //private UUID requestId;
 
     private boolean read;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "registry_book_id", nullable = false)
+    private RegistryBook registryBook;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)

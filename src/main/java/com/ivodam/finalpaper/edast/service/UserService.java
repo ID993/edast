@@ -4,7 +4,7 @@ import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
-import com.ivodam.finalpaper.edast.helpers.PasswordHandler;
+import com.ivodam.finalpaper.edast.utility.PasswordHandler;
 import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.repository.UserRepository;
 import com.ivodam.finalpaper.edast.security.SecurityConfiguration;
@@ -91,13 +91,14 @@ public class UserService {
         userDto.setPassword(user.getPassword());
         userDto.setJoinDate(user.getJoinDate());
         userDto.setRole(user.getRole());
-        userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
+        //userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
         var updatedUser = userMapper.userDtoToUser(userDto);
+        System.out.println(updatedUser);
         userRepository.save(updatedUser);
     }
 
-    public Page<User> findAllByEmailOrNameContainingIgnoreCase(String search, Pageable pageable) {
-        return userRepository.findAllByEmailOrNameContainingIgnoreCase(search, pageable);
+    public Page<User> findAllByEmailOrNameOrJobTitleContainingIgnoreCase(String search, Pageable pageable) {
+        return userRepository.findAllByEmailOrNameOrJobTitleContainingIgnoreCase(search, pageable);
     }
 
     public List<User> findAllByRoleAndJobTitle(String role, String jobTitle) {

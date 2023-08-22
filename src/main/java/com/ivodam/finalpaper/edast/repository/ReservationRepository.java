@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface ReservationRepository extends JpaRepository<Reservation, UUID> {
 
 
+    boolean existsByUserIdAndDateOfReservation(UUID userId, String dateOfReservation);
     @Query("SELECT r FROM reservation r WHERE r.user.id = ?1 AND (r.dateOfReservation LIKE %?2% OR LOWER(r.fondSignature) LIKE LOWER(CONCAT('%', ?2, '%')))")
     Page<Reservation> findAllByUserId(UUID userId, String keyword, Pageable pageable);
 

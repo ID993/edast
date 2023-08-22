@@ -22,7 +22,8 @@ public class ResponseService {
         var responseToSave = new Response();
         responseToSave.setTitle(response.getTitle());
         responseToSave.setContent(response.getContent());
-        responseToSave.setRequestId(requestId);
+        //responseToSave.setRequestId(requestId);
+        responseToSave.setRegistryBook(registryBookRepository.findByRequestId(requestId).orElseThrow());
         responseToSave.setEmployee(registryBookRepository.findByRequestId(requestId).orElseThrow().getEmployee());
         responseToSave.setUser(registryBookRepository.findByRequestId(requestId).orElseThrow().getUser());
         responseToSave.setRead(false);
@@ -44,7 +45,8 @@ public class ResponseService {
     }
 
     public Response findByRequestId(UUID requestId){
-        return responseRepository.findByRequestId(requestId);
+        var registryBook = registryBookRepository.findByRequestId(requestId).orElseThrow();
+        return responseRepository.findByRegistryBookId(registryBook.getId());
     }
 
     public List<Response> findAll(){

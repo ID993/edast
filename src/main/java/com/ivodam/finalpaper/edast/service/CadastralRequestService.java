@@ -1,10 +1,12 @@
 package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.entity.CadastralRequest;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.repository.CadastralRequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -29,11 +31,12 @@ public class CadastralRequestService {
         return cadastralRequestRepository.save(cadastralRequest);
     }
 
-    public CadastralRequest findById(UUID id) {
-        return cadastralRequestRepository.findById(id).orElse(null);
+    public CadastralRequest findById(UUID id) throws AppException {
+        return cadastralRequestRepository.findById(id).orElseThrow( () ->
+                new AppException("Cadastral request with id " + id + " doesn't exist!", HttpStatus.NOT_FOUND));
     }
 
-    public void deleteById(UUID id) {
+    public void deleteById(UUID id) throws AppException {
         var registryBook = registryBookService.findByRequestId(id);
         if (registryBook != null) {
             registryBookService.deleteById(registryBook.getId());
