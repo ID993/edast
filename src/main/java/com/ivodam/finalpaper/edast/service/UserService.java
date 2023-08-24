@@ -81,8 +81,8 @@ public class UserService {
     }
 
 
-    public User updateRole(User user) {
-        return userRepository.save(user);
+    public void updateRole(User user) {
+        userRepository.save(user);
     }
 
 
@@ -91,9 +91,7 @@ public class UserService {
         userDto.setPassword(user.getPassword());
         userDto.setJoinDate(user.getJoinDate());
         userDto.setRole(user.getRole());
-        //userDto.setPersonalIdentificationNumber(user.getPersonalIdentificationNumber());
         var updatedUser = userMapper.userDtoToUser(userDto);
-        System.out.println(updatedUser);
         userRepository.save(updatedUser);
     }
 

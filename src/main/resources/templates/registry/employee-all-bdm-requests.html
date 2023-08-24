@@ -17,7 +17,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee;">
+<section style="height: 105vh; background-color: #eee;">
     <div class="container">
         <h1>Registry requests</h1>
         <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -59,7 +59,7 @@
             </th:block>
             </tbody>
         </table>
-        <div class="text-center">
+        <div th:if="${requests.totalPages!=0}" class="text-center">
             <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
             <span th:text="${currentPage + 1} + ' of ' + ${requests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
             <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < requests.totalPages}" th:href="@{/requests/all/bdm/{employeeId}(employeeId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>

@@ -20,7 +20,7 @@
   <div class="container">
     <h1>Users</h1>
       <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
-        <form th:action="@{/search-users(type=${type})}" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
+        <form action="/users" method="get" class="form-inline d-flex m-3" style="justify-content: center; margin-top: 10px;">
           <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search" aria-label="Search" style="max-width: 300px; margin-right: 5px;">
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -48,18 +48,18 @@
           <td th:text="${user.jobTitle}"></td>
           <td th:text="${user.role.getDisplayName()}"></td>
           <td> <a th:href="@{/admin/account/delete/{id}(id=${user.getId()})}" class="btn btn-danger">Delete</a> </td>
-          <td th:if="${user.getRole().getDisplayName() == 'Employee'}">
-            <a th:href="@{/users/all/{id}(id=${user.getId()})}" class="btn btn-primary">Update</a>
+          <td th:if="${(!(user.getId() == session.user.id) && (user.getRole().getDisplayName() != 'User'))}">
+            <a th:href="@{/users/edit/{id}(id=${user.getId()})}" class="btn btn-primary">Update</a>
           </td>
         </tr>
       </th:block>
       </tbody>
     </table>
     <a th:href="@{/admin/register}" class="btn btn-outline-primary">Add</a>
-    <div class="text-center">
-      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/users(type=${type},page=${currentPage - 1},size=${users.size})}"></a>
+    <div th:if="${users.totalPages!=0}" class="text-center">
+      <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/users(search=${search},page=${currentPage - 1},size=${users.size},type=${type})}"></a>
       <span th:text="${currentPage + 1} + ' of ' + ${users.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
-      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < users.totalPages}" th:href="@{/users(type=${type},page=${currentPage + 1},size=${users.size})}"></a>
+      <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < users.totalPages}" th:href="@{/users(search=${search},page=${currentPage + 1},size=${users.size},type=${type})}"></a>
     </div>
   </div>
 </section>

@@ -76,11 +76,9 @@ public class Register {
             model.addAttribute("message", "Email already exists!");
             return "admin/admin-register";
         }
-//        user.setAddress("Enter address");
-//        user.setMobile("Enter mobile number");
         user.setJobTitle(job);
-        userService.create(user);
-        return "redirect:/users";
+        var savedUser = userService.create(user);
+        return "redirect:/users?type=" + savedUser.getRole().getDisplayName();
     }
 
     private void getCaptcha(UserDto user) {

@@ -17,7 +17,7 @@
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 
-<section class="vh-100" style="background-color: #eee;">
+<section style="height: 105vh; background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -26,9 +26,7 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center">
                 <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Request Details</p>
-
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Date created:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getDateCreated()}"></span>
                 </div>
@@ -37,27 +35,22 @@
                   <span class="h6 mt-2" th:text="${request.getBdmSelection()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Person of interest:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getFullName()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Date of birth:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getDateOfBirth()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Place of birth:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getPlaceOfBirth()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Father's name:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getFathersName()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Mother's name:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getMothersName()}"></span>
                 </div>
@@ -66,24 +59,21 @@
                   <span class="h6 mt-2" th:text="${request.getMothersMaidenName()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Date of marriage:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getDateOfMarriage()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Place of marriage:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getPlaceOfMarriage()}"></span>
                 </div>
                 <div class="d-flex flex-row align-items-center mb-1" th:object="${request}">
-
                     Date of death:&nbsp;&nbsp;
                   <span class="h6 mt-2" th:text="${request.getDateOfDeath()}"></span>
                 </div>
 
                 <div class="d-flex flex-row align-items-center mb-5">
                   <span th:if="${request.isCompleted()}">
-                    <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
+                    <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-success">Open Cover Letter</a>
                   </span>
                   <span sec:authorize="hasRole('EMPLOYEE')" th:if="${!request.isCompleted()}">
                     <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary mt-3 m-lg-2">Write Cover Letter</a>

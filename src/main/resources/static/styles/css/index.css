@@ -18,7 +18,7 @@ header, footer {
     text-align: center;
     padding-top: 20px;
     background-color: #eee;
-    min-height: 78vh;
+    min-height: 81vh;
     display: flex;
     flex-direction: column;
 }

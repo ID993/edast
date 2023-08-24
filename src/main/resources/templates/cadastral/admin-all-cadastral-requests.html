@@ -13,11 +13,11 @@
     <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
     <link th:href="@{/styles/css/dropdown.css}" rel="stylesheet">
     <link th:href="@{/styles/css/message.css}" rel="stylesheet">
-    <script type="text/javascript" th:src="@{/js/sidebar.js}"></script>
+
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee; height: 100vh;">
+<section style="background-color: #eee; height: 105vh;">
     <div class="container">
         <h1>Cadastral requests</h1>
         <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -59,7 +59,7 @@
             </th:block>
             </tbody>
         </table>
-        <div class="text-center">
+        <div th:if="${requests.totalPages!=0}" class="text-center">
             <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/cadastral-requests/all(keyword=${keyword},page=${currentPage - 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
             <span th:text="${currentPage + 1} + ' of ' + ${requests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
             <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < requests.totalPages}" th:href="@{/cadastral-requests/all(keyword=${keyword},page=${currentPage + 1},size=${requests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>

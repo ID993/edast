@@ -18,7 +18,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee; height: 100vh">
+<section style="background-color: #eee; height: 105vh">
   <div class="container">
     <h1>Work Requests</h1>
     <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -54,13 +54,13 @@
               <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open</a>
             </td>
             <td> <a th:href="@{/work-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger">Delete</a> </td>
-            <td></td>
+
           </tr>
         </th:block>
       </tbody>
     </table>
     <a th:href="@{/work-requests}" class="btn btn-outline-primary">Create new</a>
-    <div class="text-center">
+    <div th:if="${workRequests.totalPages!=0}" class="text-center">
       <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/user-work-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage - 1},size=${workRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
       <span th:text="${currentPage + 1} + ' of ' + ${workRequests.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
       <a class="fas fa-arrow-circle-right" th:if="${currentPage + 1 < workRequests.totalPages}" th:href="@{/user-work-requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=${currentPage + 1},size=${workRequests.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>

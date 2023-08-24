@@ -17,7 +17,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
-<section style="background-color: #eee;">
+<section style="height: 100vh; background-color: #eee;">
     <div class="container">
         <h1>Reservations</h1>
         <div class="align-content-center" sec:authorize="hasAnyRole('ADMIN', 'USER', 'EMPLOYEE')">
@@ -51,7 +51,7 @@
             </th:block>
             </tbody>
         </table>
-        <a th:href="@{/reservation}" class="btn btn-outline-primary">New reservation</a>
+        <a sec:authorize="hasRole('USER')" th:href="@{/reservation}" class="btn btn-outline-primary">New reservation</a>
         <div th:if="${reservations.totalPages!=0}" class="text-center">
             <a class="fas fa-arrow-circle-left" th:if="${currentPage > 0}" th:href="@{/reservations(keyword=${keyword},page=${currentPage - 1},size=${reservations.size},sortBy=${sortBy},sortOrder=${sortOrder})}"></a>
             <span th:text="${currentPage + 1} + ' of ' + ${reservations.totalPages}" style="font-size: 20px; color: #3b71ca"></span>
