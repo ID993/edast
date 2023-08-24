@@ -40,8 +40,6 @@ public class Index {
                 model.addAttribute("usersByRole", userService.countByRole());
                 return "home/admin";
             }
-//            else if(user.getRole() == Enums.Roles.ROLE_USER)
-//                request.getSession().setAttribute("msgCount", responseService.countByRead(false, user.getId()));
             else if(user.getRole() == Enums.Roles.ROLE_EMPLOYEE) {
                 request.getSession().setAttribute("msgCount", registryBookService.countByEmployeeIdAndRead(user.getId(), false));
                 request.getSession().setAttribute("total", registryBookService.countByEmployeeId(user.getId()));
@@ -54,7 +52,7 @@ public class Index {
         return "home/index";
     }
 
-        private User getLoggedInUsername(){
+    private User getLoggedInUsername(){
         return (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 

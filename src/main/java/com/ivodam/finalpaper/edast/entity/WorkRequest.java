@@ -31,7 +31,6 @@ public class WorkRequest {
     @Size(min = 4, max = 50, message = "Name must be between 4 and 50 characters")
     private String fullName;
 
-    @NotEmpty(message = "Date of birth is required")
     @Pattern(regexp = "^(0?[1-9]|[1-2][0-9]|3[0-1])\\.(0?[1-9]|1[0-2])\\.\\d{4}\\.$", message = "Invalid date format. Use dd.mm.yyyy.")
     private String dateOfBirth;
 

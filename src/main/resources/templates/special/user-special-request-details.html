@@ -42,7 +42,7 @@
                   </div>
                 <div class="d-flex flex-row align-items-center mb-5">
                   <span th:if="${request.isCompleted()}">
-                    <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-primary">Open Cover Letter</a>
+                    <a th:href="@{/response/request/{id}(id=${request.getId()})}" class="btn btn-success">Open Cover Letter</a>
                   </span>
                   <span sec:authorize="hasRole('EMPLOYEE')" th:if="${!request.isCompleted()}">
                     <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary mt-3 m-lg-2">Write Cover Letter</a>

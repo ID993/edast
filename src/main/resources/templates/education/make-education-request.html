@@ -59,7 +59,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-calendar-alt fa-lg me-3 fa-fw"></i>
                     <div class="form-floating flex-fill mb-0">
-                      <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}" required/>
+                      <input type="text" id="dateOfBirth" class="form-control form-control-lg" th:field="*{dateOfBirth}">
                         <span class="text-warning" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></span>
                       <label class="form-label" for="dateOfBirth">Date of birth</label>
                     </div>
@@ -149,6 +149,6 @@
     </div>
   </div>
 </section>
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

@@ -56,15 +56,20 @@
                         <option value="0">select option</option>
                         <option th:each="option : ${jobs}" th:value="${option.getDisplayName()}" th:text="${option.getDisplayName()}" th:selected="${user.jobTitle == option.getDisplayName()}">></option>
                       </select>
-                      <input sec:authorize="hasAnyRole('USER')" type="text" id="jobTitle" th:placeholder="*{user.jobTitle}" class="form-control" th:field="*{user.jobTitle}"/>
-                      <input sec:authorize="hasRole('EMPLOYEE')" type="text" id="empJobTitle" th:placeholder="*{user.jobTitle}" class="form-control" th:field="*{user.jobTitle}" readonly/>
-                      <label class="form-label" for="jobTitle">Change Job title</label>
-                      <label class="form-label" for="empJobTitle">Change Job title</label>
+                      <label class="form-label" for="dropDownList">Change Job title</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-floating flex-fill mb-0 text-center">
+                      <a th:href="@{/users/add-admin/{id}(id=${user.getId()})}" class="btn btn-outline-primary">Make an admin</a>
+                      <a th:href="@{/users/add-employee/{id}(id=${user.getId()})}" class="btn btn-outline-dark">Make an employee</a>
                     </div>
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="reset" class="btn btn-light btn-lg">Reset</button>
+<!--                    <button type="reset" class="btn btn-light btn-lg">Reset</button>-->
                     <button type="submit" class="btn btn-primary btn-lg">Update</button>
                   </div>
 

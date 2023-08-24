@@ -24,33 +24,41 @@ public class AdminUsersController {
     private final RegistryBookService registryBookService;
     private final UserMapper userMapper;
 
-    @RequestMapping("/search-users")
-    public String searchUsers(Model model,
-                              @RequestParam String search,
-                              @RequestParam(defaultValue = "0") int page,
-                              @RequestParam(defaultValue = "6") int size) {
-        var pageable = PageRequest.of(page, size);
-        model.addAttribute("users", userService.findAllByEmailOrNameOrJobTitleContainingIgnoreCase(search, pageable));
-        model.addAttribute("currentPage", page);
-        return "admin/users-all";
-    }
+//    @RequestMapping("/search-users")
+//    public String searchUsers(@RequestParam(defaultValue = "") String search,
+//                              @RequestParam(defaultValue = "0") int page,
+//                              @RequestParam(defaultValue = "6") int size,
+//                              @RequestParam(defaultValue = "All") String type,
+//                              Model model) {
+//        var pageable = PageRequest.of(page, size);
+//        var users = userService.findAllByEmailOrNameOrJobTitleContainingIgnoreCase(search, pageable);
+//        model.addAttribute("currentPage", page);
+//        model.addAttribute("users", users);
+//        model.addAttribute("type", type);
+//        model.addAttribute("search", search);
+//        return "admin/users-all";
+//    }
 
     @GetMapping("/users")
-    public String getAll(Model model,
+    public String getAll(@RequestParam(defaultValue = "") String search,
                          @RequestParam(defaultValue = "0") int page,
                          @RequestParam(defaultValue = "6") int size,
-                         @RequestParam(defaultValue = "all") String type) {
+                         @RequestParam(defaultValue = "All") String type,
+                         Model model) {
         var pageable = PageRequest.of(page, size);
         switch (type) {
-            case "all" ->
-                    model.addAttribute("users", userService.findAll(pageable));
-            case "citizens" ->
+            case "Admin" ->
+                    model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_ADMIN, pageable));
+            case "User" ->
                     model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_USER, pageable));
-            case "employees" ->
+            case "Employee" ->
                     model.addAttribute("users", userService.findAllByRole(Enums.Roles.ROLE_EMPLOYEE, pageable));
+            case "All" ->
+                    model.addAttribute("users", userService.findAllByEmailOrNameOrJobTitleContainingIgnoreCase(search, pageable));
         }
-        model.addAttribute("type", type);
         model.addAttribute("currentPage", page);
+        model.addAttribute("type", type);
+        model.addAttribute("search", search);
         return "admin/users-all";
     }
 
@@ -76,7 +84,7 @@ public class AdminUsersController {
                                @RequestParam String job) throws AppException {
         user.setJobTitle(job);
         userService.updateUserAccount(user);
-        return "redirect:/users/all/" +id;
+        return "redirect:/users/all/{id}";
     }
 
     @GetMapping("/users/add-admin/{id}")
@@ -99,15 +107,15 @@ public class AdminUsersController {
     @GetMapping("admin/account/delete/{id}")
     public String deleteUserById(@PathVariable UUID id) throws AppException {
         var user = userService.findById(id);
-        if (user.getRole().equals(Enums.Roles.ROLE_USER)) {
+        var role = user.getRole().getDisplayName();
+        if (user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE)) {
+            user.setRole(Enums.Roles.ROLE_USER);
+            userService.updateRole(user);
+            registryBookService.divideRequests(id);
+        } else {
             userService.deleteById(id);
-            return "redirect:/users";
         }
-        user.setRole(Enums.Roles.ROLE_USER);
-        userService.updateRole(user);
-        registryBookService.divideRequests(id);
-        //userService.deleteById(id);
-        return "redirect:/users";
+        return "redirect:/users?type=" + role;
     }
 
 }

@@ -83,7 +83,8 @@ public class CadastralRequestController {
                                            @RequestParam(defaultValue = "0") int page,
                                            @RequestParam(defaultValue = "6") int size,
                                            @RequestParam(defaultValue = "dateCreated") String sortBy,
-                                           @RequestParam(defaultValue = "asc") String sortOrder,Model model){
+                                           @RequestParam(defaultValue = "asc") String sortOrder,
+                                           Model model){
         var sort = Sort.by(sortBy);
         if (sortOrder.equalsIgnoreCase("desc")) {
             sort = sort.descending();
@@ -129,7 +130,8 @@ public class CadastralRequestController {
                                  @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(defaultValue = "6") int size,
                                  @RequestParam(defaultValue = "dateCreated") String sortBy,
-                                 @RequestParam(defaultValue = "asc") String sortOrder,Model model) {
+                                 @RequestParam(defaultValue = "asc") String sortOrder,
+                                 Model model) {
         var user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         var sort = Sort.by(sortBy);
         if (sortOrder.equalsIgnoreCase("desc")) {

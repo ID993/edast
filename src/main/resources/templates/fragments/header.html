@@ -27,9 +27,9 @@
               <div class="dropdown">
                 <button th:onclick="userDropDown()" class="dropbtn">Users</button>
                 <div id="userDropdown" class="dropdown-content">
-                  <a th:href="@{/users(type='all')}">All</a>
-                  <a th:href="@{/users(type='citizens')}">Citizens</a>
-                  <a th:href="@{/users(type='employees')}">Employees</a>
+                  <a th:href="@{/users(type='Admin')}">Admins</a>
+                  <a th:href="@{/users(type='User')}">Citizens</a>
+                  <a th:href="@{/users(type='Employee')}">Employees</a>
                 </div>
               </div>
             </li>
@@ -114,7 +114,7 @@
               <div class="dropdown">
                 <button th:onclick="accDropDown()" class="dropbtn" th:text="${#authentication.principal.name}">Dropdown</button>
                 <div id="accDropdown" class="dropdown-content">
-                  <a href="/account">Account</a>
+                  <a th:href="@{/account/{id}(id=${session.user.id})}">Account</a>
                   <a href="/logout">Logout</a>
                 </div>
               </div>

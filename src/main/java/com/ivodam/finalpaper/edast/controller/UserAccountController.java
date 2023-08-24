@@ -23,10 +23,9 @@ public class UserAccountController {
     private final PasswordHandler passwordHandler;
     private final UserMapper userMapper;
 
-    @GetMapping("/account")
-    public String getAccount(Model model) throws AppException {
-        var user = userService.findByEmail(
-                SecurityContextHolder.getContext().getAuthentication().getName());
+    @GetMapping("/account/{id}")
+    public String getAccount(@PathVariable UUID id, Model model) throws AppException {
+        var user = userService.findById(id);
         model.addAttribute("user", user);
         return "account/account";
     }
@@ -43,12 +42,12 @@ public class UserAccountController {
     public String updateUser(@PathVariable UUID id,
                              @ModelAttribute("user") UserDto userDto) throws AppException {
         userService.updateUserAccount(userDto);
-        return "redirect:/account";
+        return "redirect:/account/" + id;
     }
 
 
     @GetMapping("/account/delete/{id}")
-    public String deleteUserById(@PathVariable UUID id) {
+    public String deleteUserById(@PathVariable UUID id) throws AppException {
         userService.deleteById(id);
         return "redirect:/logout";
     }
@@ -78,6 +77,6 @@ public class UserAccountController {
             return "password/change-password";
         }
         userService.updatePassword(user, password);
-        return "redirect:/account";
+        return "redirect:/account/" + user.getId();
     }
 }
