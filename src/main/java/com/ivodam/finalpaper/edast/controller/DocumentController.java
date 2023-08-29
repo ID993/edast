@@ -24,7 +24,7 @@ public class DocumentController {
     private final Utility utility;
 
     @GetMapping("/storage/{filename}")
-    public ResponseEntity<ByteArrayResource> getImages(@PathVariable String filename) throws IOException {
+    public ResponseEntity<ByteArrayResource> getFiles(@PathVariable String filename) throws IOException {
         String decodedFilename = URLDecoder.decode(filename, StandardCharsets.UTF_8);
         var file = new File("src/main/resources/static/storage/" + decodedFilename);
         var data = FileUtils.readFileToByteArray(file);

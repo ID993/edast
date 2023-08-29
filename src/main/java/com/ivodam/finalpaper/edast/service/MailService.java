@@ -41,15 +41,16 @@ public class MailService {
     public void sendReservationConfirmation(String email, Reservation reservation) throws MessagingException, AppException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setSubject("e-dast - Reservation confirmed" + reservation.getDateOfReservation());
+        helper.setSubject("e-dast - Reservation confirmed - " + reservation.getDateOfReservation());
         helper.setFrom("joe.daminew@gmail.com");
         helper.setTo(email);
-        helper.setText("</b><br><br> Hello, " + email + "!<br><br>"
+        helper.setText("Dear, " + email + "!<br><br>"
                 + "Your reservation is confirmed for " + reservation.getDateOfReservation()
                 + ".<br><br><h4>You have reserved:</h4><b>Fond/collection</b>: "
                 + reservation.getFondSignature() + ". <br><b>Technical units</b>: "
                 + reservation.getTechnicalUnits() + "<br><br>We hope You'll find what You're looking for.<br>" +
-                "<b>Important notice:</b>It is possible to change the reservation no later than 2 days before the reservation.", true);
+                "<br><b>Important notice:</b>It is possible to change the reservation no later than 2 days before the reservation."
+                + "<br><br>Regards,<br><br>eDAST", true);
         mailSender.send(message);
     }
 
@@ -64,7 +65,9 @@ public class MailService {
                 helper.setSubject(subject);
     
                 if (isHtmlMail) {
-                    helper.setText("<html><body>" + message + "</html></body>", true);
+                    helper.setText("<html><body> Dear <br><br>" + message
+                            + "<br><br>Regards,<br>"
+                            + userService.findByEmail(fromEmailAddress).getName() + "</html></body>", true);
                 } else {
                     helper.setText(message);
                 }

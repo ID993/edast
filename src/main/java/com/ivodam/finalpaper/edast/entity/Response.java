@@ -28,7 +28,6 @@ public class Response {
 
     private String dateOfCreation;
 
-    //private UUID requestId;
 
     private boolean read;
 

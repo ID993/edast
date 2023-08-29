@@ -38,9 +38,7 @@ public class CadastralRequestService {
 
     public void deleteById(UUID id) throws AppException {
         var registryBook = registryBookService.findByRequestId(id);
-        if (registryBook != null) {
-            registryBookService.deleteById(registryBook.getId());
-        }
+        registryBookService.deleteById(registryBook.getId());
         cadastralRequestRepository.deleteById(id);
     }
 

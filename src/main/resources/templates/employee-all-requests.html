@@ -40,7 +40,6 @@
                 <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='employee.name',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Employee' + (${sortBy} == 'employee.name' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
                 <th><a th:href="@{/requests/all/{userId}(userId=${session.user.id},keyword=${keyword},page=0,size=${requests.size},sortBy='completedDate',sortOrder=${sortOrder == 'asc' ? 'desc' : 'asc'})}" th:text="'Completed' + (${sortBy} == 'completedDate' ? (${sortOrder} == 'asc' ? '▲' : '▼') : '')"></a></th>
                 <th></th>
-                <th></th>
 
             </tr>
             </thead>

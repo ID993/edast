@@ -60,12 +60,15 @@ public class ResponseController {
     public String getRespond(@PathVariable UUID id, Model model, HttpServletRequest request) {
         var user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         var response = responseService.findByRequestId(id);
+        var isEmpty = documentService.findAllByResponseId(response.getId()).isEmpty();
+        System.out.println("\nIs empty: " + isEmpty);
         if(user.getRole().equals(Enums.Roles.ROLE_USER)) {
             response.setRead(true);
             responseService.update(response);
             request.getSession().setAttribute("msgCount", responseService.countByRead(false, user.getId()));
         }
         model.addAttribute("response", response);
+        model.addAttribute("isEmpty", isEmpty);
         return "responses/response-of-request";
     }
 
