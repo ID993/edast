@@ -1,5 +1,6 @@
 package com.ivodam.finalpaper.edast.service;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.ivodam.finalpaper.edast.entity.RegistryBook;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
@@ -14,6 +15,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -37,6 +39,7 @@ public class RegistryBookService {
     }
 
     public static int index = 0;
+
     public User assignRequestToEmployee() {
         var users = userService.findAllByRoleAndJobTitle("ROLE_EMPLOYEE", "Archivist");
         if (index >= users.size())
@@ -116,7 +119,7 @@ public class RegistryBookService {
 
     public void updateRequestByName(UUID requestId,String requestName) throws AppException {
         switch (requestName) {
-            case "BDM" -> {
+            case "Registry" -> {
                 var bdmRequest = bdmRequestRepository.findById(requestId).orElseThrow(() ->
                         new AppException("Request with id: " + requestId + " not found", HttpStatus.NOT_FOUND));
                 bdmRequest.setCompleted(true);
@@ -150,6 +153,7 @@ public class RegistryBookService {
     }
 
     public void updateRegistryBook(UUID id) throws AppException {
+        System.out.println("ID: " + id);
         var registryBook = registryBookRepository.findByRequestId(id).orElseThrow(() ->
                 new AppException("Request with id: " + id + " not found", HttpStatus.NOT_FOUND));
         updateRequestByName(id, registryBook.getRequestName());
