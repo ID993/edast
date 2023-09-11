@@ -45,7 +45,7 @@ public interface RegistryBookRepository extends JpaRepository<RegistryBook, UUID
     @Query("SELECT e FROM registry_book e WHERE e.requestName = :requestName AND (LOWER(e.classNumber) LIKE %:keyword% OR EXISTS (SELECT u FROM e.user u WHERE LOWER(u.name) LIKE %:keyword%) OR EXISTS (SELECT emp FROM e.employee emp WHERE LOWER(emp.name) LIKE %:keyword%))")
     Page<RegistryBook> searchAllByClassNumberOrUserOrEmployeeAndRequestName(String keyword, String requestName, Pageable pageable);
 
-    @Query("SELECT e FROM registry_book e WHERE e.employee.id IN (SELECT u.id FROM users u WHERE u.id = :employeeId) AND e.requestName = 'BDM' AND (LOWER(e.classNumber) LIKE %:keyword% OR LOWER(e.user.name) LIKE %:keyword%)")
+    @Query("SELECT e FROM registry_book e WHERE e.employee.id IN (SELECT u.id FROM users u WHERE u.id = :employeeId) AND e.requestName = 'Registry' AND (LOWER(e.classNumber) LIKE %:keyword% OR LOWER(e.user.name) LIKE %:keyword%)")
     Page<RegistryBook> searchAllBdmByClassNumberOrUser(String keyword, UUID employeeId, Pageable pageable);
 
     @Query("SELECT e FROM registry_book e WHERE e.employee.id IN (SELECT u.id FROM users u WHERE u.id = :employeeId) AND e.requestName = 'Work' AND (LOWER(e.classNumber) LIKE %:keyword% OR LOWER(e.user.name) LIKE %:keyword%)")

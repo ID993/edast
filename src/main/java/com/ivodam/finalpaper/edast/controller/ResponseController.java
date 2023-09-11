@@ -46,8 +46,8 @@ public class ResponseController {
 
     @PostMapping("/responses/{requestId}")
     public String makeResponse(@PathVariable UUID requestId,
-                            @ModelAttribute Response response,
-                            @ModelAttribute("files") MultipartFile[] files) throws IOException, AppException {
+                               @ModelAttribute Response response,
+                               @ModelAttribute("files") MultipartFile[] files) throws IOException, AppException {
         var coverLetter = responseService.create(requestId, response);
         registryBookService.updateRegistryBook(requestId);
         documentService.storeDocuments(coverLetter.getId(), files);
