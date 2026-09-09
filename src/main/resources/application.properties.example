@@ -1,0 +1,30 @@
+# Copy this file to application.properties before starting the application.
+# Keep real credentials in environment variables or in the ignored local file.
+
+logging.level.org.springframework=INFO
+
+# PostgreSQL
+spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/edastdb}
+spring.datasource.username=${DB_USERNAME:postgres}
+spring.datasource.password=${DB_PASSWORD}
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.show-sql=${JPA_SHOW_SQL:false}
+
+# Flyway
+spring.flyway.enabled=true
+
+# Thymeleaf
+spring.thymeleaf.enabled=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.cache=${THYMELEAF_CACHE:false}
+spring.thymeleaf.mode=HTML
+
+# SMTP
+spring.mail.host=${MAIL_HOST:smtp.gmail.com}
+spring.mail.port=${MAIL_PORT:587}
+spring.mail.username=${MAIL_USERNAME}
+spring.mail.password=${MAIL_PASSWORD}
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
