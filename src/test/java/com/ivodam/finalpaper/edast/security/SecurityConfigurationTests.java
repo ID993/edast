@@ -169,4 +169,59 @@ class SecurityConfigurationTests {
                      .with(csrf()))
         .andExpect(status().isNotFound());
   }
+
+  @Test
+  void workRequestCreationRequiresUserRole() throws Exception {
+    mockMvc
+        .perform(get("/work-requests")
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post("/work-requests")
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void workRequestAdminListRequiresAdminRole() throws Exception {
+    mockMvc
+        .perform(get("/work-requests/all")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void workRequestDeletionRequiresPostCsrfAndUserRole() throws Exception {
+
+    var path = "/work-requests/delete/"
+               + "00000000-0000-0000-0000-000000000000";
+
+    mockMvc.perform(get(path).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isMethodNotAllowed());
+
+    mockMvc.perform(post(path).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("admin@example.test").roles("ADMIN"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void ownWorkRequestListDoesNotAcceptUserId() throws Exception {
+    mockMvc
+        .perform(get("/user-work-requests/all/"
+                     + "00000000-0000-0000-0000-000000000000")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+
+    mockMvc
+        .perform(get("/user-work-requests/all")
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+  }
 }

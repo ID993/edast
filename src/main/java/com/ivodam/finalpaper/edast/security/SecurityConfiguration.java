@@ -57,6 +57,15 @@ public class SecurityConfiguration {
                    .hasRole("ADMIN")
                    .requestMatchers(HttpMethod.POST, "/account/delete")
                    .hasAnyRole("ADMIN", "USER")
+                   .requestMatchers("/work-requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers(HttpMethod.GET, "/work-requests",
+                                    "/user-work-requests/**",
+                                    "/search-work-requests")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/work-requests",
+                                    "/work-requests/delete/**")
+                   .hasRole("USER")
                    .anyRequest()
                    .authenticated())
         .formLogin(
