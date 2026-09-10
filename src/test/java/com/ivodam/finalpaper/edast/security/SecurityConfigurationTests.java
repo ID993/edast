@@ -13,6 +13,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -140,5 +142,31 @@ class SecurityConfigurationTests {
                      .with(user("employee@example.test").roles("EMPLOYEE"))
                      .with(csrf()))
         .andExpect(status().isForbidden());
+  }
+
+  @ParameterizedTest(name = "{index}: {0}")
+  @ValueSource(
+      strings = {"/users/add-admin/00000000-0000-0000-0000-000000000000",
+                 "/users/add-employee/00000000-0000-0000-0000-000000000000",
+                 "/admin/account/delete/00000000-0000-0000-0000-000000000000"})
+  void adminMutationsRequirePostCsrfAndAdminRole(String path) throws Exception {
+
+    mockMvc.perform(get(path).with(user("admin@example.test").roles("ADMIN")))
+        .andExpect(status().isMethodNotAllowed());
+
+    mockMvc.perform(post(path).with(user("admin@example.test").roles("ADMIN")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("user@example.test").roles("USER"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("admin@example.test").roles("ADMIN"))
+                     .with(csrf()))
+        .andExpect(status().isNotFound());
   }
 }

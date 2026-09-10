@@ -1,8 +1,6 @@
 package com.ivodam.finalpaper.edast.exceptions;
 
 import java.util.Date;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -14,9 +12,6 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
-
-  private static final Logger LOGGER =
-      LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
   @ExceptionHandler(AppException.class)
   public ModelAndView handleAppException(AppException ex) {
@@ -40,14 +35,6 @@ public class ControllerExceptionHandler {
   @ExceptionHandler(NoResourceFoundException.class)
   public ModelAndView handleNotFound(NoResourceFoundException ex) {
     return createErrorView(HttpStatus.NOT_FOUND, "Not found");
-  }
-
-  @ExceptionHandler(Exception.class)
-  public ModelAndView handleException(Exception ex) {
-    LOGGER.error("Unhandled request exception", ex);
-
-    return createErrorView(HttpStatus.INTERNAL_SERVER_ERROR,
-                           "Something went wrong");
   }
 
   private ModelAndView createErrorView(HttpStatus status, String message) {

@@ -21,23 +21,6 @@ public class AdminUsersController {
   private final RegistryBookService registryBookService;
   private final UserMapper userMapper;
 
-  //    @RequestMapping("/search-users")
-  //    public String searchUsers(@RequestParam(defaultValue = "") String
-  //    search,
-  //                              @RequestParam(defaultValue = "0") int page,
-  //                              @RequestParam(defaultValue = "6") int size,
-  //                              @RequestParam(defaultValue = "All") String
-  //                              type, Model model) {
-  //        var pageable = PageRequest.of(page, size);
-  //        var users =
-  //        userService.findAllByEmailOrNameOrJobTitleContainingIgnoreCase(search,
-  //        pageable); model.addAttribute("currentPage", page);
-  //        model.addAttribute("users", users);
-  //        model.addAttribute("type", type);
-  //        model.addAttribute("search", search);
-  //        return "admin/users-all";
-  //    }
-
   @GetMapping("/users")
   public String getAll(@RequestParam(defaultValue = "") String search,
                        @RequestParam(defaultValue = "0") int page,
@@ -93,7 +76,7 @@ public class AdminUsersController {
     return "redirect:/users/all/{id}";
   }
 
-  @GetMapping("/users/add-admin/{id}")
+  @PostMapping("/users/add-admin/{id}")
   public String addAdmin(@PathVariable UUID id) throws AppException {
     var user = userService.findById(id);
     user.setRole(Enums.Roles.ROLE_ADMIN);
@@ -102,7 +85,7 @@ public class AdminUsersController {
     return "redirect:/users/all/{id}";
   }
 
-  @GetMapping("/users/add-employee/{id}")
+  @PostMapping("/users/add-employee/{id}")
   public String addEmployee(@PathVariable UUID id) throws AppException {
     var user = userService.findById(id);
     user.setRole(Enums.Roles.ROLE_EMPLOYEE);
@@ -110,7 +93,7 @@ public class AdminUsersController {
     return "redirect:/users/all/{id}";
   }
 
-  @GetMapping("admin/account/delete/{id}")
+  @PostMapping("/admin/account/delete/{id}")
   public String deleteUserById(@PathVariable UUID id) throws AppException {
     var user = userService.findById(id);
     var role = user.getRole().getDisplayName();
