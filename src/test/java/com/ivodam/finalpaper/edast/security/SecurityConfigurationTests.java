@@ -116,4 +116,29 @@ class SecurityConfigurationTests {
                      .param("job", "Archivist"))
         .andExpect(status().isForbidden());
   }
+
+  @Test
+  void accountCannotBeReadByChangingUrlId() throws Exception {
+    mockMvc
+        .perform(get("/account/00000000-0000-0000-0000-000000000000")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+  }
+
+  @Test
+  void accountCannotBeDeletedWithGet() throws Exception {
+    mockMvc
+        .perform(get("/account/delete/00000000-0000-0000-0000-000000000000")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+  }
+
+  @Test
+  void employeeCannotDeleteAccount() throws Exception {
+    mockMvc
+        .perform(post("/account/delete")
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
 }
