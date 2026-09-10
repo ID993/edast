@@ -52,7 +52,7 @@ public class SecurityConfiguration {
                                     "/error", "/styles/**", "/js/**",
                                     "/json/**", "/webjars/**")
                    .permitAll()
-                   .requestMatchers("/users/**")
+                   .requestMatchers("/admin/**", "/users/**")
                    .hasRole("ADMIN")
                    .anyRequest()
                    .authenticated())

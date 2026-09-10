@@ -98,4 +98,22 @@ class SecurityConfigurationTests {
     return new MockMultipartFile("files", "test.txt", "text/plain",
                                  "test".getBytes(StandardCharsets.UTF_8));
   }
+
+  @Test
+  void regularUserCannotOpenAdminRegistrationPage() throws Exception {
+    mockMvc
+        .perform(get("/admin/register")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void regularUserCannotSubmitAdminRegistration() throws Exception {
+    mockMvc
+        .perform(post("/admin/register")
+                     .with(user("user@example.test").roles("USER"))
+                     .with(csrf())
+                     .param("job", "Archivist"))
+        .andExpect(status().isForbidden());
+  }
 }
