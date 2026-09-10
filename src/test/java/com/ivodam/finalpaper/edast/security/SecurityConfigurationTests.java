@@ -432,4 +432,64 @@ class SecurityConfigurationTests {
                      .with(user("user@example.test").roles("USER")))
         .andExpect(status().isNotFound());
   }
+
+  @Test
+  void regularUserCannotAccessTodaysReservations() throws Exception {
+    mockMvc
+        .perform(get("/reservations/today")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+  }
+
+  @ParameterizedTest(name = "{index}: {0}")
+  @ValueSource(
+      strings = {"/reservation",
+                 "/reservation/00000000-0000-0000-0000-000000000000/edit"})
+  void reservationCreationAndEditingRequireUserRole(String path)
+      throws Exception {
+
+    mockMvc
+        .perform(
+            get(path).with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc.perform(get(path).with(user("admin@example.test").roles("ADMIN")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("admin@example.test").roles("ADMIN"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void reservationDeletionRequiresPostCsrfAndUserRole() throws Exception {
+
+    var path = "/reservation/00000000-0000-0000-0000-000000000000/delete";
+
+    mockMvc.perform(get(path).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isMethodNotAllowed());
+
+    mockMvc.perform(post(path).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(path)
+                     .with(user("admin@example.test").roles("ADMIN"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
 }
