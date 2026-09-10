@@ -80,27 +80,27 @@
                     My requests
                   </button>
                   <div id="reqDropdown" class="dropdown-content">
-                    <a th:href="@{/requests/all/{id}((id=${session.user.id}))}"
+                    <a th:href="@{/requests/assigned}"
                       >All</a
                     >
                     <a
-                      th:href="@{/requests/all/bdm/{id}((id=${session.user.id}))}"
+                      th:href="@{/requests/assigned/bdm}"
                       >Registry</a
                     >
                     <a
-                      th:href="@{/requests/all/work/{id}((id=${session.user.id}))}"
+                      th:href="@{/requests/assigned/work}"
                       >Work</a
                     >
                     <a
-                      th:href="@{/requests/all/education/{id}((id=${session.user.id}))}"
+                      th:href="@{/requests/assigned/education}"
                       >Education</a
                     >
                     <a
-                      th:href="@{/requests/all/cadastral/{id}((id=${session.user.id}))}"
+                      th:href="@{/requests/assigned/cadastral}"
                       >Cadastral</a
                     >
                     <a
-                      th:href="@{/requests/all/special/{id}((id=${session.user.id}))}"
+                      th:href="@{/requests/assigned/special}"
                       >Special</a
                     >
                   </div>
@@ -189,7 +189,7 @@
                     <a
                       sec:authorize="hasAnyRole('EMPLOYEE')"
                       class="inbox-button btn btn-primary"
-                      th:href="@{/requests/unread/{userId}(userId=${session.user.id})}"
+                      th:href="@{/requests/assigned/unread}"
                     >
                       <i class="fa fa-envelope"></i>
                     </a>

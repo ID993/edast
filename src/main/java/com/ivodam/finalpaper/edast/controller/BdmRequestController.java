@@ -6,6 +6,7 @@ import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.service.BDMRequestService;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
+import com.ivodam.finalpaper.edast.service.RequestAccessService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import java.util.UUID;
@@ -24,6 +25,7 @@ public class BdmRequestController {
 
   private final BDMRequestService bdmRequestService;
   private final RegistryBookService registryBookService;
+  private final RequestAccessService requestAccessService;
 
   @GetMapping("/bdm-requests")
   public String requests(Model model) {
@@ -111,15 +113,17 @@ public class BdmRequestController {
 
   @GetMapping("request/Registry/{requestId}")
   public String bdmRequestDetails(@PathVariable UUID requestId, Model model,
-                                  HttpServletRequest request) {
+                                  HttpServletRequest request)
+      throws AppException {
     var bdmRequest = bdmRequestService.findById(requestId);
     var user = (User)SecurityContextHolder.getContext()
                    .getAuthentication()
                    .getPrincipal();
+    var registryBook = requestAccessService.requireAccess(requestId, user);
     model.addAttribute("request", bdmRequest);
     if (user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE)) {
       bdmRequestService.readRequest(bdmRequest);
-      registryBookService.updateReadStatus(requestId);
+      registryBookService.updateReadStatus(registryBook);
       request.getSession().setAttribute(
           "msgCount",
           registryBookService.countByEmployeeIdAndRead(user.getId(), false));

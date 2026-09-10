@@ -5,6 +5,7 @@ import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.service.RegistryBookService;
+import com.ivodam.finalpaper.edast.service.RequestAccessService;
 import com.ivodam.finalpaper.edast.service.ResponseService;
 import com.ivodam.finalpaper.edast.service.SpecialRequestService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ public class SpecialRequestController {
 
   private final SpecialRequestService specialRequestService;
   private final RegistryBookService registryBookService;
+  private final RequestAccessService requestAccessService;
   private final ResponseService responseService;
 
   @GetMapping("/special-requests")
@@ -112,15 +114,17 @@ public class SpecialRequestController {
 
   @GetMapping("request/Special/{requestId}")
   public String specialRequestDetails(@PathVariable UUID requestId, Model model,
-                                      HttpServletRequest request) {
+                                      HttpServletRequest request)
+      throws AppException {
     var workRequest = specialRequestService.findById(requestId);
     var user = (User)SecurityContextHolder.getContext()
                    .getAuthentication()
                    .getPrincipal();
+    var registryBook = requestAccessService.requireAccess(requestId, user);
     model.addAttribute("request", workRequest);
     if (user.getRole().equals(Enums.Roles.ROLE_EMPLOYEE)) {
       specialRequestService.readRequest(workRequest);
-      registryBookService.updateReadStatus(requestId);
+      registryBookService.updateReadStatus(registryBook);
       request.getSession().setAttribute(
           "msgCount",
           registryBookService.countByEmployeeIdAndRead(user.getId(), false));

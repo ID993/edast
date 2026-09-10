@@ -295,4 +295,78 @@ class SecurityConfigurationTests {
                      .with(csrf()))
         .andExpect(status().isForbidden());
   }
+
+  @ParameterizedTest(name = "{index}: {0}")
+  @ValueSource(
+      strings = {"/requests/all", "/requests/assigned",
+                 "/requests/assigned/bdm", "/requests/assigned/work",
+                 "/requests/assigned/education", "/requests/assigned/cadastral",
+                 "/requests/assigned/special", "/requests/assigned/unread",
+                 "/requests/reassign/00000000-0000-0000-0000-000000000000",
+                 "/search", "/search-bdm", "/search-work", "/search-education",
+                 "/search-cadastral", "/search-special"})
+  void regularUserCannotAccessRegistryWorkflow(String path) throws Exception {
+    mockMvc.perform(get(path).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void employeeCannotUseAdministrativeRegistryActions() throws Exception {
+    var reassignPath =
+        "/requests/reassign/00000000-0000-0000-0000-000000000000";
+
+    mockMvc
+        .perform(get("/requests/all")
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get(reassignPath)
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(reassignPath)
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+  }
+
+  @ParameterizedTest(name = "{index}: removed route {0}")
+  @ValueSource(
+      strings = {"/requests/all/00000000-0000-0000-0000-000000000000",
+                 "/requests/all/bdm/00000000-0000-0000-0000-000000000000",
+                 "/requests/all/work/00000000-0000-0000-0000-000000000000",
+                 "/requests/all/education/00000000-0000-0000-0000-000000000000",
+                 "/requests/all/cadastral/00000000-0000-0000-0000-000000000000",
+                 "/requests/all/special/00000000-0000-0000-0000-000000000000",
+                 "/requests/unread/00000000-0000-0000-0000-000000000000"})
+  void employeeIdentityCannotBeSelectedThroughUrl(String oldPath)
+      throws Exception {
+
+    mockMvc
+        .perform(
+            get(oldPath).with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isNotFound());
+  }
+
+  @ParameterizedTest(name = "{index}: GET mapping {0}")
+  @ValueSource(strings = {"/requests/assigned", "/requests/assigned/bdm",
+                          "/requests/assigned/work",
+                          "/requests/assigned/education",
+                          "/requests/assigned/cadastral",
+                          "/requests/assigned/special",
+                          "/requests/assigned/unread"})
+  void assignedQueueRoutesAreGetMappings(String path) {
+    var methods =
+        handlerMapping.getHandlerMethods()
+            .keySet()
+            .stream()
+            .filter(mapping -> mapping.getPatternValues().contains(path))
+            .flatMap(
+                mapping -> mapping.getMethodsCondition().getMethods().stream())
+            .toList();
+
+    assertThat(methods).containsExactly(RequestMethod.GET);
+  }
 }

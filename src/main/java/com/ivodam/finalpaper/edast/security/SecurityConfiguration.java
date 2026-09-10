@@ -55,6 +55,19 @@ public class SecurityConfiguration {
                    .permitAll()
                    .requestMatchers("/admin/**", "/users/**")
                    .hasRole("ADMIN")
+                   .requestMatchers("/requests/reassign/**")
+                   .hasRole("ADMIN")
+                   .requestMatchers("/requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers("/requests/assigned",
+                                    "/requests/assigned/**")
+                   .hasRole("EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/request/**")
+                   .hasAnyRole("ADMIN", "USER", "EMPLOYEE")
+                   .requestMatchers("/search", "/search-bdm", "/search-work",
+                                    "/search-education", "/search-cadastral",
+                                    "/search-special")
+                   .hasAnyRole("ADMIN", "EMPLOYEE")
                    .requestMatchers(HttpMethod.POST, "/account/delete")
                    .hasAnyRole("ADMIN", "USER")
                    .requestMatchers("/work-requests/all")
