@@ -89,6 +89,7 @@ public class ResponseController {
 
     model.addAttribute("response", response);
     model.addAttribute("isEmpty", isEmpty);
+    model.addAttribute("requestId", id);
     return "responses/response-of-request";
   }
 

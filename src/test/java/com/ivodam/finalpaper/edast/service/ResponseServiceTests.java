@@ -82,4 +82,17 @@ class ResponseServiceTests {
                                 -> assertThat(exception.getStatus())
                                        .isEqualTo(HttpStatus.NOT_FOUND));
   }
+
+  @Test
+  void missingResponseByIdReturnsNotFound() {
+    var responseId = UUID.randomUUID();
+
+    when(responseRepository.findById(responseId)).thenReturn(Optional.empty());
+
+    assertThatThrownBy(() -> responseService.findById(responseId))
+        .isInstanceOfSatisfying(AppException.class,
+                                exception
+                                -> assertThat(exception.getStatus())
+                                       .isEqualTo(HttpStatus.NOT_FOUND));
+  }
 }

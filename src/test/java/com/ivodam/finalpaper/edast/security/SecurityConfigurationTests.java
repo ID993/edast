@@ -411,4 +411,25 @@ class SecurityConfigurationTests {
             get(oldPath).with(user("employee@example.test").roles("EMPLOYEE")))
         .andExpect(status().isNotFound());
   }
+
+  @Test
+  void documentDownloadsRequireAuthenticationAndOldRoutesAreRemoved()
+      throws Exception {
+
+    var id = "00000000-0000-0000-0000-000000000000";
+
+    mockMvc.perform(get("/response/request/" + id + "/download"))
+        .andExpect(status().is3xxRedirection())
+        .andExpect(redirectedUrlPattern("**/login"));
+
+    mockMvc
+        .perform(get("/storage/old-file.txt")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+
+    mockMvc
+        .perform(get("/download/" + id)
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+  }
 }

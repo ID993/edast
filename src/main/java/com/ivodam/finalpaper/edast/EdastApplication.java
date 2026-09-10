@@ -18,7 +18,6 @@ public class EdastApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args) throws Exception {
-		//fileStorageService.deleteAll();
 		fileStorageService.init();
 	}
 }

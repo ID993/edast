@@ -1,78 +1,73 @@
 package com.ivodam.finalpaper.edast.service;
 
+import com.ivodam.finalpaper.edast.repository.FileStorageRepository;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Objects;
-import java.util.stream.Stream;
-
-import com.ivodam.finalpaper.edast.repository.FileStorageRepository;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-
-
 @Service
-@AllArgsConstructor
 public class FileStorageService implements FileStorageRepository {
-    private final Path root = Paths.get("src/main/resources/static/storage");
 
-    @Override
-    public void init() {
-        try {
-            if (!Files.exists(root)) {
-                Files.createDirectories(root);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("Could not initialize folder for upload!");
-        }
+  private final Path root;
+
+  public FileStorageService(@Value("${app.storage.location:storage}")
+                            String storageLocation) {
+
+    this.root = Path.of(storageLocation).toAbsolutePath().normalize();
+  }
+
+  @Override
+  public void init() {
+    try {
+      Files.createDirectories(root);
+    } catch (IOException exception) {
+      throw new IllegalStateException("Could not initialize document storage",
+                                      exception);
+    }
+  }
+
+  @Override
+  public void save(MultipartFile file, String storageName) throws IOException {
+
+    var destination = resolve(storageName);
+
+    try (var inputStream = file.getInputStream()) {
+      Files.copy(inputStream, destination);
+    }
+  }
+
+  @Override
+  public Resource load(String storageName) {
+    var storedFile = resolve(storageName);
+
+    if (!Files.isRegularFile(storedFile) || !Files.isReadable(storedFile)) {
+      throw new IllegalStateException("Stored file is unavailable");
     }
 
-    @Override
-    public void save(MultipartFile file, String generated) {
-        try {
-            Files.copy(file.getInputStream(), this.root.resolve(generated+Objects.requireNonNull(file.getOriginalFilename())),
-                    REPLACE_EXISTING);
+    try {
+      return new UrlResource(storedFile.toUri());
+    } catch (MalformedURLException exception) {
+      throw new IllegalArgumentException("Invalid stored file name", exception);
+    }
+  }
 
-        } catch (Exception e) {
-            throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
-        }
+  private Path resolve(String storageName) {
+    if (storageName == null || storageName.isBlank()) {
+      throw new IllegalArgumentException("Stored file name is required");
     }
 
-    @Override
-    public Resource load(String filename) {
-        try {
-            Path file = root.resolve(filename);
-            Resource resource = new UrlResource(file.toUri());
+    var resolved = root.resolve(storageName).normalize();
 
-            if (resource.exists() || resource.isReadable()) {
-                return resource;
-            } else {
-                throw new RuntimeException("Could not read the file!");
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
-        }
+    if (!root.equals(resolved.getParent())) {
+      throw new IllegalArgumentException("Invalid stored file name");
     }
 
-    @Override
-    public void deleteAll() {
-        FileSystemUtils.deleteRecursively(root.toFile());
-    }
-
-    @Override
-    public Stream<Path> loadAll() {
-        try {
-            return Files.walk(this.root, 1).filter(path -> !path.equals(this.root)).map(this.root::relativize);
-        } catch (IOException e) {
-            throw new RuntimeException("Could not load the files!");
-        }
-    }
+    return resolved;
+  }
 }

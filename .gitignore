@@ -20,7 +20,7 @@ application-local.properties
 *.key
 
 ### Runtime files ###
-src/main/resources/static/storage/
+/storage/
 *.log
 
 ### STS ###

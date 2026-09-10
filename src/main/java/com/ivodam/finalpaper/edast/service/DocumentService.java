@@ -1,44 +1,72 @@
 package com.ivodam.finalpaper.edast.service;
 
 import com.ivodam.finalpaper.edast.entity.Document;
+import com.ivodam.finalpaper.edast.exceptions.AppException;
 import com.ivodam.finalpaper.edast.repository.DocumentRepository;
+import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
 public class DocumentService {
 
-    private final DocumentRepository documentRepository;
+  private final DocumentRepository documentRepository;
+  private final FileStorageService fileStorageService;
+  private final ResponseService responseService;
 
-    private final FileStorageService fileStorageService;
+  public void storeDocuments(UUID responseId, MultipartFile[] files)
+      throws IOException, AppException {
 
-    private final ResponseService responseService;
+    var response = responseService.findById(responseId);
 
-    public void storeDocuments(UUID id, MultipartFile[] files) throws IOException {
-        final String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() +
-                "/src/main/resources/static/storage/";
-        String generatedString = RandomStringUtils.random(8, true, true) + "-";
-        var response = responseService.findById(id);
-        for (MultipartFile file : files) {
-            if(!file.isEmpty()) {
-                String fileName = generatedString + StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-                fileStorageService.save(file, generatedString);
-                documentRepository.save(new Document(fileName, baseUrl + fileName, response));
-            }
-        }
+    for (var file : files) {
+      if (file.isEmpty()) {
+        continue;
+      }
+
+      var originalName = safeOriginalName(file);
+      var storageName = UUID.randomUUID().toString();
+
+      fileStorageService.save(file, storageName);
+      documentRepository.save(
+          new Document(originalName, storageName, response));
+    }
+  }
+
+  public List<Document> findAllByResponseId(UUID responseId) {
+    return documentRepository.findAllByResponseId(responseId);
+  }
+
+  private String safeOriginalName(MultipartFile file) throws AppException {
+
+    var originalName = file.getOriginalFilename();
+
+    if (!StringUtils.hasText(originalName)) {
+      throw invalidFileName();
     }
 
-    public List<Document> findAllByResponseId(UUID id) {
-        return documentRepository.findAllByResponseId(id);
+    var cleanedName = StringUtils.cleanPath(originalName);
+
+    if (cleanedName.contains("..")) {
+      throw invalidFileName();
     }
+
+    var fileName = StringUtils.getFilename(cleanedName);
+
+    if (!StringUtils.hasText(fileName)) {
+      throw invalidFileName();
+    }
+
+    return fileName;
+  }
+
+  private AppException invalidFileName() {
+    return new AppException("Invalid file name", HttpStatus.BAD_REQUEST);
+  }
 }

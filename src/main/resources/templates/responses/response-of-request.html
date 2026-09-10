@@ -37,7 +37,7 @@
 
       </tbody>
     </table>
-    <a th:if="${!isEmpty}" class="btn btn-primary mt-auto" th:href="@{/download/{responseId}(responseId=${response.id})}">Download files</a>
+    <a th:if="${!isEmpty}" class="btn btn-primary mt-auto" th:href="@{/response/request/{requestId}/download(requestId=${requestId})}">Download files</a>
 
     <button class="btn btn-outline-dark mt-auto" style="width: 100px;" onclick="history.back()">Back</button>
 

@@ -32,8 +32,9 @@ public class ResponseService {
     return responseRepository.save(responseToSave);
   }
 
-  public Response findById(UUID id) {
-    return responseRepository.findById(id).orElse(null);
+  public Response findById(UUID id) throws AppException {
+    return responseRepository.findById(id).orElseThrow(
+        () -> new AppException("Response not found", HttpStatus.NOT_FOUND));
   }
 
   public void update(Response response) { responseRepository.save(response); }
