@@ -182,7 +182,7 @@
                     <a
                       sec:authorize="hasAnyRole('USER')"
                       class="inbox-button btn btn-primary"
-                      th:href="@{/responses/all/{id}(id=${session.user.id})}"
+                      th:href="@{/responses/all}"
                     >
                       <i class="fa fa-envelope"></i>
                     </a>

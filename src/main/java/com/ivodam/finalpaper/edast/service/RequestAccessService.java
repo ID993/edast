@@ -40,6 +40,21 @@ public class RequestAccessService {
     return registryBook;
   }
 
+  public RegistryBook requireAssignedEmployee(UUID requestId, User currentUser)
+      throws AppException {
+
+    var registryBook =
+        registryBookRepository.findByRequestId(requestId).orElseThrow(
+            this::requestNotFound);
+
+    if (currentUser.getRole() != Enums.Roles.ROLE_EMPLOYEE ||
+        !hasId(registryBook.getEmployee(), currentUser.getId())) {
+      throw requestNotFound();
+    }
+
+    return registryBook;
+  }
+
   private boolean hasId(User user, UUID expectedId) {
     return user != null && Objects.equals(user.getId(), expectedId);
   }

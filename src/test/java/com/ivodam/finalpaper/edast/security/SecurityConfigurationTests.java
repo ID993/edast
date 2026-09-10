@@ -369,4 +369,46 @@ class SecurityConfigurationTests {
 
     assertThat(methods).containsExactly(RequestMethod.GET);
   }
+
+  @Test
+  void responseCreationRequiresEmployeeRole() throws Exception {
+    mockMvc
+        .perform(
+            get(RESPONSE_URL).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(RESPONSE_URL)
+                     .with(user("user@example.test").roles("USER"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(
+            get(RESPONSE_URL).with(user("admin@example.test").roles("ADMIN")))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void responseInboxRequiresUserRole() throws Exception {
+    mockMvc
+        .perform(get("/responses/all")
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get("/responses/all")
+                     .with(user("admin@example.test").roles("ADMIN")))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
+  void responseInboxNoLongerAcceptsUserId() throws Exception {
+    var oldPath = "/responses/all/00000000-0000-0000-0000-000000000000";
+
+    mockMvc
+        .perform(
+            get(oldPath).with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isNotFound());
+  }
 }

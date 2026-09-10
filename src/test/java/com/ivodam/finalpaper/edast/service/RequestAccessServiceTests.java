@@ -128,4 +128,74 @@ class RequestAccessServiceTests {
           assertThat(exception.getMessage()).isEqualTo("Request not found");
         });
   }
+
+  @Test
+  void assignedEmployeeCanCreateResponse() throws AppException {
+    var requestId = UUID.randomUUID();
+    var employeeId = UUID.randomUUID();
+
+    var employee = new User();
+    employee.setId(employeeId);
+    employee.setRole(Enums.Roles.ROLE_EMPLOYEE);
+
+    var registryBook = new RegistryBook();
+    registryBook.setEmployee(employee);
+
+    when(registryBookRepository.findByRequestId(requestId))
+        .thenReturn(Optional.of(registryBook));
+
+    var result =
+        requestAccessService.requireAssignedEmployee(requestId, employee);
+
+    assertThat(result).isSameAs(registryBook);
+  }
+
+  @Test
+  void differentEmployeeCannotCreateResponse() {
+    var requestId = UUID.randomUUID();
+
+    var assignedEmployee = new User();
+    assignedEmployee.setId(UUID.randomUUID());
+
+    var currentEmployee = new User();
+    currentEmployee.setId(UUID.randomUUID());
+    currentEmployee.setRole(Enums.Roles.ROLE_EMPLOYEE);
+
+    var registryBook = new RegistryBook();
+    registryBook.setEmployee(assignedEmployee);
+
+    when(registryBookRepository.findByRequestId(requestId))
+        .thenReturn(Optional.of(registryBook));
+
+    assertThatThrownBy(()
+                           -> requestAccessService.requireAssignedEmployee(
+                               requestId, currentEmployee))
+        .isInstanceOfSatisfying(AppException.class,
+                                exception
+                                -> assertThat(exception.getStatus())
+                                       .isEqualTo(HttpStatus.NOT_FOUND));
+  }
+
+  @Test
+  void requestOwnerCannotCreateResponse() {
+    var requestId = UUID.randomUUID();
+    var ownerId = UUID.randomUUID();
+
+    var owner = new User();
+    owner.setId(ownerId);
+    owner.setRole(Enums.Roles.ROLE_USER);
+
+    var registryBook = new RegistryBook();
+    registryBook.setUser(owner);
+
+    when(registryBookRepository.findByRequestId(requestId))
+        .thenReturn(Optional.of(registryBook));
+
+    assertThatThrownBy(
+        () -> requestAccessService.requireAssignedEmployee(requestId, owner))
+        .isInstanceOfSatisfying(AppException.class,
+                                exception
+                                -> assertThat(exception.getStatus())
+                                       .isEqualTo(HttpStatus.NOT_FOUND));
+  }
 }

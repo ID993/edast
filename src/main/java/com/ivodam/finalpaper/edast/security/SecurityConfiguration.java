@@ -100,6 +100,12 @@ public class SecurityConfiguration {
                                     "/cadastral-requests/delete/**",
                                     "/special-requests/delete/**")
                    .hasRole("USER")
+                   .requestMatchers(HttpMethod.GET, "/responses/all")
+                   .hasRole("USER")
+                   .requestMatchers("/responses/**")
+                   .hasRole("EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/response/request/**")
+                   .hasAnyRole("ADMIN", "USER", "EMPLOYEE")
                    .anyRequest()
                    .authenticated())
         .formLogin(
