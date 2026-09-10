@@ -9,9 +9,9 @@ import static org.mockito.Mockito.when;
 
 import com.ivodam.finalpaper.edast.entity.RegistryBook;
 import com.ivodam.finalpaper.edast.entity.User;
-import com.ivodam.finalpaper.edast.entity.WorkRequest;
+import com.ivodam.finalpaper.edast.entity.SpecialRequest;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
-import com.ivodam.finalpaper.edast.repository.WorkRequestRepository;
+import com.ivodam.finalpaper.edast.repository.SpecialRequestRepository;
 import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -22,18 +22,18 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 
 @ExtendWith(MockitoExtension.class)
-class WorkRequestServiceTests {
+class SpecialRequestServiceTests {
 
-  @Mock private WorkRequestRepository workRequestRepository;
+  @Mock private SpecialRequestRepository specialRequestRepository;
 
   @Mock private RegistryBookService registryBookService;
 
   @Mock private RegistryBook registryBook;
 
-  @InjectMocks private WorkRequestService workRequestService;
+  @InjectMocks private SpecialRequestService specialRequestService;
 
   @Test
-  void ownerCanDeleteOwnWorkRequest() throws AppException {
+  void ownerCanDeleteOwnSpecialRequest() throws AppException {
     var ownerId = UUID.randomUUID();
     var requestId = UUID.randomUUID();
     var registryBookId = UUID.randomUUID();
@@ -41,26 +41,26 @@ class WorkRequestServiceTests {
     var owner = new User();
     owner.setId(ownerId);
 
-    var workRequest = new WorkRequest();
-    workRequest.setId(requestId);
-    workRequest.setUser(owner);
+    var specialRequest = new SpecialRequest();
+    specialRequest.setId(requestId);
+    specialRequest.setUser(owner);
 
-    when(workRequestRepository.findById(requestId))
-        .thenReturn(Optional.of(workRequest));
+    when(specialRequestRepository.findById(requestId))
+        .thenReturn(Optional.of(specialRequest));
 
     when(registryBookService.findByRequestId(requestId))
         .thenReturn(registryBook);
     when(registryBook.getId()).thenReturn(registryBookId);
 
-    workRequestService.deleteOwnedBy(requestId, ownerId);
+    specialRequestService.deleteOwnedBy(requestId, ownerId);
 
     verify(registryBookService).findByRequestId(requestId);
     verify(registryBookService).deleteById(registryBookId);
-    verify(workRequestRepository).delete(workRequest);
+    verify(specialRequestRepository).delete(specialRequest);
   }
 
   @Test
-  void userCannotDeleteAnotherUsersWorkRequest() throws AppException {
+  void userCannotDeleteAnotherUsersSpecialRequest() throws AppException {
     var ownerId = UUID.randomUUID();
     var otherUserId = UUID.randomUUID();
     var requestId = UUID.randomUUID();
@@ -68,21 +68,21 @@ class WorkRequestServiceTests {
     var owner = new User();
     owner.setId(ownerId);
 
-    var workRequest = new WorkRequest();
-    workRequest.setId(requestId);
-    workRequest.setUser(owner);
+    var specialRequest = new SpecialRequest();
+    specialRequest.setId(requestId);
+    specialRequest.setUser(owner);
 
-    when(workRequestRepository.findById(requestId))
-        .thenReturn(Optional.of(workRequest));
+    when(specialRequestRepository.findById(requestId))
+        .thenReturn(Optional.of(specialRequest));
 
     assertThatThrownBy(
-        () -> workRequestService.deleteOwnedBy(requestId, otherUserId))
+        () -> specialRequestService.deleteOwnedBy(requestId, otherUserId))
         .isInstanceOfSatisfying(AppException.class,
                                 exception
                                 -> assertThat(exception.getStatus())
                                        .isEqualTo(HttpStatus.NOT_FOUND));
 
     verify(registryBookService, never()).findByRequestId(any(UUID.class));
-    verify(workRequestRepository, never()).delete(any(WorkRequest.class));
+    verify(specialRequestRepository, never()).delete(any(SpecialRequest.class));
   }
 }

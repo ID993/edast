@@ -9,9 +9,9 @@ import static org.mockito.Mockito.when;
 
 import com.ivodam.finalpaper.edast.entity.RegistryBook;
 import com.ivodam.finalpaper.edast.entity.User;
-import com.ivodam.finalpaper.edast.entity.WorkRequest;
+import com.ivodam.finalpaper.edast.entity.CadastralRequest;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
-import com.ivodam.finalpaper.edast.repository.WorkRequestRepository;
+import com.ivodam.finalpaper.edast.repository.CadastralRequestRepository;
 import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -22,18 +22,18 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 
 @ExtendWith(MockitoExtension.class)
-class WorkRequestServiceTests {
+class CadastralRequestServiceTests {
 
-  @Mock private WorkRequestRepository workRequestRepository;
+  @Mock private CadastralRequestRepository cadastralRequestRepository;
 
   @Mock private RegistryBookService registryBookService;
 
   @Mock private RegistryBook registryBook;
 
-  @InjectMocks private WorkRequestService workRequestService;
+  @InjectMocks private CadastralRequestService cadastralRequestService;
 
   @Test
-  void ownerCanDeleteOwnWorkRequest() throws AppException {
+  void ownerCanDeleteOwnCadastralRequest() throws AppException {
     var ownerId = UUID.randomUUID();
     var requestId = UUID.randomUUID();
     var registryBookId = UUID.randomUUID();
@@ -41,26 +41,26 @@ class WorkRequestServiceTests {
     var owner = new User();
     owner.setId(ownerId);
 
-    var workRequest = new WorkRequest();
-    workRequest.setId(requestId);
-    workRequest.setUser(owner);
+    var cadastralRequest = new CadastralRequest();
+    cadastralRequest.setId(requestId);
+    cadastralRequest.setUser(owner);
 
-    when(workRequestRepository.findById(requestId))
-        .thenReturn(Optional.of(workRequest));
+    when(cadastralRequestRepository.findById(requestId))
+        .thenReturn(Optional.of(cadastralRequest));
 
     when(registryBookService.findByRequestId(requestId))
         .thenReturn(registryBook);
     when(registryBook.getId()).thenReturn(registryBookId);
 
-    workRequestService.deleteOwnedBy(requestId, ownerId);
+    cadastralRequestService.deleteOwnedBy(requestId, ownerId);
 
     verify(registryBookService).findByRequestId(requestId);
     verify(registryBookService).deleteById(registryBookId);
-    verify(workRequestRepository).delete(workRequest);
+    verify(cadastralRequestRepository).delete(cadastralRequest);
   }
 
   @Test
-  void userCannotDeleteAnotherUsersWorkRequest() throws AppException {
+  void userCannotDeleteAnotherUsersCadastralRequest() throws AppException {
     var ownerId = UUID.randomUUID();
     var otherUserId = UUID.randomUUID();
     var requestId = UUID.randomUUID();
@@ -68,21 +68,21 @@ class WorkRequestServiceTests {
     var owner = new User();
     owner.setId(ownerId);
 
-    var workRequest = new WorkRequest();
-    workRequest.setId(requestId);
-    workRequest.setUser(owner);
+    var cadastralRequest = new CadastralRequest();
+    cadastralRequest.setId(requestId);
+    cadastralRequest.setUser(owner);
 
-    when(workRequestRepository.findById(requestId))
-        .thenReturn(Optional.of(workRequest));
+    when(cadastralRequestRepository.findById(requestId))
+        .thenReturn(Optional.of(cadastralRequest));
 
     assertThatThrownBy(
-        () -> workRequestService.deleteOwnedBy(requestId, otherUserId))
+        () -> cadastralRequestService.deleteOwnedBy(requestId, otherUserId))
         .isInstanceOfSatisfying(AppException.class,
                                 exception
                                 -> assertThat(exception.getStatus())
                                        .isEqualTo(HttpStatus.NOT_FOUND));
 
     verify(registryBookService, never()).findByRequestId(any(UUID.class));
-    verify(workRequestRepository, never()).delete(any(WorkRequest.class));
+    verify(cadastralRequestRepository, never()).delete(any(CadastralRequest.class));
   }
 }

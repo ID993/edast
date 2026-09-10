@@ -61,7 +61,10 @@
                   <span sec:authorize="hasRole('EMPLOYEE')" th:if="${!request.isCompleted()}">
                     <a th:href="@{/responses/{id}(id=${request.getId()})}" class="btn btn-primary mt-3 m-lg-2">Write Cover Letter</a>
                   </span>
-                  <a sec:authorize="hasRole('USER')" th:href="@{/cadastral-requests/delete/{id}(id=${request.getId()})}" class="btn btn-danger mt-3 m-lg-2">Delete</a>
+                  <form sec:authorize="hasRole('USER')" th:action="@{/cadastral-requests/delete/{id}(id=${request.getId()})}" method="post" class="d-inline">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                    <button type="submit" class="btn btn-danger mt-3 m-lg-2">Delete</button>
+                  </form>
                 </div>
               </div>
             </div>

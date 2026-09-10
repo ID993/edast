@@ -66,6 +66,27 @@ public class SecurityConfiguration {
                    .requestMatchers(HttpMethod.POST, "/work-requests",
                                     "/work-requests/delete/**")
                    .hasRole("USER")
+                   .requestMatchers(
+                       "/bdm-requests/all", "/education-requests/all",
+                       "/cadastral-requests/all", "/special-requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers(
+                       HttpMethod.GET, "/bdm-requests", "/education-requests",
+                       "/cadastral-requests", "/special-requests",
+                       "/user-bdm-requests/**", "/user-education-requests/**",
+                       "/user-cadastral-requests/**",
+                       "/user-special-requests/**", "/search-bdm-requests",
+                       "/search-education-requests",
+                       "/search-cadastral-requests", "/search-special-requests")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/bdm-requests",
+                                    "/education-requests",
+                                    "/cadastral-requests", "/special-requests",
+                                    "/bdm-requests/delete/**",
+                                    "/education-requests/delete/**",
+                                    "/cadastral-requests/delete/**",
+                                    "/special-requests/delete/**")
+                   .hasRole("USER")
                    .anyRequest()
                    .authenticated())
         .formLogin(

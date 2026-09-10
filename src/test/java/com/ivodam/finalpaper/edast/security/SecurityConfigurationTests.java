@@ -1,5 +1,6 @@
 package com.ivodam.finalpaper.edast.security;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
@@ -20,6 +21,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -29,6 +32,7 @@ class SecurityConfigurationTests {
       "/responses/00000000-0000-0000-0000-000000000000";
 
   @Autowired private MockMvc mockMvc;
+  @Autowired private RequestMappingHandlerMapping handlerMapping;
 
   @Test
   void loginPageIsPublicAndRendersCsrfToken() throws Exception {
@@ -222,6 +226,73 @@ class SecurityConfigurationTests {
     mockMvc
         .perform(get("/user-work-requests/all")
                      .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+  }
+
+  @ParameterizedTest(name = "{index}: {0}")
+  @ValueSource(strings = {"bdm", "education", "cadastral", "special"})
+  void requestRoutesRequireExpectedRolesMethodsAndCsrf(String requestType)
+      throws Exception {
+
+    var requestBase = "/" + requestType + "-requests";
+    var userList = "/user-" + requestType + "-requests/all";
+    var requestId = "00000000-0000-0000-0000-000000000000";
+    var deletePath = requestBase + "/delete/" + requestId;
+
+    var userListMethods =
+        handlerMapping.getHandlerMethods()
+            .keySet()
+            .stream()
+            .filter(mapping -> mapping.getPatternValues().contains(userList))
+            .flatMap(
+                mapping -> mapping.getMethodsCondition().getMethods().stream())
+            .toList();
+
+    assertThat(userListMethods).containsExactly(RequestMethod.GET);
+
+    mockMvc
+        .perform(get(requestBase)
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(requestBase)
+                     .with(user("employee@example.test").roles("EMPLOYEE"))
+                     .with(csrf()))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get(requestBase + "/all")
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get(userList + "/" + requestId)
+                     .with(user("user@example.test").roles("USER")))
+        .andExpect(status().isNotFound());
+
+    mockMvc
+        .perform(
+            get(userList).with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get("/search-" + requestType + "-requests")
+                     .with(user("employee@example.test").roles("EMPLOYEE")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(get(deletePath).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isMethodNotAllowed());
+
+    mockMvc
+        .perform(post(deletePath).with(user("user@example.test").roles("USER")))
+        .andExpect(status().isForbidden());
+
+    mockMvc
+        .perform(post(deletePath)
+                     .with(user("admin@example.test").roles("ADMIN"))
+                     .with(csrf()))
         .andExpect(status().isForbidden());
   }
 }

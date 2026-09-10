@@ -113,22 +113,22 @@
                   </button>
                   <div id="reqDropdown" class="dropdown-content">
                     <a
-                      th:href="@{/user-bdm-requests/all/{id}((id=${session.user.id}))}"
+                      th:href="@{/user-bdm-requests/all}"
                       >Registry</a
                     >
 
                     <a th:href="@{/user-work-requests/all}">Work</a>
 
                     <a
-                      th:href="@{/user-education-requests/all/{id}((id=${session.user.id}))}"
+                      th:href="@{/user-education-requests/all}"
                       >Education</a
                     >
                     <a
-                      th:href="@{/user-cadastral-requests/all/{id}((id=${session.user.id}))}"
+                      th:href="@{/user-cadastral-requests/all}"
                       >Cadastral</a
                     >
                     <a
-                      th:href="@{/user-special-requests/all/{id}((id=${session.user.id}))}"
+                      th:href="@{/user-special-requests/all}"
                       >Special</a
                     >
                   </div>
