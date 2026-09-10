@@ -1,6 +1,9 @@
 package com.ivodam.finalpaper.edast.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -18,6 +21,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @ExtendWith(MockitoExtension.class)
@@ -92,5 +96,85 @@ class UserServiceTests {
     assertThat(employee.getJobTitle()).isEqualTo("Archivist");
 
     verify(userRepository).save(employee);
+  }
+
+  @Test
+  void publicRegistrationIgnoresProtectedDtoFields() {
+    var submittedUser = UserDto.builder()
+                            .id(UUID.randomUUID())
+                            .name("New User")
+                            .email("new-user@example.test")
+                            .password("ValidPassword1")
+                            .joinDate("01.01.1900.")
+                            .role(Enums.Roles.ROLE_ADMIN)
+                            .jobTitle("Administrator")
+                            .build();
+
+    when(passwordEncoder.encode("ValidPassword1"))
+        .thenReturn("encoded-password");
+    when(userRepository.save(any(User.class)))
+        .thenAnswer(invocation -> invocation.getArgument(0));
+
+    var savedUser = userService.registerUser(submittedUser);
+
+    assertThat(savedUser.getId()).isNull();
+    assertThat(savedUser.getName()).isEqualTo("New User");
+    assertThat(savedUser.getEmail()).isEqualTo("new-user@example.test");
+    assertThat(savedUser.getPassword()).isEqualTo("encoded-password");
+    assertThat(savedUser.getJoinDate()).matches("\\d{2}\\.\\d{2}\\.\\d{4}\\.");
+    assertThat(savedUser.getJoinDate()).isNotEqualTo("01.01.1900.");
+    assertThat(savedUser.getRole()).isEqualTo(Enums.Roles.ROLE_USER);
+    assertThat(savedUser.getJobTitle()).isNull();
+
+    verify(userRepository).save(savedUser);
+    verify(userMapper, never()).userDtoToUser(any(UserDto.class));
+  }
+
+  @Test
+  void staffRegistrationUsesOnlyExplicitRoleAndJobTitle() throws AppException {
+
+    var submittedUser = UserDto.builder()
+                            .id(UUID.randomUUID())
+                            .name("Staff User")
+                            .email("staff@example.test")
+                            .password("ValidPassword1")
+                            .joinDate("01.01.1900.")
+                            .role(Enums.Roles.ROLE_USER)
+                            .jobTitle("Forged title")
+                            .build();
+
+    when(passwordEncoder.encode("ValidPassword1"))
+        .thenReturn("encoded-password");
+    when(userRepository.save(any(User.class)))
+        .thenAnswer(invocation -> invocation.getArgument(0));
+
+    var savedUser = userService.createStaffUser(
+        submittedUser, Enums.Roles.ROLE_EMPLOYEE, "Archivist");
+
+    assertThat(savedUser.getId()).isNull();
+    assertThat(savedUser.getRole()).isEqualTo(Enums.Roles.ROLE_EMPLOYEE);
+    assertThat(savedUser.getJobTitle()).isEqualTo("Archivist");
+    assertThat(savedUser.getJoinDate()).isNotEqualTo("01.01.1900.");
+    assertThat(savedUser.getPassword()).isEqualTo("encoded-password");
+
+    verify(userRepository).save(savedUser);
+    verify(userMapper, never()).userDtoToUser(any(UserDto.class));
+  }
+
+  @Test
+  void staffRegistrationRejectsNonStaffRole() {
+    var submittedUser = UserDto.builder().password("ValidPassword1").build();
+
+    assertThatThrownBy(()
+                           -> userService.createStaffUser(submittedUser,
+                                                          Enums.Roles.ROLE_USER,
+                                                          "Archivist"))
+        .isInstanceOfSatisfying(AppException.class,
+                                exception
+                                -> assertThat(exception.getStatus())
+                                       .isEqualTo(HttpStatus.BAD_REQUEST));
+
+    verify(passwordEncoder, never()).encode(any(CharSequence.class));
+    verify(userRepository, never()).save(any(User.class));
   }
 }

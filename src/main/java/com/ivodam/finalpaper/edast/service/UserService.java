@@ -34,19 +34,33 @@ public class UserService {
   }
 
   @Transactional
-  public User create(UserDto userDto) {
-    var user = userMapper.userDtoToUser(userDto);
-    user.setPassword(passwordEncoder.encode(user.getPassword()));
-    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
-    user.setJoinDate(LocalDate.now().format(dateFormat));
-    return userRepository.save(user);
+  public User registerUser(UserDto userDto) {
+    return createNewUser(userDto, Enums.Roles.ROLE_USER, null);
   }
 
   @Transactional
-  public User create(User user) {
-    user.setPassword(passwordEncoder.encode(user.getPassword()));
-    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
-    user.setJoinDate(LocalDate.now().format(dateFormat));
+  public User createStaffUser(UserDto userDto, Enums.Roles role,
+                              String jobTitle) throws AppException {
+
+    if (role != Enums.Roles.ROLE_ADMIN && role != Enums.Roles.ROLE_EMPLOYEE) {
+      throw new AppException("Invalid staff role", HttpStatus.BAD_REQUEST);
+    }
+
+    return createNewUser(userDto, role, jobTitle);
+  }
+
+  private User createNewUser(UserDto userDto, Enums.Roles role,
+                             String jobTitle) {
+
+    var user = new User();
+    user.setName(userDto.getName());
+    user.setEmail(userDto.getEmail());
+    user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+    user.setJoinDate(
+        LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy.")));
+    user.setRole(role);
+    user.setJobTitle(jobTitle);
+
     return userRepository.save(user);
   }
 
