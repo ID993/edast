@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
@@ -34,6 +35,11 @@ public class ControllerExceptionHandler {
                   .message("Validation failed")
                   .description(request.getDescription(false))
                   .build());
+  }
+
+  @ExceptionHandler(NoResourceFoundException.class)
+  public ModelAndView handleNotFound(NoResourceFoundException ex) {
+    return createErrorView(HttpStatus.NOT_FOUND, "Not found");
   }
 
   @ExceptionHandler(Exception.class)
