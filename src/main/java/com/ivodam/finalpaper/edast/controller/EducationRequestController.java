@@ -49,7 +49,7 @@ public class EducationRequestController {
     educationRequest.setRequestName("Education");
     var request = educationRequestService.saveRequest(educationRequest);
     registryBookService.create(request.getId(), request.getRequestName(), user);
-    return "redirect:/user-education-requests/all/" + user.getId();
+    return "redirect:/user-education-requests/all";
   }
 
   @GetMapping("/education-requests/all")

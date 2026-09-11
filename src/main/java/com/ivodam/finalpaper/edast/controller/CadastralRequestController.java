@@ -54,7 +54,7 @@ public class CadastralRequestController {
     cadastralRequest.setRequestName("Cadastral");
     var request = cadastralRequestService.saveRequest(cadastralRequest);
     registryBookService.create(request.getId(), request.getRequestName(), user);
-    return "redirect:/user-cadastral-requests/all/" + user.getId();
+    return "redirect:/user-cadastral-requests/all";
   }
 
   @GetMapping("/cadastral-requests/all")
