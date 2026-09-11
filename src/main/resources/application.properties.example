@@ -1,0 +1,37 @@
+# Copy this file to application.properties before starting the application.
+# Keep real credentials in environment variables or in the ignored local file.
+
+logging.level.org.springframework=INFO
+
+# PostgreSQL
+spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/edastdb}
+spring.datasource.username=${DB_USERNAME:postgres}
+spring.datasource.password=${DB_PASSWORD}
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.show-sql=${JPA_SHOW_SQL:false}
+
+# Flyway
+spring.flyway.enabled=true
+
+# Thymeleaf
+spring.thymeleaf.enabled=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.cache=${THYMELEAF_CACHE:false}
+spring.thymeleaf.mode=HTML
+
+# SMTP - defaults target the local Mailpit development service
+spring.mail.host=${MAIL_HOST:localhost}
+spring.mail.port=${MAIL_PORT:1025}
+spring.mail.username=${MAIL_USERNAME:}
+spring.mail.password=${MAIL_PASSWORD:}
+spring.mail.properties.mail.smtp.auth=${MAIL_SMTP_AUTH:false}
+spring.mail.properties.mail.smtp.starttls.enable=${MAIL_STARTTLS:false}
+
+app.mail.from=${MAIL_FROM:no-reply@example.com}
+
+# Uploaded documents
+spring.servlet.multipart.max-file-size=${MAX_UPLOAD_FILE_SIZE:10MB}
+spring.servlet.multipart.max-request-size=${MAX_UPLOAD_REQUEST_SIZE:25MB}
+app.storage.location=${STORAGE_LOCATION:storage}

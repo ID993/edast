@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.Principal;
-import java.util.Arrays;
 
 @Controller
 @AllArgsConstructor
@@ -31,9 +30,6 @@ public class Index {
             request.getSession().setAttribute("user", user);
             if(user.getRole() == Enums.Roles.ROLE_ADMIN) {
                 var chartData = registryBookService.countByRequestName();
-                for (var data : chartData) {
-                    System.out.println(Arrays.toString(data));
-                }
                 model.addAttribute("chartData", chartData);
                 model.addAttribute("total", registryBookService.count());
                 model.addAttribute("totalUsers", userService.count());

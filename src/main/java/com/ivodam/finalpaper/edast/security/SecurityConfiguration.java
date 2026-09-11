@@ -1,71 +1,136 @@
 package com.ivodam.finalpaper.edast.security;
 
 import com.ivodam.finalpaper.edast.service.UserDetailsServiceImpl;
-import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @EnableMethodSecurity
-@AllArgsConstructor
-public class SecurityConfiguration{
+public class SecurityConfiguration {
 
-    private UserDetailsServiceImpl userDetailsService;
+  private final UserDetailsServiceImpl userDetailsService;
 
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
+  public SecurityConfiguration(UserDetailsServiceImpl userDetailsService) {
+    this.userDetailsService = userDetailsService;
+  }
 
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
-        return authProvider;
-    }
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+  @Bean
+  public DaoAuthenticationProvider
+  authenticationProvider(PasswordEncoder passwordEncoder) {
 
+    var authenticationProvider = new DaoAuthenticationProvider();
+    authenticationProvider.setUserDetailsService(userDetailsService);
+    authenticationProvider.setPasswordEncoder(passwordEncoder);
+    return authenticationProvider;
+  }
 
-    @Bean
-    public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/")
-                .permitAll()
-                .requestMatchers("/register")
-                .permitAll()
-                .requestMatchers("/login")
-                .permitAll()
-                .requestMatchers("/styles/**")
-                .permitAll()
-                .requestMatchers("/js/**")
-                .permitAll()
-                .requestMatchers("/forgot-password/**")
-                .hasRole("ANONYMOUS")
-                .requestMatchers("/users/**")
-                .hasAnyRole("ADMIN")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/", true))
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
+  @Bean
+  public SecurityFilterChain
+  filterChain(HttpSecurity http,
+              DaoAuthenticationProvider authenticationProvider)
+      throws Exception {
 
-        return http.build();
-    }
+    http.authenticationProvider(authenticationProvider)
+        .csrf(Customizer.withDefaults())
+        .authorizeHttpRequests(
+            authorize
+            -> authorize
+                   .requestMatchers("/", "/register", "/login",
+                                    "/error", "/styles/**", "/js/**",
+                                    "/json/**")
+                   .permitAll()
+                   .requestMatchers("/admin/**", "/users/**")
+                   .hasRole("ADMIN")
+                   .requestMatchers("/requests/reassign/**")
+                   .hasRole("ADMIN")
+                   .requestMatchers("/requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers("/requests/assigned",
+                                    "/requests/assigned/**")
+                   .hasRole("EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/request/**")
+                   .hasAnyRole("ADMIN", "USER", "EMPLOYEE")
+                   .requestMatchers("/search", "/search-bdm", "/search-work",
+                                    "/search-education", "/search-cadastral",
+                                    "/search-special")
+                   .hasAnyRole("ADMIN", "EMPLOYEE")
+                   .requestMatchers(HttpMethod.POST, "/account/delete")
+                   .hasAnyRole("ADMIN", "USER")
+                   .requestMatchers("/work-requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers(HttpMethod.GET, "/work-requests",
+                                    "/user-work-requests/**",
+                                    "/search-work-requests")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/work-requests",
+                                    "/work-requests/delete/**")
+                   .hasRole("USER")
+                   .requestMatchers(
+                       "/bdm-requests/all", "/education-requests/all",
+                       "/cadastral-requests/all", "/special-requests/all")
+                   .hasRole("ADMIN")
+                   .requestMatchers(
+                       HttpMethod.GET, "/bdm-requests", "/education-requests",
+                       "/cadastral-requests", "/special-requests",
+                       "/user-bdm-requests/**", "/user-education-requests/**",
+                       "/user-cadastral-requests/**",
+                       "/user-special-requests/**", "/search-bdm-requests",
+                       "/search-education-requests",
+                       "/search-cadastral-requests", "/search-special-requests")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/bdm-requests",
+                                    "/education-requests",
+                                    "/cadastral-requests", "/special-requests",
+                                    "/bdm-requests/delete/**",
+                                    "/education-requests/delete/**",
+                                    "/cadastral-requests/delete/**",
+                                    "/special-requests/delete/**")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.GET, "/responses/all")
+                   .hasRole("USER")
+                   .requestMatchers("/responses/**")
+                   .hasRole("EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/response/request/**")
+                   .hasAnyRole("ADMIN", "USER", "EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/reservations/today")
+                   .hasAnyRole("ADMIN", "EMPLOYEE")
+                   .requestMatchers(HttpMethod.GET, "/reservations")
+                   .hasAnyRole("ADMIN", "EMPLOYEE", "USER")
+                   .requestMatchers(HttpMethod.GET, "/reservation-details/**")
+                   .hasAnyRole("ADMIN", "EMPLOYEE", "USER")
+                   .requestMatchers(HttpMethod.GET, "/reservation")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/reservation")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.GET, "/reservation/*/edit")
+                   .hasRole("USER")
+                   .requestMatchers(HttpMethod.POST, "/reservation/*/edit",
+                                    "/reservation/*/delete")
+                   .hasRole("USER")
+                   .anyRequest()
+                   .authenticated())
+        .formLogin(
+            form -> form.loginPage("/login").defaultSuccessUrl("/", true))
+        .logout(logout
+                -> logout.logoutUrl("/logout")
+                       .logoutSuccessUrl("/")
+                       .clearAuthentication(true)
+                       .invalidateHttpSession(true)
+                       .deleteCookies("JSESSIONID"));
 
+    return http.build();
+  }
 }

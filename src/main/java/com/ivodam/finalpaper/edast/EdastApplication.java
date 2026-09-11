@@ -5,8 +5,9 @@ import jakarta.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
-
+@EnableAsync
 @SpringBootApplication
 public class EdastApplication implements CommandLineRunner {
 
@@ -17,7 +18,6 @@ public class EdastApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args) throws Exception {
-		//fileStorageService.deleteAll();
 		fileStorageService.init();
 	}
 }

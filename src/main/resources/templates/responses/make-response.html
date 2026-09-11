@@ -61,6 +61,7 @@
             </div>
             <div class="col-xl-4 text-black card-padding form-max-h flex-outline w-50 justify-content-evenly">
                 <form method="post" th:object="${response}" enctype="multipart/form-data">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-floating flex-fill mb-0">
                             <input type="text" id="subject" class="form-control" th:field="*{title}" required/>

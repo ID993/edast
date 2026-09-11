@@ -2,63 +2,66 @@ package com.ivodam.finalpaper.edast.utility;
 
 import com.ivodam.finalpaper.edast.entity.Document;
 import com.ivodam.finalpaper.edast.service.DocumentService;
-import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import com.ivodam.finalpaper.edast.service.FileStorageService;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
-@RestController
+@Component
 @AllArgsConstructor
 public class Utility {
 
-    private final DocumentService documentService;
+  private final DocumentService documentService;
+  private final FileStorageService fileStorageService;
 
+  public Sort getSort(String sortBy, String sortOrder) {
+    var sort = Sort.by(sortBy);
 
-    public Sort getSort(String sortBy, String sortOrder) {
-        var sort = Sort.by(sortBy);
-        if (sortOrder.equalsIgnoreCase("desc")) {
-            sort = sort.descending();
-        }
-        return sort;
+    if (sortOrder.equalsIgnoreCase("desc")) {
+      sort = sort.descending();
     }
 
-    public byte[] createZipFile(UUID id) throws IOException {
-        var zipFile = File.createTempFile("download", ".zip");
-        var zipOutput = new FileOutputStream(zipFile);
-        var zipOutputStream = new ZipOutputStream(zipOutput);
-        try (zipOutputStream) {
-            zipOutputStream.setLevel(Deflater.DEFAULT_COMPRESSION);
-            var files = documentService.findAllByResponseId(id);
-            for (Document document : files) {
-                var filePath = "src/main/resources/static/storage/" + document.getName();
+    return sort;
+  }
 
-                var file = new File(filePath);
-                var fileContent = new byte[(int) file.length()];
-                try (var inputStream = new FileInputStream(file)) {
-                    inputStream.read(fileContent);
-                }
+  public byte[] createZipFile(UUID responseId) throws IOException {
+    var outputStream = new ByteArrayOutputStream();
 
-                var zipEntry = new ZipEntry(document.getName());
-                zipOutputStream.putNextEntry(zipEntry);
+    try (var zipOutputStream = new ZipOutputStream(outputStream)) {
+      zipOutputStream.setLevel(Deflater.DEFAULT_COMPRESSION);
 
-                zipOutputStream.write(fileContent);
-                zipOutputStream.closeEntry();
-            }
+      var documents = documentService.findAllByResponseId(responseId);
+
+      var index = 1;
+
+      for (Document document : documents) {
+        var entryName = index++ + "-" + safeEntryName(document.getName());
+
+        zipOutputStream.putNextEntry(new ZipEntry(entryName));
+
+        try (var inputStream =
+                 fileStorageService.load(document.getPath()).getInputStream()) {
+          inputStream.transferTo(zipOutputStream);
         }
-        var zipContent = new byte[(int) zipFile.length()];
-        try (var inputStream = new FileInputStream(zipFile)) {
-            inputStream.read(zipContent);
-        }
-        zipFile.delete();
-        return zipContent;
+
+        zipOutputStream.closeEntry();
+      }
     }
 
+    return outputStream.toByteArray();
+  }
+
+  private String safeEntryName(String fileName) {
+    var cleanedName = StringUtils.cleanPath(fileName == null ? "" : fileName);
+    var safeName = StringUtils.getFilename(cleanedName);
+
+    return StringUtils.hasText(safeName) ? safeName : "document";
+  }
 }
