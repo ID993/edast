@@ -215,7 +215,7 @@ public class RegistryBookController {
     return "redirect:/requests/all";
   }
 
-  @RequestMapping("/search")
+  @GetMapping("/search")
   public String
   searchAllRequests(@RequestParam(defaultValue = "") String keyword,
                     @RequestParam(defaultValue = "0") int page,
@@ -247,7 +247,7 @@ public class RegistryBookController {
         : "admin-all-requests";
   }
 
-  @RequestMapping("/search-bdm")
+  @GetMapping("/search-bdm")
   public String
   searchBdm(@RequestParam(defaultValue = "") String keyword,
             @RequestParam(defaultValue = "0") int page,
@@ -279,7 +279,7 @@ public class RegistryBookController {
         : "registry/admin-all-bdm-requests";
   }
 
-  @RequestMapping("/search-work")
+  @GetMapping("/search-work")
   public String
   searchWork(@RequestParam(defaultValue = "") String keyword,
              @RequestParam(defaultValue = "0") int page,
@@ -312,7 +312,7 @@ public class RegistryBookController {
         : "work/admin-all-work-requests";
   }
 
-  @RequestMapping("/search-education")
+  @GetMapping("/search-education")
   public String
   searchEducation(@RequestParam(defaultValue = "") String keyword,
                   @RequestParam(defaultValue = "0") int page,
@@ -345,7 +345,7 @@ public class RegistryBookController {
         : "education/admin-all-education-requests";
   }
 
-  @RequestMapping("/search-cadastral")
+  @GetMapping("/search-cadastral")
   public String
   searchCadastral(@RequestParam(defaultValue = "") String keyword,
                   @RequestParam(defaultValue = "0") int page,
@@ -378,7 +378,7 @@ public class RegistryBookController {
         : "cadastral/admin-all-cadastral-requests";
   }
 
-  @RequestMapping("/search-special")
+  @GetMapping("/search-special")
   public String
   searchSpecial(@RequestParam(defaultValue = "") String keyword,
                 @RequestParam(defaultValue = "0") int page,
