@@ -27,27 +27,6 @@ public class MailService {
         this.fromAddress = fromAddress;
     }
 
-    @Async
-    public void sendPasswordResetLink(String email)
-            throws MessagingException, AppException {
-        var user = userService.findByEmail(email);
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-
-        helper.setSubject("e-dast - password reset");
-        helper.setFrom(fromAddress);
-        helper.setTo(email);
-        helper.setText(
-                "<b>e-dast - reset password</b><br><br>"
-                        + "Hello, " + email + "!<br><br>"
-                        + "Follow the link to reset your password.<br>"
-                        + "<a href=\"http://localhost:8080/forgot-password/reset/"
-                        + user.getId()
-                        + "\">Reset password</a>",
-                true);
-
-        mailSender.send(message);
-    }
 
     @Async
     public void sendReservationConfirmation(

@@ -49,7 +49,6 @@ public class SecurityConfiguration {
             authorize
             -> authorize
                    .requestMatchers("/", "/register", "/login",
-                                    "/forgot-password", "/forgot-password/**",
                                     "/error", "/styles/**", "/js/**",
                                     "/json/**", "/webjars/**")
                    .permitAll()
