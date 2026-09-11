@@ -35,7 +35,13 @@ public class UserService {
 
   @Transactional
   public User registerUser(UserDto userDto) {
-    return createNewUser(userDto, Enums.Roles.ROLE_USER, null);
+    var jobTitle = userDto.getJobTitle();
+
+    if (jobTitle == null || jobTitle.isBlank()) {
+      jobTitle = "Unemployed";
+    }
+
+    return createNewUser(userDto, Enums.Roles.ROLE_USER, jobTitle.trim());
   }
 
   @Transactional
