@@ -80,29 +80,12 @@
                     My requests
                   </button>
                   <div id="reqDropdown" class="dropdown-content">
-                    <a th:href="@{/requests/assigned}"
-                      >All</a
-                    >
-                    <a
-                      th:href="@{/requests/assigned/bdm}"
-                      >Registry</a
-                    >
-                    <a
-                      th:href="@{/requests/assigned/work}"
-                      >Work</a
-                    >
-                    <a
-                      th:href="@{/requests/assigned/education}"
-                      >Education</a
-                    >
-                    <a
-                      th:href="@{/requests/assigned/cadastral}"
-                      >Cadastral</a
-                    >
-                    <a
-                      th:href="@{/requests/assigned/special}"
-                      >Special</a
-                    >
+                    <a th:href="@{/requests/assigned}">All</a>
+                    <a th:href="@{/requests/assigned/bdm}">Registry</a>
+                    <a th:href="@{/requests/assigned/work}">Work</a>
+                    <a th:href="@{/requests/assigned/education}">Education</a>
+                    <a th:href="@{/requests/assigned/cadastral}">Cadastral</a>
+                    <a th:href="@{/requests/assigned/special}">Special</a>
                   </div>
                 </div>
               </li>
@@ -112,25 +95,13 @@
                     My requests
                   </button>
                   <div id="reqDropdown" class="dropdown-content">
-                    <a
-                      th:href="@{/user-bdm-requests/all}"
-                      >Registry</a
-                    >
+                    <a th:href="@{/user-bdm-requests/all}">Registry</a>
 
                     <a th:href="@{/user-work-requests/all}">Work</a>
 
-                    <a
-                      th:href="@{/user-education-requests/all}"
-                      >Education</a
-                    >
-                    <a
-                      th:href="@{/user-cadastral-requests/all}"
-                      >Cadastral</a
-                    >
-                    <a
-                      th:href="@{/user-special-requests/all}"
-                      >Special</a
-                    >
+                    <a th:href="@{/user-education-requests/all}">Education</a>
+                    <a th:href="@{/user-cadastral-requests/all}">Cadastral</a>
+                    <a th:href="@{/user-special-requests/all}">Special</a>
                   </div>
                 </div>
               </li>
@@ -217,7 +188,7 @@
                           th:name="${_csrf.parameterName}"
                           th:value="${_csrf.token}"
                         />
-                        <button type="submit" class="dropdown-item">
+                        <button type="submit" class="dropdown-action">
                           Logout
                         </button>
                       </form>
