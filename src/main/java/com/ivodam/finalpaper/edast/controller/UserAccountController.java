@@ -1,18 +1,19 @@
 package com.ivodam.finalpaper.edast.controller;
 
-import com.ivodam.finalpaper.edast.dto.UserDto;
+import com.ivodam.finalpaper.edast.dto.AccountUpdateDto;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
-import com.ivodam.finalpaper.edast.mappers.UserMapper;
 import com.ivodam.finalpaper.edast.service.UserService;
 import com.ivodam.finalpaper.edast.utility.PasswordHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import java.io.IOException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,6 @@ public class UserAccountController {
 
   private final UserService userService;
   private final PasswordHandler passwordHandler;
-  private final UserMapper userMapper;
 
   @GetMapping("/account")
   public String getAccount(Authentication authentication, Model model)
@@ -39,17 +39,28 @@ public class UserAccountController {
   public String editUser(Authentication authentication, Model model)
       throws AppException {
 
-    var user = userMapper.userToUserDto(
-        userService.findByEmail(authentication.getName()));
+    var currentUser = userService.findByEmail(authentication.getName());
+    var user = AccountUpdateDto.builder()
+                   .name(currentUser.getName())
+                   .jobTitle(currentUser.getJobTitle())
+                   .build();
 
     model.addAttribute("user", user);
+    model.addAttribute("email", currentUser.getEmail());
+
     return "account/account-edit";
   }
 
   @PostMapping("/account/edit")
-  public String updateUser(Authentication authentication,
-                           @ModelAttribute("user") UserDto userDto)
-      throws AppException {
+  public String
+  updateUser(Authentication authentication,
+             @Valid @ModelAttribute("user") AccountUpdateDto userDto,
+             BindingResult result, Model model) throws AppException {
+
+    if (result.hasErrors()) {
+      model.addAttribute("email", authentication.getName());
+      return "account/account-edit";
+    }
 
     userService.updateOwnAccount(authentication.getName(), userDto);
     return "redirect:/account";

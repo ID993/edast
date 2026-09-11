@@ -74,7 +74,15 @@
                             id="name"
                             class="form-control"
                             th:field="*{name}"
+                            required
+                            minlength="2"
+                            maxlength="255"
                           />
+                          <span
+                            class="text-warning"
+                            th:if="${#fields.hasErrors('name')}"
+                            th:errors="*{name}"
+                          ></span>
                           <label class="form-label" for="name"
                             >Change name</label
                           >
@@ -88,7 +96,7 @@
                             type="email"
                             id="email"
                             class="form-control"
-                            th:field="*{email}"
+                            th:value="${email}"
                             readonly
                           />
                           <label class="form-label" for="email">Email</label>
@@ -99,28 +107,44 @@
                         <i class="fas fa-briefcase fa-lg me-3 fa-fw"></i>
                         <div class="form-floating flex-fill mb-0">
                           <input
-                            sec:authorize="hasAnyRole('ADMIN', 'USER')"
+                            sec:authorize="hasRole('USER')"
                             type="text"
                             id="jobTitle"
-                            th:placeholder="*{user.jobTitle}"
                             class="form-control"
                             th:field="*{jobTitle}"
+                            maxlength="255"
                           />
+
                           <input
-                            sec:authorize="hasRole('EMPLOYEE')"
+                            sec:authorize="hasAnyRole('ADMIN', 'EMPLOYEE')"
                             type="text"
                             id="empJobTitle"
-                            th:placeholder="*{user.jobTitle}"
                             class="form-control"
                             th:field="*{jobTitle}"
                             readonly
                           />
-                          <label class="form-label" for="jobTitle"
-                            >Change Job title</label
+
+                          <label
+                            sec:authorize="hasRole('USER')"
+                            class="form-label"
+                            for="jobTitle"
                           >
-                          <label class="form-label" for="empJobTitle"
-                            >Change Job title</label
+                            Occupation
+                          </label>
+
+                          <label
+                            sec:authorize="hasAnyRole('ADMIN', 'EMPLOYEE')"
+                            class="form-label"
+                            for="empJobTitle"
                           >
+                            Job title
+                          </label>
+
+                          <span
+                            class="text-warning"
+                            th:if="${#fields.hasErrors('jobTitle')}"
+                            th:errors="*{jobTitle}"
+                          ></span>
                         </div>
                       </div>
 

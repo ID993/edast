@@ -7,6 +7,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.ivodam.finalpaper.edast.dto.AccountUpdateDto;
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
@@ -38,7 +39,9 @@ class UserServiceTests {
   @InjectMocks private UserService userService;
 
   @Test
-  void updateOwnAccountIgnoresProtectedDtoFields() throws AppException {
+  void userCanUpdateOwnNameAndOccupationWithoutChangingProtectedFields()
+      throws AppException {
+
     var originalId = UUID.randomUUID();
 
     var existingUser = new User();
@@ -50,14 +53,9 @@ class UserServiceTests {
     existingUser.setRole(Enums.Roles.ROLE_USER);
     existingUser.setJobTitle("Old job");
 
-    var submittedUser = UserDto.builder()
-                            .id(UUID.randomUUID())
-                            .name("New name")
-                            .email("attacker@example.test")
-                            .password("ChangedPassword1")
-                            .joinDate("02.02.2025.")
-                            .role(Enums.Roles.ROLE_ADMIN)
-                            .jobTitle("New job")
+    var submittedUser = AccountUpdateDto.builder()
+                            .name(" New name ")
+                            .jobTitle(" New job ")
                             .build();
 
     when(userRepository.findByEmail("owner@example.test"))
@@ -78,14 +76,17 @@ class UserServiceTests {
 
   @Test
   void employeeCannotChangeOwnJobTitle() throws AppException {
+
     var employee = new User();
     employee.setEmail("employee@example.test");
     employee.setName("Old name");
     employee.setRole(Enums.Roles.ROLE_EMPLOYEE);
     employee.setJobTitle("Archivist");
 
-    var submittedUser =
-        UserDto.builder().name("New name").jobTitle("Administrator").build();
+    var submittedUser = AccountUpdateDto.builder()
+                            .name("New name")
+                            .jobTitle("Administrator")
+                            .build();
 
     when(userRepository.findByEmail("employee@example.test"))
         .thenReturn(Optional.of(employee));
@@ -96,6 +97,52 @@ class UserServiceTests {
     assertThat(employee.getJobTitle()).isEqualTo("Archivist");
 
     verify(userRepository).save(employee);
+  }
+
+  @Test
+  void administratorCannotChangeOwnJobTitle() throws AppException {
+
+    var administrator = new User();
+    administrator.setEmail("admin@example.test");
+    administrator.setName("Old admin name");
+    administrator.setRole(Enums.Roles.ROLE_ADMIN);
+    administrator.setJobTitle("Administrator");
+
+    var submittedUser = AccountUpdateDto.builder()
+                            .name("New admin name")
+                            .jobTitle("Archivist")
+                            .build();
+
+    when(userRepository.findByEmail("admin@example.test"))
+        .thenReturn(Optional.of(administrator));
+
+    userService.updateOwnAccount("admin@example.test", submittedUser);
+
+    assertThat(administrator.getName()).isEqualTo("New admin name");
+    assertThat(administrator.getJobTitle()).isEqualTo("Administrator");
+
+    verify(userRepository).save(administrator);
+  }
+
+  @Test
+  void emptyOccupationUsesDefaultValue() throws AppException {
+
+    var user = new User();
+    user.setEmail("owner@example.test");
+    user.setRole(Enums.Roles.ROLE_USER);
+    user.setJobTitle("Software Engineer");
+
+    var submittedUser =
+        AccountUpdateDto.builder().name("Owner User").jobTitle("   ").build();
+
+    when(userRepository.findByEmail("owner@example.test"))
+        .thenReturn(Optional.of(user));
+
+    userService.updateOwnAccount("owner@example.test", submittedUser);
+
+    assertThat(user.getJobTitle()).isEqualTo("Unemployed");
+
+    verify(userRepository).save(user);
   }
 
   @Test

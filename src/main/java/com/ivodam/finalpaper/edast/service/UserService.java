@@ -1,5 +1,6 @@
 package com.ivodam.finalpaper.edast.service;
 
+import com.ivodam.finalpaper.edast.dto.AccountUpdateDto;
 import com.ivodam.finalpaper.edast.dto.UserDto;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
@@ -110,14 +111,18 @@ public class UserService {
   }
 
   @Transactional
-  public void updateOwnAccount(String authenticatedEmail, UserDto userDto)
+  public void updateOwnAccount(String email, AccountUpdateDto account)
       throws AppException {
 
-    var user = findByEmail(authenticatedEmail);
-    user.setName(userDto.getName());
+    var user = findByEmail(email);
+    user.setName(account.getName().trim());
 
-    if (!Enums.Roles.ROLE_EMPLOYEE.equals(user.getRole())) {
-      user.setJobTitle(userDto.getJobTitle());
+    if (user.getRole() == Enums.Roles.ROLE_USER) {
+      var occupation = account.getJobTitle();
+
+      user.setJobTitle(occupation == null || occupation.isBlank()
+                           ? "Unemployed"
+                           : occupation.trim());
     }
 
     userRepository.save(user);
