@@ -50,7 +50,7 @@ public class SecurityConfiguration {
             -> authorize
                    .requestMatchers("/", "/register", "/login",
                                     "/error", "/styles/**", "/js/**",
-                                    "/json/**", "/webjars/**")
+                                    "/json/**")
                    .permitAll()
                    .requestMatchers("/admin/**", "/users/**")
                    .hasRole("ADMIN")
