@@ -99,7 +99,7 @@ class UserServiceTests {
   }
 
   @Test
-  void publicRegistrationIgnoresProtectedDtoFields() {
+  void publicRegistrationPreservesOccupationAndIgnoresProtectedDtoFields() {
     var submittedUser = UserDto.builder()
                             .id(UUID.randomUUID())
                             .name("New User")
@@ -107,7 +107,7 @@ class UserServiceTests {
                             .password("ValidPassword1")
                             .joinDate("01.01.1900.")
                             .role(Enums.Roles.ROLE_ADMIN)
-                            .jobTitle("Administrator")
+                            .jobTitle(" Software Engineer ")
                             .build();
 
     when(passwordEncoder.encode("ValidPassword1"))
@@ -124,7 +124,7 @@ class UserServiceTests {
     assertThat(savedUser.getJoinDate()).matches("\\d{2}\\.\\d{2}\\.\\d{4}\\.");
     assertThat(savedUser.getJoinDate()).isNotEqualTo("01.01.1900.");
     assertThat(savedUser.getRole()).isEqualTo(Enums.Roles.ROLE_USER);
-    assertThat(savedUser.getJobTitle()).isNull();
+    assertThat(savedUser.getJobTitle()).isEqualTo("Software Engineer");
 
     verify(userRepository).save(savedUser);
     verify(userMapper, never()).userDtoToUser(any(UserDto.class));
@@ -176,5 +176,24 @@ class UserServiceTests {
 
     verify(passwordEncoder, never()).encode(any(CharSequence.class));
     verify(userRepository, never()).save(any(User.class));
+  }
+
+  @Test
+  void publicRegistrationUsesDefaultJobTitleWhenMissing() {
+    var submittedUser = UserDto.builder()
+                            .name("New User")
+                            .email("new-user@example.test")
+                            .password("ValidPassword1")
+                            .build();
+
+    when(passwordEncoder.encode("ValidPassword1"))
+        .thenReturn("encoded-password");
+    when(userRepository.save(any(User.class)))
+        .thenAnswer(invocation -> invocation.getArgument(0));
+
+    var savedUser = userService.registerUser(submittedUser);
+
+    assertThat(savedUser.getJobTitle()).isEqualTo("Unemployed");
+    verify(userRepository).save(savedUser);
   }
 }
