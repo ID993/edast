@@ -1,6 +1,5 @@
 package com.ivodam.finalpaper.edast.service;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.ivodam.finalpaper.edast.entity.RegistryBook;
 import com.ivodam.finalpaper.edast.entity.User;
 import com.ivodam.finalpaper.edast.enums.Enums;
@@ -199,7 +198,6 @@ public class RegistryBookService {
   }
 
   public void updateRegistryBook(UUID id) throws AppException {
-    System.out.println("ID: " + id);
     var registryBook = registryBookRepository.findByRequestId(id).orElseThrow(
         ()
             -> new AppException("Request with id: " + id + " not found",

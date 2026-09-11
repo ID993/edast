@@ -1,10 +1,11 @@
 package com.ivodam.finalpaper.edast.service;
 
-import com.ivodam.finalpaper.edast.dto.MailDto;
 import com.ivodam.finalpaper.edast.entity.Reservation;
 import com.ivodam.finalpaper.edast.exceptions.AppException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MailService {
+
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(MailService.class);
 
     private final UserService userService;
     private final JavaMailSender mailSender;
@@ -92,7 +96,7 @@ public class MailService {
 
             mailSender.send(mimeMessage);
         } catch (Exception exception) {
-            exception.printStackTrace();
+            LOGGER.error("Could not send response email", exception);
         }
     }
 }
