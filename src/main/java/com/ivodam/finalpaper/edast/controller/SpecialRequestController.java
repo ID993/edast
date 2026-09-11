@@ -49,7 +49,7 @@ public class SpecialRequestController {
     specialRequest.setRequestName("Special");
     var request = specialRequestService.saveRequest(specialRequest);
     registryBookService.create(request.getId(), request.getRequestName(), user);
-    return "redirect:/user-special-requests/all/" + user.getId();
+    return "redirect:/user-special-requests/all";
   }
 
   @GetMapping("/special-requests/all")

@@ -49,7 +49,7 @@ public class BdmRequestController {
     bdmRequest.setBdmSelection(bdmSelection);
     var request = bdmRequestService.saveRequest(bdmRequest);
     registryBookService.create(request.getId(), request.getRequestName(), user);
-    return "redirect:/user-bdm-requests/all/" + user.getId();
+    return "redirect:/user-bdm-requests/all";
   }
 
   @GetMapping("/bdm-requests/all")
